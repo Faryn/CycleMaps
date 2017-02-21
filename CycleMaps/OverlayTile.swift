@@ -29,6 +29,8 @@ class OverlayTile : MKTileOverlay {
         maxSize: 100000)
     let session = URLSession.shared
     var cache : Cache<Data>?
+    let subdomains = ["a","b","c"]
+    var subdomainRotation : Int = 0
     
     override init(urlTemplate URLTemplate: String?) {
         super.init(urlTemplate: URLTemplate)
@@ -59,15 +61,19 @@ class OverlayTile : MKTileOverlay {
         }
     }
     
+    func getSubdomain() -> String {
+        if subdomainRotation >= 2 {
+            subdomainRotation = 0
+        } else { subdomainRotation += 1 }
+        return String(subdomains[subdomainRotation])
+    }
+    
     override func url(forTilePath path: MKTileOverlayPath) -> URL {
         var urlString = urlTemplate?.replacingOccurrences(of: "{z}", with: String(path.z))
         urlString = urlString?.replacingOccurrences(of: "{x}", with: String(path.x))
         urlString = urlString?.replacingOccurrences(of: "{y}", with: String(path.y))
-        let subdomains = "abc"
-        let rand = arc4random_uniform(UInt32(subdomains.characters.count))
-        let randIndex = subdomains.index(subdomains.startIndex, offsetBy: String.IndexDistance(rand));
-        urlString = urlString?.replacingOccurrences(of: "{s}", with:String(subdomains[randIndex]))
-        //print("CachedTileOverlay:: url() urlString: \(urlString)")
+        urlString = urlString?.replacingOccurrences(of: "{s}", with:getSubdomain())
+        print("CachedTileOverlay:: url() urlString: \(urlString)")
         return URL(string: urlString!)!
     }
 }

@@ -61,10 +61,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         trackingToolbar.items = items
     }
     
-    @IBAction func searchAction(_ sender: UIBarButtonItem) {
-        
-    }
-    
     @IBOutlet weak var trackingToolbar: UIToolbar!
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -91,7 +87,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         if let location = locations.first {
             //print("Found user's location: \(location)")
             map.setCenter(location.coordinate, animated: true)
-            
         }
     }
     
@@ -99,7 +94,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         print("Failed to find user's location: \(error.localizedDescription)")
         
     }
-    
     
     @IBOutlet weak var map: MKMapView!
     
