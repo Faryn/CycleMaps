@@ -1,0 +1,15 @@
+PODS:
+  - Cache (2.2.1):
+    - CryptoSwift
+  - CryptoSwift (0.6.7)
+
+DEPENDENCIES:
+  - Cache (~> 2.2)
+
+SPEC CHECKSUMS:
+  Cache: 5b2d2d68477bd9c5b8e539d673cc217ed1284814
+  CryptoSwift: 685ae257941e5447474348a2b545583e1a16b573
+
+PODFILE CHECKSUM: c97fedfcea30411db18933dafbbad6456ad70c06
+
+COCOAPODS: 1.2.0
