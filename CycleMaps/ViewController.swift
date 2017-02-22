@@ -14,7 +14,7 @@ protocol HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark)
 }
 
-class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
     
     let locationManager = CLLocationManager()
     var resultSearchController:UISearchController? = nil
@@ -31,24 +31,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let overlay = OverlayTile(urlTemplate: template)
         map.add(overlay, level: MKOverlayLevel.aboveLabels)
         checkLocationAuthorizationStatus()
-
-        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
-        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
-        resultSearchController?.searchResultsUpdater = locationSearchTable
-
-        let searchBar = resultSearchController!.searchBar
-        searchBar.sizeToFit()
-        searchBar.placeholder = "Search for places"
-        navigationItem.titleView = resultSearchController?.searchBar
-        
-        resultSearchController?.hidesNavigationBarDuringPresentation = false
-        resultSearchController?.dimsBackgroundDuringPresentation = true
-        definesPresentationContext = true
-
-        locationSearchTable.mapView = map
-        
-        locationSearchTable.handleMapSearchDelegate = self
-        
+        setupSearchBar()
         addTrackButton()
         
     }
@@ -62,6 +45,21 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     @IBOutlet weak var trackingToolbar: UIToolbar!
+    
+    func setupSearchBar(){
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
+        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
+        resultSearchController?.searchResultsUpdater = locationSearchTable
+        let searchBar = resultSearchController!.searchBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search for places"
+        navigationItem.titleView = resultSearchController?.searchBar
+        resultSearchController?.hidesNavigationBarDuringPresentation = false
+        resultSearchController?.dimsBackgroundDuringPresentation = true
+        definesPresentationContext = true
+        locationSearchTable.mapView = map
+        locationSearchTable.handleMapSearchDelegate = self
+    }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         return MKTileOverlayRenderer(tileOverlay: (overlay as? MKTileOverlay)!)
@@ -97,6 +95,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBOutlet weak var map: MKMapView!
     
+    @IBAction func settingsPressed(_ sender: UIButton) {
+
+    }
+    
+    
 }
 
 extension ViewController: HandleMapSearch {
@@ -108,10 +111,10 @@ extension ViewController: HandleMapSearch {
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
-        if let city = placemark.locality,
-            let state = placemark.administrativeArea {
-            annotation.subtitle = "\(city) \(state)"
-        }
+//        if let city = placemark.locality,
+//            let state = placemark.administrativeArea {
+//            annotation.subtitle = "\(city) \(state)"
+//        }
         map.addAnnotation(annotation)
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegionMake(placemark.coordinate, span)

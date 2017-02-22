@@ -35,19 +35,17 @@ class OverlayTile : MKTileOverlay {
     override init(urlTemplate URLTemplate: String?) {
         super.init(urlTemplate: URLTemplate)
         self.cache = Cache<Data>(name: "TileCache", config: cacheConfig)
+        self.cache!.clearExpired()
     }
     
-    
-    override func loadTile(at path: MKTileOverlayPath,
-                           result: @escaping (Data?, Error?) -> Void) {
+    override func loadTile(at path: MKTileOverlayPath, result: @escaping (Data?, Error?) -> Void) {
         let cacheKey = "\(self.urlTemplate)-\(path.x)-\(path.y)-\(path.z)"
-        //print("CachedTileOverlay::loadTile cacheKey = \(cacheKey)")
         self.cache?.object(cacheKey) { (data: Data?) in
             if data != nil {
-                print("Cached!")
+                //print("Cached!")
                 result(data,nil)
             } else {
-                print("Requesting data....")
+                //print("Requesting data....")
                 let url = self.url(forTilePath: path)
                 let request = URLRequest(url: url)
                 self.session.dataTask(with: request) {
@@ -68,12 +66,16 @@ class OverlayTile : MKTileOverlay {
         return String(subdomains[subdomainRotation])
     }
     
+    func clearCache() {
+        cache?.clear()
+    }
+    
     override func url(forTilePath path: MKTileOverlayPath) -> URL {
         var urlString = urlTemplate?.replacingOccurrences(of: "{z}", with: String(path.z))
         urlString = urlString?.replacingOccurrences(of: "{x}", with: String(path.x))
         urlString = urlString?.replacingOccurrences(of: "{y}", with: String(path.y))
         urlString = urlString?.replacingOccurrences(of: "{s}", with:getSubdomain())
-        print("CachedTileOverlay:: url() urlString: \(urlString)")
+        //print("CachedTileOverlay:: url() urlString: \(urlString)")
         return URL(string: urlString!)!
     }
 }

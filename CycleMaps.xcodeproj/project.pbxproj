@@ -16,6 +16,7 @@
 		DAB068171E47B0C500EFDD3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB068151E47B0C500EFDD3E /* Main.storyboard */; };
 		DAB068191E47B0C500EFDD3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB068181E47B0C500EFDD3E /* Assets.xcassets */; };
 		DAB0681C1E47B0C500EFDD3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB0681A1E47B0C500EFDD3E /* LaunchScreen.storyboard */; };
+		DAEA8BC91E5E3D34009CC260 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEA8BC81E5E3D34009CC260 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		DAB068181E47B0C500EFDD3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAB0681B1E47B0C500EFDD3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB0681D1E47B0C500EFDD3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAEA8BC81E5E3D34009CC260 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				DAB068111E47B0C500EFDD3E /* AppDelegate.swift */,
 				DAB068131E47B0C500EFDD3E /* ViewController.swift */,
 				DAB068151E47B0C500EFDD3E /* Main.storyboard */,
+				DAEA8BC81E5E3D34009CC260 /* SettingsViewController.swift */,
 				DA394DCB1E5CB1BF0058AE09 /* LocationSearchTable.swift */,
 				DAB068181E47B0C500EFDD3E /* Assets.xcassets */,
 				DAB0681A1E47B0C500EFDD3E /* LaunchScreen.storyboard */,
@@ -239,6 +242,7 @@
 				DAB068141E47B0C500EFDD3E /* ViewController.swift in Sources */,
 				DA3FC9851E59FECD005C08C7 /* OverlayTile.swift in Sources */,
 				DAB068121E47B0C500EFDD3E /* AppDelegate.swift in Sources */,
+				DAEA8BC91E5E3D34009CC260 /* SettingsViewController.swift in Sources */,
 				DA394DCC1E5CB1BF0058AE09 /* LocationSearchTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
