@@ -8,6 +8,7 @@
 
 import Foundation
 import Cache
+import MapKit
 
 
 class OverlayTile : MKTileOverlay {
