@@ -10,19 +10,18 @@ import Foundation
 import UIKit
 
 class SettingsViewController : UITableViewController {
-    var mapViewController : ViewController?
-    var settings : NSMutableDictionary?
+    let settings = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let cacheEnabled = mapViewController?.settings.value(forKey: "cacheEnabled") as? Bool {
-            cacheSwitch.setOn(cacheEnabled, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        if let cacheDisabled = settings.value(forKey: "cacheDisabled") as? Bool {
+            cacheSwitch.setOn(cacheDisabled, animated: false)
         }
-        
     }
     
     
     @IBAction func toggleCache(_ sender: UISwitch) {
-        mapViewController?.settings.setValue(sender.isOn, forKey: "cacheEnabled")
+        settings.set(sender.isOn, forKey: "cacheDisabled")
         print(sender.isOn)
     }
     @IBOutlet weak var cacheSwitch: UISwitch!

@@ -22,6 +22,8 @@ class OverlayTile : MKTileOverlay {
         }
     }
     
+    var enableCache = true
+    
     let operationQueue = OperationQueue()
     let cacheConfig = Config(
         frontKind: .memory,  // Your front cache type

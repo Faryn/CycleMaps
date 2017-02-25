@@ -17,25 +17,28 @@ protocol HandleMapSearch {
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
     
     let locationManager = CLLocationManager()
-    var resultSearchController:UISearchController? = nil
-    var selectedPin:MKPlacemark? = nil
-    public var settings = NSMutableDictionary()
+    var resultSearchController:UISearchController?
+    var selectedPin:MKPlacemark?
+    let settings = UserDefaults.standard
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSettings()
         map.delegate = self
         locationManager.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         let template = "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png"
         let overlay = OverlayTile(urlTemplate: template)
+        overlay.enableCache = !settings.bool(forKey: "cacheDisabled")
         map.add(overlay, level: MKOverlayLevel.aboveLabels)
         checkLocationAuthorizationStatus()
         setupSearchBar()
         addTrackButton()
-        
-        
+    }
+    func clearCache() {
+        if let overlay = map.overlays.last as? OverlayTile {
+            overlay.clearCache()
+        }
     }
     
     func addTrackButton() {
@@ -101,66 +104,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
     }
     
-    func loadSettings() {
-        
-        // getting path to Settings.plist
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
-        let documentsDirectory = paths[0] as! NSString
-        let path = documentsDirectory.appendingPathComponent("Settings.plist")
-        
-        let fileManager = FileManager.default
-        
-        //check if file exists
-        if(!fileManager.fileExists(atPath: path)) {
-            // If it doesn't, copy it from the default file in the Bundle
-            if let bundlePath = Bundle.main.path(forResource: "Settings", ofType: "plist") {
-                
-                let resultDictionary = NSMutableDictionary(contentsOfFile: bundlePath)
-                print("Bundle Settings.plist file is --> \(resultDictionary?.description)")
-                do{
-                    try fileManager.copyItem(atPath: bundlePath, toPath: path)
-                } catch print(error) {}
-                
-                print("copy")
-            } else {
-                print("Settings.plist not found. Please, make sure it is part of the bundle.")
-            }
-        } else {
-            print("Settings.plist already exits at path.")
-            // use this to delete file from documents directory
-            //fileManager.removeItemAtPath(path, error: nil)
-        }
 
-        
-        if let resultDictionary = NSMutableDictionary(contentsOfFile: path) {
-            self.settings = resultDictionary
-            print("Loaded Settings.plist file is --> \(resultDictionary.description)")
-        } else {
-            print("WARNING: Couldn't create dictionary from Settings.plist! Default values will be used!")
-        }
-    }
-    
-    public func saveSettings() {
-        
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
-        let documentsDirectory = paths.object(at: 0) as! NSString
-        let path = documentsDirectory.appendingPathComponent("Settings.plist")
-
-        //writing to Settings.plist
-        self.settings.write(toFile: path, atomically: false)
-        
-        let resultDictionary = NSMutableDictionary(contentsOfFile: path)
-        print("Saved Settings.plist file is --> \(resultDictionary?.description)")
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("there")
-        if segue.identifier == "settingsSegue" {
-            if let destination = segue.destination as? SettingsViewController {
-                destination.mapViewController = self
-            }
-        }
-    }
 
     
    
