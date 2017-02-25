@@ -105,8 +105,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         // getting path to Settings.plist
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
-        let documentsDirectory = paths[0] as! String
-        let path = documentsDirectory.appending("Settings.plist")
+        let documentsDirectory = paths[0] as! NSString
+        let path = documentsDirectory.appendingPathComponent("Settings.plist")
         
         let fileManager = FileManager.default
         
@@ -134,6 +134,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         if let resultDictionary = NSMutableDictionary(contentsOfFile: path) {
             self.settings = resultDictionary
+            print("Loaded Settings.plist file is --> \(resultDictionary.description)")
         } else {
             print("WARNING: Couldn't create dictionary from Settings.plist! Default values will be used!")
         }

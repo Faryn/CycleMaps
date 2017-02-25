@@ -88,7 +88,6 @@
 		DAB068101E47B0C500EFDD3E /* CycleMaps */ = {
 			isa = PBXGroup;
 			children = (
-				DAB068231E47B73D00EFDD3E /* OSM */,
 				DAB068111E47B0C500EFDD3E /* AppDelegate.swift */,
 				DAB068131E47B0C500EFDD3E /* ViewController.swift */,
 				DAB068151E47B0C500EFDD3E /* Main.storyboard */,
@@ -100,13 +99,6 @@
 				DA3FC9841E59FECD005C08C7 /* OverlayTile.swift */,
 			);
 			path = CycleMaps;
-			sourceTree = "<group>";
-		};
-		DAB068231E47B73D00EFDD3E /* OSM */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = OSM;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
