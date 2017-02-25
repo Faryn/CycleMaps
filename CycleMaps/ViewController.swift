@@ -119,7 +119,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 print("Bundle Settings.plist file is --> \(resultDictionary?.description)")
                 do{
                     try fileManager.copyItem(atPath: bundlePath, toPath: path)
-                } catch let _ {}
+                } catch print(error) {}
                 
                 print("copy")
             } else {
