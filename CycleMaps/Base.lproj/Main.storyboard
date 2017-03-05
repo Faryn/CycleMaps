@@ -22,48 +22,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsBuildings="NO" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c8i-WF-Rn5">
-                                <rect key="frame" x="0.0" y="44" width="375" height="579"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" pitchEnabled="NO" showsBuildings="NO" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c8i-WF-Rn5">
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyn-rk-6Yq">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <items>
-                                    <barButtonItem style="plain" id="PAl-gv-Pcx">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qtg-9y-kTW">
-                                            <rect key="frame" x="16" y="11" width="22" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="33"/>
-                                            <state key="normal" title="⚙"/>
-                                            <connections>
-                                                <action selector="settingsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YVH-Bo-OWa"/>
-                                                <segue destination="ThV-TA-g6M" kind="show" identifier="settingsSegue" id="H4D-rk-pFu"/>
-                                            </connections>
-                                        </button>
-                                        <color key="tintColor" red="0.48988837532869878" green="0.31105130888597499" blue="1" alpha="0.33928948479729731" colorSpace="calibratedRGB"/>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="c8i-WF-Rn5" firstAttribute="trailing" secondItem="cyn-rk-6Yq" secondAttribute="trailing" id="4WL-4j-tr4"/>
-                            <constraint firstItem="c8i-WF-Rn5" firstAttribute="leading" secondItem="cyn-rk-6Yq" secondAttribute="leading" id="AJs-zh-Ckd"/>
-                            <constraint firstItem="c8i-WF-Rn5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QbS-Uc-ggb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cyn-rk-6Yq" secondAttribute="trailing" constant="-16" id="SOo-A0-rMB"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cyn-rk-6Yq" secondAttribute="bottom" id="Yp9-HC-HVJ"/>
-                            <constraint firstItem="c8i-WF-Rn5" firstAttribute="bottom" secondItem="cyn-rk-6Yq" secondAttribute="top" id="fsl-Jq-Rx1"/>
-                            <constraint firstItem="c8i-WF-Rn5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oKC-ME-TxQ"/>
+                            <constraint firstItem="c8i-WF-Rn5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="9kX-DV-xpw"/>
+                            <constraint firstItem="c8i-WF-Rn5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PqE-nR-OPT"/>
+                            <constraint firstAttribute="trailing" secondItem="c8i-WF-Rn5" secondAttribute="trailing" id="eIT-yJ-FGZ"/>
+                            <constraint firstItem="c8i-WF-Rn5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="mF1-VK-DSK"/>
+                            <constraint firstAttribute="bottom" secondItem="c8i-WF-Rn5" secondAttribute="bottom" id="msD-aY-Hyj"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" id="PAl-gv-Pcx">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qtg-9y-kTW">
+                                <rect key="frame" x="16" y="11" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="33"/>
+                                <state key="normal" title="⚙"/>
+                                <connections>
+                                    <action selector="settingsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YVH-Bo-OWa"/>
+                                    <segue destination="ThV-TA-g6M" kind="show" identifier="settingsSegue" id="H4D-rk-pFu"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" red="0.48988837532869878" green="0.31105130888597499" blue="1" alpha="0.33928948479729731" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="ga5-8A-ZmN"/>
                     <connections>
                         <outlet property="map" destination="c8i-WF-Rn5" id="i2b-0d-muz"/>
-                        <outlet property="trackingToolbar" destination="cyn-rk-6Yq" id="j2d-Nl-LJu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1932" y="35.532233883058474"/>
+            <point key="canvasLocation" x="1930.4000000000001" y="34.632683658170919"/>
         </scene>
         <!--Location Search Table-->
         <scene sceneID="lfc-II-uHr">
@@ -159,6 +153,9 @@
                                                     <rect key="frame" x="139" y="6" width="96" height="30"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <state key="normal" title="Clear Cache"/>
+                                                    <connections>
+                                                        <action selector="clearCache:" destination="ThV-TA-g6M" eventType="touchUpInside" id="5V4-Bu-gIZ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -225,13 +222,17 @@
         <!--Map-->
         <scene sceneID="6mF-Yk-bGz">
             <objects>
-                <navigationController title="Map" automaticallyAdjustsScrollViewInsets="NO" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" hidesBarsOnTap="YES" id="S7A-xP-f7U" sceneMemberID="viewController">
+                <navigationController title="Map" automaticallyAdjustsScrollViewInsets="NO" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" toolbarHidden="NO" hidesBarsOnTap="YES" id="S7A-xP-f7U" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fa9-CP-ymA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="XzU-bP-90M">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wUq-FW-GLS"/>
                     </connections>

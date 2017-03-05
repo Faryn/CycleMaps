@@ -71,6 +71,7 @@ class OverlayTile : MKTileOverlay {
     
     func clearCache() {
         cache?.clear()
+        print("Tile Cache cleared!")
     }
     
     override func url(forTilePath path: MKTileOverlayPath) -> URL {

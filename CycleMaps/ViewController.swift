@@ -11,16 +11,15 @@ import MapKit
 
 
 protocol HandleMapSearch {
-    func dropPinZoomIn(placemark:MKPlacemark)
+    func dropPinZoomIn(_ placemark:MKPlacemark)
 }
 
-class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate, SettingsViewControllerDelegate {
     
     let locationManager = CLLocationManager()
     var resultSearchController:UISearchController?
     var selectedPin:MKPlacemark?
     let settings = UserDefaults.standard
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,21 +34,28 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         setupSearchBar()
         addTrackButton()
     }
+    
     func clearCache() {
         if let overlay = map.overlays.last as? OverlayTile {
             overlay.clearCache()
         }
     }
     
-    func addTrackButton() {
-        let trackButton = MKUserTrackingBarButtonItem(mapView: map)
-        //trackButton.isEnabled = false
-        var items = trackingToolbar.items!
-        items.insert(trackButton, at: 0)
-        trackingToolbar.items = items
+    func changedSetting(setting: String?) {
+        switch setting! {
+        case "cacheDisabled":
+            if let overlay = map.overlays.last as? OverlayTile {
+                overlay.enableCache = !settings.bool(forKey: "cacheDisabled")
+            }
+        default:
+            return
+        }
     }
     
-    @IBOutlet weak var trackingToolbar: UIToolbar!
+    func addTrackButton() {
+        let trackButton = MKUserTrackingBarButtonItem(mapView: map)
+        self.toolbarItems?.insert(trackButton, at: 0)
+    }
     
     func setupSearchBar(){
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
@@ -100,18 +106,24 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBOutlet weak var map: MKMapView!
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "settingsSegue" {
+            if let svc = segue.destination as? SettingsViewController {
+                svc.delegate = self
+            }
+        }
+    }
     @IBAction func settingsPressed(_ sender: UIButton) {
         
     }
     
-
-
     
-   
+    
+    
 }
 
 extension ViewController: HandleMapSearch {
-    func dropPinZoomIn(placemark:MKPlacemark){
+    func dropPinZoomIn(_ placemark:MKPlacemark){
         // cache the pin
         selectedPin = placemark
         // clear existing pins
