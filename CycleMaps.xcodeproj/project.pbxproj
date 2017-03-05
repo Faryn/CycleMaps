@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		84F4FCAF6AACB8F3EDC6BB38 /* Pods_CycleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2B318C1C257E26D917092E /* Pods_CycleMaps.framework */; };
+		DA0065F81E6C8D9200A54495 /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0065F71E6C8D9200A54495 /* GPX.swift */; };
 		DA394DCC1E5CB1BF0058AE09 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA394DCB1E5CB1BF0058AE09 /* LocationSearchTable.swift */; };
 		DA3FC9831E59D905005C08C7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3FC9821E59D905005C08C7 /* MapKit.framework */; };
 		DA3FC9851E59FECD005C08C7 /* OverlayTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3FC9841E59FECD005C08C7 /* OverlayTile.swift */; };
@@ -23,6 +24,7 @@
 		22AC309FC14DC0EBC48EF77C /* Pods-CycleMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CycleMaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps.release.xcconfig"; sourceTree = "<group>"; };
 		6348DBB7C4A2F179600FBF36 /* Pods-CycleMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CycleMaps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps.debug.xcconfig"; sourceTree = "<group>"; };
 		6C2B318C1C257E26D917092E /* Pods_CycleMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CycleMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA0065F71E6C8D9200A54495 /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
 		DA394DCB1E5CB1BF0058AE09 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		DA3FC9821E59D905005C08C7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DA3FC9841E59FECD005C08C7 /* OverlayTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayTile.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				DAB068131E47B0C500EFDD3E /* ViewController.swift */,
 				DAB068151E47B0C500EFDD3E /* Main.storyboard */,
 				DAEA8BC81E5E3D34009CC260 /* SettingsViewController.swift */,
+				DA0065F71E6C8D9200A54495 /* GPX.swift */,
 				DA394DCB1E5CB1BF0058AE09 /* LocationSearchTable.swift */,
 				DAB068181E47B0C500EFDD3E /* Assets.xcassets */,
 				DAB0681A1E47B0C500EFDD3E /* LaunchScreen.storyboard */,
@@ -236,6 +239,7 @@
 				DAB068121E47B0C500EFDD3E /* AppDelegate.swift in Sources */,
 				DAEA8BC91E5E3D34009CC260 /* SettingsViewController.swift in Sources */,
 				DA394DCC1E5CB1BF0058AE09 /* LocationSearchTable.swift in Sources */,
+				DA0065F81E6C8D9200A54495 /* GPX.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

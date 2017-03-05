@@ -21,19 +21,55 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var selectedPin:MKPlacemark?
     let settings = UserDefaults.standard
     
+    var gpxURL: NSURL? {
+        didSet {
+            clearWaypoints()
+            if let url = gpxURL {
+                GPX.parse(url as URL) {
+                    if let gpx = $0 {
+                        print("Waypoints".appending(String(gpx.waypoints.count)))
+
+                        self.handleWaypoints(waypoints: gpx.waypoints)
+                    }
+                }
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        map.delegate = self
         locationManager.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         let template = "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png"
         let overlay = OverlayTile(urlTemplate: template)
         overlay.enableCache = !settings.bool(forKey: "cacheDisabled")
-        map.add(overlay, level: MKOverlayLevel.aboveLabels)
+        map.add(overlay)
         checkLocationAuthorizationStatus()
         setupSearchBar()
         addTrackButton()
+        gpxURL = NSURL(string: "http://cs193p.stanford.edu/Vacation.gpx") // for demo/debug/testing
     }
+    
+    private func clearWaypoints() {
+        if map?.annotations != nil { map.removeAnnotations(map.annotations as [MKAnnotation]) }
+    }
+    
+    private func handleWaypoints(waypoints: [GPX.Waypoint]) {
+        map.addAnnotations(waypoints)
+        map.showAnnotations(waypoints, animated: true)
+    }
+    
+     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        var view = map.dequeueReusableAnnotationView(withIdentifier: "waypoint")
+        if view == nil {
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "waypoint")
+            view?.canShowCallout = true
+        } else {
+            view?.annotation = annotation
+        }
+        return view
+    }
+    
     
     func clearCache() {
         if let overlay = map.overlays.last as? OverlayTile {
@@ -52,12 +88,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
-    func addTrackButton() {
+    private func addTrackButton() {
         let trackButton = MKUserTrackingBarButtonItem(mapView: map)
         self.toolbarItems?.insert(trackButton, at: 0)
     }
     
-    func setupSearchBar(){
+    private func setupSearchBar(){
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
@@ -78,7 +114,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            map.showsUserLocation = true
             locationManager.requestLocation()
         } else {
             locationManager.requestWhenInUseAuthorization()
@@ -93,8 +128,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
+        if let location = locations.last {
             //print("Found user's location: \(location)")
+            map.showsUserLocation = true
             map.setCenter(location.coordinate, animated: true)
         }
     }
@@ -104,7 +140,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
     }
     
-    @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var map: MKMapView! {
+        didSet {
+            map.delegate = self
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "settingsSegue" {
@@ -116,9 +156,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBAction func settingsPressed(_ sender: UIButton) {
         
     }
-    
-    
-    
+ 
     
 }
 
@@ -140,4 +178,16 @@ extension ViewController: HandleMapSearch {
         let region = MKCoordinateRegionMake(placemark.coordinate, span)
         map.setRegion(region, animated: true)
     }
+}
+
+extension GPX.Waypoint: MKAnnotation
+{
+    // MARK: - MKAnnotation
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+    
+    var title: String? { return name }
+    
+    var subtitle: String? { return info }
 }
