@@ -47,17 +47,34 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         checkLocationAuthorizationStatus()
         setupSearchBar()
         addTrackButton()
-        gpxURL = NSURL(string: "http://cs193p.stanford.edu/Vacation.gpx") // for demo/debug/testing
+        
+        let center = NotificationCenter.default
+        let queue = OperationQueue.main
+        let appDelegate = UIApplication.shared.delegate
+        
+        
+        center.addObserver(forName: NSNotification.Name(rawValue: GPXURL.Notification), object: appDelegate, queue: queue)  { notification in
+            if let url = notification.userInfo?[GPXURL.Key] as? NSURL {
+                self.gpxURL = url
+            }
+        }
+        //gpxURL = NSURL(string: "http://cs193p.stanford.edu/Vacation.gpx") // for demo/debug/testing
+        
     }
+    
     
     private func clearWaypoints() {
         if map?.annotations != nil { map.removeAnnotations(map.annotations as [MKAnnotation]) }
     }
     
     private func handleWaypoints(waypoints: [GPX.Waypoint]) {
-        map.addAnnotations(waypoints)
-        map.showAnnotations(waypoints, animated: true)
-    }
+            var coordinates = waypoints.map({ (waypoint: GPX.Waypoint!) -> CLLocationCoordinate2D in
+                return waypoint.coordinate
+            })
+            
+            let polyline = MKPolyline(coordinates: &coordinates, count: waypoints.count)
+            self.map.add(polyline)
+        }
     
      func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         var view = map.dequeueReusableAnnotationView(withIdentifier: "waypoint")
@@ -109,7 +126,16 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        return MKTileOverlayRenderer(tileOverlay: (overlay as? MKTileOverlay)!)
+        if  overlay is OverlayTile {
+            return MKTileOverlayRenderer(tileOverlay: (overlay as? MKTileOverlay)!)
+        }
+        if (overlay is MKPolyline) {
+            let pr = MKPolylineRenderer(overlay: overlay);
+            pr.strokeColor = UIColor.red.withAlphaComponent(0.5);
+            pr.lineWidth = 5;
+            return pr;
+        }
+        else { return MKOverlayRenderer(overlay: overlay) }
     }
     
     func checkLocationAuthorizationStatus() {
@@ -190,4 +216,14 @@ extension GPX.Waypoint: MKAnnotation
     var title: String? { return name }
     
     var subtitle: String? { return info }
+}
+
+
+private extension MKPolyline {
+    convenience init(coordinates coords: Array<CLLocationCoordinate2D>) {
+        let unsafeCoordinates = UnsafeMutablePointer<CLLocationCoordinate2D>.allocate(capacity: coords.count)
+        unsafeCoordinates.initialize(from: coords)
+        self.init(coordinates: unsafeCoordinates, count: coords.count)
+        unsafeCoordinates.deallocate(capacity: coords.count)
+    }
 }

@@ -8,6 +8,11 @@
 
 import UIKit
 
+struct GPXURL {
+    static let Notification = "GPXURL Radio Station"
+    static let Key = "GPXURL URL Key"
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -18,6 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let center = NotificationCenter.default
+        let notification = NSNotification(name: NSNotification.Name(rawValue: GPXURL.Notification), object: self, userInfo: [GPXURL.Key:url])
+        center.post(notification as Notification)
+        return true
+    }
+    
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
