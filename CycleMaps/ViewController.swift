@@ -58,6 +58,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 self.gpxURL = url
             }
         }
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toggleBarsOnTap(_:)))
+        self.view.addGestureRecognizer(gestureRecognizer)
         //gpxURL = NSURL(string: "http://cs193p.stanford.edu/Vacation.gpx") // for demo/debug/testing
         
     }
@@ -75,17 +77,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             let polyline = MKPolyline(coordinates: &coordinates, count: waypoints.count)
             self.map.add(polyline)
         }
-    
-     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        var view = map.dequeueReusableAnnotationView(withIdentifier: "waypoint")
-        if view == nil {
-            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "waypoint")
-            view?.canShowCallout = true
-        } else {
-            view?.annotation = annotation
-        }
-        return view
-    }
     
     
     func clearCache() {
@@ -131,8 +122,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
         if (overlay is MKPolyline) {
             let pr = MKPolylineRenderer(overlay: overlay);
-            pr.strokeColor = UIColor.red.withAlphaComponent(0.5);
+            pr.strokeColor = UIColor.blue.withAlphaComponent(0.5);
             pr.lineWidth = 5;
+            map.visibleMapRect = pr.polyline.boundingMapRect
             return pr;
         }
         else { return MKOverlayRenderer(overlay: overlay) }
@@ -146,13 +138,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        default:
-            return
-        }
-    }
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             //print("Found user's location: \(location)")
@@ -163,13 +148,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Failed to find user's location: \(error.localizedDescription)")
-        
     }
+    
     
     @IBOutlet weak var map: MKMapView! {
         didSet {
             map.delegate = self
         }
+    }
+   
+    func toggleBarsOnTap(_ sender: UITapGestureRecognizer) {
+        let hidden = !(self.navigationController?.isNavigationBarHidden)!
+        self.navigationController?.setNavigationBarHidden(hidden, animated: true)
+        self.navigationController?.setToolbarHidden(hidden, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

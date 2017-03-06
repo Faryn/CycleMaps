@@ -19,10 +19,18 @@ class SettingsViewController : UITableViewController {
     let settings = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
         if let cacheDisabled = settings.value(forKey: "cacheDisabled") as? Bool {
             cacheSwitch.setOn(cacheDisabled, animated: false)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setToolbarHidden(true, animated: true)
+    }
+    @IBAction func gotoSettings(_ sender: UIButton) {
+        UIApplication.shared.openURL(URL(string:UIApplicationOpenSettingsURLString)!)
     }
     
     @IBAction func clearCache(_ sender: UIButton) {
