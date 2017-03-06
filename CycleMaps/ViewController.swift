@@ -73,7 +73,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             var coordinates = waypoints.map({ (waypoint: GPX.Waypoint!) -> CLLocationCoordinate2D in
                 return waypoint.coordinate
             })
-            
             let polyline = MKPolyline(coordinates: &coordinates, count: waypoints.count)
             self.map.add(polyline)
         }
@@ -169,9 +168,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 svc.delegate = self
             }
         }
-    }
-    @IBAction func settingsPressed(_ sender: UIButton) {
-        
     }
  
     

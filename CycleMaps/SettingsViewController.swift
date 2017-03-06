@@ -30,7 +30,7 @@ class SettingsViewController : UITableViewController {
         self.navigationController?.setToolbarHidden(true, animated: true)
     }
     @IBAction func gotoSettings(_ sender: UIButton) {
-        UIApplication.shared.openURL(URL(string:UIApplicationOpenSettingsURLString)!)
+        UIApplication.shared.open((URL(string:UIApplicationOpenSettingsURLString)!))
     }
     
     @IBAction func clearCache(_ sender: UIButton) {
