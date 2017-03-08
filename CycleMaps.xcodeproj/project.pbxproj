@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		84F4FCAF6AACB8F3EDC6BB38 /* Pods_CycleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2B318C1C257E26D917092E /* Pods_CycleMaps.framework */; };
 		DA0065F81E6C8D9200A54495 /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0065F71E6C8D9200A54495 /* GPX.swift */; };
+		DA38D8061E6F5B06007817F2 /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38D8051E6F5B06007817F2 /* FilesViewController.swift */; };
+		DA38D8081E6F5D8A007817F2 /* FileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38D8071E6F5D8A007817F2 /* FileStore.swift */; };
 		DA394DCC1E5CB1BF0058AE09 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA394DCB1E5CB1BF0058AE09 /* LocationSearchTable.swift */; };
 		DA3FC9831E59D905005C08C7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3FC9821E59D905005C08C7 /* MapKit.framework */; };
 		DA3FC9851E59FECD005C08C7 /* OverlayTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3FC9841E59FECD005C08C7 /* OverlayTile.swift */; };
 		DAB068121E47B0C500EFDD3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB068111E47B0C500EFDD3E /* AppDelegate.swift */; };
-		DAB068141E47B0C500EFDD3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB068131E47B0C500EFDD3E /* ViewController.swift */; };
+		DAB068141E47B0C500EFDD3E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB068131E47B0C500EFDD3E /* MapViewController.swift */; };
 		DAB068171E47B0C500EFDD3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB068151E47B0C500EFDD3E /* Main.storyboard */; };
 		DAB068191E47B0C500EFDD3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB068181E47B0C500EFDD3E /* Assets.xcassets */; };
 		DAB0681C1E47B0C500EFDD3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB0681A1E47B0C500EFDD3E /* LaunchScreen.storyboard */; };
@@ -25,12 +27,14 @@
 		6348DBB7C4A2F179600FBF36 /* Pods-CycleMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CycleMaps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps.debug.xcconfig"; sourceTree = "<group>"; };
 		6C2B318C1C257E26D917092E /* Pods_CycleMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CycleMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA0065F71E6C8D9200A54495 /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
+		DA38D8051E6F5B06007817F2 /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
+		DA38D8071E6F5D8A007817F2 /* FileStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStore.swift; sourceTree = "<group>"; };
 		DA394DCB1E5CB1BF0058AE09 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		DA3FC9821E59D905005C08C7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DA3FC9841E59FECD005C08C7 /* OverlayTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayTile.swift; sourceTree = "<group>"; };
 		DAB0680E1E47B0C500EFDD3E /* CycleMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CycleMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB068111E47B0C500EFDD3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DAB068131E47B0C500EFDD3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DAB068131E47B0C500EFDD3E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DAB068161E47B0C500EFDD3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DAB068181E47B0C500EFDD3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAB0681B1E47B0C500EFDD3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -91,7 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				DAB068111E47B0C500EFDD3E /* AppDelegate.swift */,
-				DAB068131E47B0C500EFDD3E /* ViewController.swift */,
+				DAB068131E47B0C500EFDD3E /* MapViewController.swift */,
+				DA38D8051E6F5B06007817F2 /* FilesViewController.swift */,
+				DA38D8071E6F5D8A007817F2 /* FileStore.swift */,
 				DAB068151E47B0C500EFDD3E /* Main.storyboard */,
 				DAEA8BC81E5E3D34009CC260 /* SettingsViewController.swift */,
 				DA0065F71E6C8D9200A54495 /* GPX.swift */,
@@ -234,12 +240,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAB068141E47B0C500EFDD3E /* ViewController.swift in Sources */,
+				DAB068141E47B0C500EFDD3E /* MapViewController.swift in Sources */,
 				DA3FC9851E59FECD005C08C7 /* OverlayTile.swift in Sources */,
+				DA38D8061E6F5B06007817F2 /* FilesViewController.swift in Sources */,
 				DAB068121E47B0C500EFDD3E /* AppDelegate.swift in Sources */,
 				DAEA8BC91E5E3D34009CC260 /* SettingsViewController.swift in Sources */,
 				DA394DCC1E5CB1BF0058AE09 /* LocationSearchTable.swift in Sources */,
 				DA0065F81E6C8D9200A54495 /* GPX.swift in Sources */,
+				DA38D8081E6F5D8A007817F2 /* FileStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

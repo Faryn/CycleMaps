@@ -14,22 +14,22 @@ protocol HandleMapSearch {
     func dropPinZoomIn(_ placemark:MKPlacemark)
 }
 
-class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate, SettingsViewControllerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate, SettingsViewControllerDelegate {
     
     let locationManager = CLLocationManager()
     var resultSearchController:UISearchController?
     var selectedPin:MKPlacemark?
     let settings = UserDefaults.standard
+    var overlays = [String: MKOverlay]()
     
     var gpxURL: NSURL? {
         didSet {
-            clearWaypoints()
             if let url = gpxURL {
                 GPX.parse(url as URL) {
                     if let gpx = $0 {
                         print("Waypoints".appending(String(gpx.waypoints.count)))
-
-                        self.handleWaypoints(waypoints: gpx.waypoints)
+                        
+                        self.addOverlay(name: "default", waypoints: gpx.waypoints)
                     }
                 }
             }
@@ -39,7 +39,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
         let template = "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png"
         let overlay = OverlayTile(urlTemplate: template)
         overlay.enableCache = !settings.bool(forKey: "cacheDisabled")
@@ -48,34 +47,25 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         setupSearchBar()
         addTrackButton()
         
-        let center = NotificationCenter.default
-        let queue = OperationQueue.main
-        let appDelegate = UIApplication.shared.delegate
-        
-        
-        center.addObserver(forName: NSNotification.Name(rawValue: GPXURL.Notification), object: appDelegate, queue: queue)  { notification in
-            if let url = notification.userInfo?[GPXURL.Key] as? NSURL {
-                self.gpxURL = url
-            }
-        }
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toggleBarsOnTap(_:)))
         self.view.addGestureRecognizer(gestureRecognizer)
         //gpxURL = NSURL(string: "http://cs193p.stanford.edu/Vacation.gpx") // for demo/debug/testing
-        
     }
     
-    
-    private func clearWaypoints() {
-        if map?.annotations != nil { map.removeAnnotations(map.annotations as [MKAnnotation]) }
-    }
-    
-    private func handleWaypoints(waypoints: [GPX.Waypoint]) {
-            var coordinates = waypoints.map({ (waypoint: GPX.Waypoint!) -> CLLocationCoordinate2D in
-                return waypoint.coordinate
-            })
-            let polyline = MKPolyline(coordinates: &coordinates, count: waypoints.count)
-            self.map.add(polyline)
+    private func removeOverlay(name : String) {
+        if let ovl = overlays[name] {
+            self.map.remove(ovl)
         }
+    }
+    
+    private func addOverlay(name : String, waypoints: [GPX.Waypoint]) {
+        var coordinates = waypoints.map({ (waypoint: GPX.Waypoint!) -> CLLocationCoordinate2D in
+            return waypoint.coordinate
+        })
+        let polyline = MKPolyline(coordinates: &coordinates, count: waypoints.count)
+        overlays[name] = polyline
+        self.map.add(polyline)
+    }
     
     
     func clearCache() {
@@ -139,7 +129,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            //print("Found user's location: \(location)")
             map.showsUserLocation = true
             map.setCenter(location.coordinate, animated: true)
         }
@@ -149,13 +138,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         print("Failed to find user's location: \(error.localizedDescription)")
     }
     
-    
     @IBOutlet weak var map: MKMapView! {
         didSet {
             map.delegate = self
         }
     }
-   
+    
     func toggleBarsOnTap(_ sender: UITapGestureRecognizer) {
         let hidden = !(self.navigationController?.isNavigationBarHidden)!
         self.navigationController?.setNavigationBarHidden(hidden, animated: true)
@@ -169,11 +157,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             }
         }
     }
- 
+    
     
 }
 
-extension ViewController: HandleMapSearch {
+extension MapViewController: HandleMapSearch {
     func dropPinZoomIn(_ placemark:MKPlacemark){
         // cache the pin
         selectedPin = placemark
@@ -182,10 +170,10 @@ extension ViewController: HandleMapSearch {
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
-//        if let city = placemark.locality,
-//            let state = placemark.administrativeArea {
-//            annotation.subtitle = "\(city) \(state)"
-//        }
+        //        if let city = placemark.locality,
+        //            let state = placemark.administrativeArea {
+        //            annotation.subtitle = "\(city) \(state)"
+        //        }
         map.addAnnotation(annotation)
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegionMake(placemark.coordinate, span)
