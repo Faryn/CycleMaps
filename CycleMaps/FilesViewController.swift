@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol FilesViewControllerDelegate {
+    func selectedFile(name : String, url: URL)
+    func deselectedFile(name : String)
+}
+
 class FilesViewController: UITableViewController {
-    
+    var delegate : FilesViewControllerDelegate? = nil
     let fileStore = FileStore(withExtensions: ["gpx"])
     
     private func handleReceivedGPXURL(url: URL) {
@@ -20,14 +25,10 @@ class FilesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        let center = NotificationCenter.default
-        let queue = OperationQueue.main
-        let appDelegate = UIApplication.shared.delegate
-        
-        center.addObserver(forName: NSNotification.Name(rawValue: GPXURL.Notification), object: appDelegate, queue: queue) { notification in
-            if let url = notification.userInfo?[GPXURL.Key] as? URL {
-                self.handleReceivedGPXURL(url: url)
-            }
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if let url = appDelegate.importUrl {
+            self.handleReceivedGPXURL(url: url)
+            appDelegate.importUrl = nil
         }
     }
     
@@ -54,6 +55,16 @@ class FilesViewController: UITableViewController {
                 cell.textLabel?.text = url.lastPathComponent
             }
             return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let url = fileStore.files[indexPath.row]
+        delegate?.selectedFile(name: url.lastPathComponent , url: url )
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let url = fileStore.files[indexPath.row]
+        delegate?.deselectedFile(name: url.lastPathComponent)
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

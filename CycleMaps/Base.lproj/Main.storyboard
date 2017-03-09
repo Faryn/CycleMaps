@@ -50,7 +50,7 @@
                         </barButtonItem>
                         <barButtonItem systemItem="organize" id="8iM-jd-bjq">
                             <connections>
-                                <segue destination="w1t-Fo-jrU" kind="show" id="YmD-oU-QmN"/>
+                                <segue destination="w1t-Fo-jrU" kind="show" identifier="filesSegue" id="YmD-oU-QmN"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>

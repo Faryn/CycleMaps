@@ -24,9 +24,7 @@ class FileStore {
     private func reloadFiles() {
         do {
             let contents = try fileManager.contentsOfDirectory(at: docRootDir as URL, includingPropertiesForKeys: [URLResourceKey.creationDateKey, URLResourceKey.localizedNameKey, URLResourceKey.fileSizeKey], options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles)
-                print(contents)
                 files = contents.filter( { extensions.contains($0.pathExtension) } )
-                print (files)
         }
         catch {print(error)}
     }

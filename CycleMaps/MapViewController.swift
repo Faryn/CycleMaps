@@ -14,7 +14,7 @@ protocol HandleMapSearch {
     func dropPinZoomIn(_ placemark:MKPlacemark)
 }
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate, SettingsViewControllerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate, SettingsViewControllerDelegate, FilesViewControllerDelegate {
     
     let locationManager = CLLocationManager()
     var resultSearchController:UISearchController?
@@ -27,8 +27,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             if let url = gpxURL {
                 GPX.parse(url as URL) {
                     if let gpx = $0 {
-                        print("Waypoints".appending(String(gpx.waypoints.count)))
-                        
                         self.addOverlay(name: "default", waypoints: gpx.waypoints)
                     }
                 }
@@ -46,19 +44,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         checkLocationAuthorizationStatus()
         setupSearchBar()
         addTrackButton()
-        
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toggleBarsOnTap(_:)))
         self.view.addGestureRecognizer(gestureRecognizer)
         //gpxURL = NSURL(string: "http://cs193p.stanford.edu/Vacation.gpx") // for demo/debug/testing
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if appDelegate.importUrl != nil { self.performSegue(withIdentifier: "filesSegue", sender: self) }
     }
+    
     
     private func removeOverlay(name : String) {
         if let ovl = overlays[name] {
             self.map.remove(ovl)
+            overlays.removeValue(forKey: name)
         }
     }
     
     private func addOverlay(name : String, waypoints: [GPX.Waypoint]) {
+        print("Waypoints".appending(String(waypoints.count)))
         var coordinates = waypoints.map({ (waypoint: GPX.Waypoint!) -> CLLocationCoordinate2D in
             return waypoint.coordinate
         })
@@ -151,14 +154,33 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "settingsSegue" {
-            if let svc = segue.destination as? SettingsViewController {
-                svc.delegate = self
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "settingsSegue":
+                if let svc = segue.destination as? SettingsViewController {
+                    svc.delegate = self
+                }
+            case "filesSegue":
+                if let fvc = segue.destination as? FilesViewController {
+                fvc.delegate = self
+                }
+            default: break
             }
         }
     }
     
+    // MARK: - FilesViewDelegate
+    func selectedFile(name: String, url: URL) {
+        GPX.parse(url as URL) {
+            if let gpx = $0 {
+                self.addOverlay(name: name, waypoints: gpx.waypoints)
+            }
+        }
+    }
     
+    func deselectedFile(name: String) {
+        removeOverlay(name: name)
+    }
 }
 
 extension MapViewController: HandleMapSearch {

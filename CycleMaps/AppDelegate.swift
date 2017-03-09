@@ -16,6 +16,8 @@ struct GPXURL {
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    
+    var importUrl : URL?
     var window: UIWindow?
     
     
@@ -25,9 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        let center = NotificationCenter.default
-        let notification = NSNotification(name: NSNotification.Name(rawValue: GPXURL.Notification), object: self, userInfo: [GPXURL.Key:url])
-        center.post(notification as Notification)
+        importUrl = url
         return true
     }
     
