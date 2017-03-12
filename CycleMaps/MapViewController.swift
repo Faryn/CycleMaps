@@ -22,18 +22,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     let settings = UserDefaults.standard
     var overlays = [String: MKOverlay]()
     
-    var gpxURL: NSURL? {
-        didSet {
-            if let url = gpxURL {
-                GPX.parse(url as URL) {
-                    if let gpx = $0 {
-                        self.addOverlay(name: "default", waypoints: gpx.waypoints)
-                    }
-                }
-            }
-        }
-    }
-    
+//    var gpxURL: NSURL? {
+//        didSet {
+//            if let url = gpxURL {
+//                GPX.parse(url as URL) {
+//                    if let gpx = $0 {
+//                        self.addOverlay(name: "default", waypoints: gpx.waypoints)
+//                    }
+//                }
+//            }
+//        }
+//    }
+//    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -47,11 +47,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toggleBarsOnTap(_:)))
         self.view.addGestureRecognizer(gestureRecognizer)
         //gpxURL = NSURL(string: "http://cs193p.stanford.edu/Vacation.gpx") // for demo/debug/testing
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        if appDelegate.importUrl != nil { self.performSegue(withIdentifier: "filesSegue", sender: self) }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if appDelegate.importUrl != nil { self.performSegue(withIdentifier: "filesSegue", sender: self) }
+
+    }
     
     private func removeOverlay(name : String) {
         if let ovl = overlays[name] {
@@ -66,8 +69,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             return waypoint.coordinate
         })
         let polyline = MKPolyline(coordinates: &coordinates, count: waypoints.count)
+        polyline.title = name
         overlays[name] = polyline
         self.map.add(polyline)
+            let loc = MKMapPointForCoordinate(map.userLocation.coordinate)
+            map.setVisibleMapRect(MKMapRectUnion(polyline.boundingMapRect, MKMapRectMake(loc.x, loc.y, 20, 20)), animated: true)
+        let point = MKPointAnnotation()
+        point.coordinate = MKCoordinateForMapPoint(polyline.points()[polyline.pointCount/2])
+        point.title = name
+        self.map.addAnnotation((point))
+        
     }
     
     
@@ -116,7 +127,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let pr = MKPolylineRenderer(overlay: overlay);
             pr.strokeColor = UIColor.blue.withAlphaComponent(0.5);
             pr.lineWidth = 5;
-            map.visibleMapRect = pr.polyline.boundingMapRect
             return pr;
         }
         else { return MKOverlayRenderer(overlay: overlay) }
@@ -131,10 +141,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            map.showsUserLocation = true
-            map.setCenter(location.coordinate, animated: true)
-        }
+        map.userTrackingMode = .follow
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -151,6 +158,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let hidden = !(self.navigationController?.isNavigationBarHidden)!
         self.navigationController?.setNavigationBarHidden(hidden, animated: true)
         self.navigationController?.setToolbarHidden(hidden, animated: true)
+//        overlays["06_Koge_Kobenhavn-11.gpx"]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -180,6 +188,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func deselectedFile(name: String) {
         removeOverlay(name: name)
+    }
+    
+    func isSelected(name: String) -> Bool {
+        return overlays[name] != nil
     }
 }
 

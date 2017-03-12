@@ -11,6 +11,7 @@ import UIKit
 protocol FilesViewControllerDelegate {
     func selectedFile(name : String, url: URL)
     func deselectedFile(name : String)
+    func isSelected(name: String) -> Bool
 }
 
 class FilesViewController: UITableViewController {
@@ -25,13 +26,17 @@ class FilesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if let url = appDelegate.importUrl {
             self.handleReceivedGPXURL(url: url)
             appDelegate.importUrl = nil
         }
     }
-    
     
     // MARK: - Table view data source
     
@@ -48,11 +53,13 @@ class FilesViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: Storyboard.CellReuseIdentifier, for: indexPath)
             if indexPath.row < fileStore.files.count { // just to be safe
+                
                 let url = fileStore.files[indexPath.row]
                 if let size = url.fileSize {
                     cell.detailTextLabel?.text = ByteCountFormatter.string(fromByteCount: Int64(size.intValue), countStyle: ByteCountFormatter.CountStyle.file)
                 }
                 cell.textLabel?.text = url.lastPathComponent
+                cell.setSelected(delegate!.isSelected(name: url.lastPathComponent), animated: false)
             }
             return cell
     }
