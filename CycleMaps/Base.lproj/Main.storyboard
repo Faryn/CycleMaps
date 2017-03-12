@@ -36,22 +36,24 @@
                         </constraints>
                     </view>
                     <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="MVt-BT-VYy"/>
+                        <barButtonItem systemItem="organize" id="8iM-jd-bjq">
+                            <connections>
+                                <segue destination="w1t-Fo-jrU" kind="show" identifier="filesSegue" id="YmD-oU-QmN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="NES-hi-DjG"/>
                         <barButtonItem style="plain" id="PAl-gv-Pcx">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qtg-9y-kTW">
-                                <rect key="frame" x="16" y="11" width="22" height="22"/>
+                                <rect key="frame" x="337" y="11" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="33"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="35"/>
                                 <state key="normal" title="⚙"/>
                                 <connections>
                                     <segue destination="ThV-TA-g6M" kind="show" identifier="settingsSegue" id="H4D-rk-pFu"/>
                                 </connections>
                             </button>
                             <color key="tintColor" red="0.48988837532869878" green="0.31105130888597499" blue="1" alpha="0.33928948479729731" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                        <barButtonItem systemItem="organize" id="8iM-jd-bjq">
-                            <connections>
-                                <segue destination="w1t-Fo-jrU" kind="show" identifier="filesSegue" id="YmD-oU-QmN"/>
-                            </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="ga5-8A-ZmN"/>
