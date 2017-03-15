@@ -21,23 +21,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var selectedPin:MKPlacemark?
     let settings = UserDefaults.standard
     var overlays = [String: MKOverlay]()
+    var template = TileSource.openCycleMap.templateUrl
     
-//    var gpxURL: NSURL? {
-//        didSet {
-//            if let url = gpxURL {
-//                GPX.parse(url as URL) {
-//                    if let gpx = $0 {
-//                        self.addOverlay(name: "default", waypoints: gpx.waypoints)
-//                    }
-//                }
-//            }
-//        }
-//    }
-//    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
-        let template = "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png"
+        let source = settings.integer(forKey: "tileSource")
+        if source >= 1 { //0 is error, 1 is default so we only care about higher numbers
+             template = TileSource(rawValue: source)!.templateUrl // needs error handling
+        }
         let overlay = OverlayTile(urlTemplate: template)
         overlay.enableCache = !settings.bool(forKey: "cacheDisabled")
         map.add(overlay)

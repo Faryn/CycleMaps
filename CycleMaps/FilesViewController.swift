@@ -81,20 +81,4 @@ class FilesViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
         }
     }
-    
-    // MARK: - Navigation
-    
-//    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let dvc = segue.destination as? MapViewController {
-//            if segue.identifier == Storyboard.ShowTrackSegueIdentifier {
-//                if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
-//                    let url = fileStore.files[indexPath.row]
-////                    dvc.title = url.lastPathComponent
-////                    dvc.gpxURL = url as URL? as URL?
-//                }
-//            }
-//        }
-//    }
-    
 }

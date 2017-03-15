@@ -17,11 +17,20 @@ protocol SettingsViewControllerDelegate {
 class SettingsViewController : UITableViewController {
     var delegate:SettingsViewControllerDelegate? = nil
     let settings = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let cacheDisabled = settings.value(forKey: "cacheDisabled") as? Bool {
             cacheSwitch.setOn(cacheDisabled, animated: false)
+        }
+    }
+    
+    @IBOutlet weak var mapStyleCell: UITableViewCell! {
+        didSet {
+            if let mapStyle = TileSource(rawValue: settings.integer(forKey: "tileSource"))?.name {
+                mapStyleCell.detailTextLabel?.text = mapStyle
+            } else { mapStyleCell.detailTextLabel?.text = TileSource.openCycleMap.name }
         }
     }
     
@@ -48,6 +57,18 @@ class SettingsViewController : UITableViewController {
     }
     @IBOutlet weak var cacheSwitch: UISwitch!
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "mapStyle":
+                let svc = segue.destination as? SettingDetailViewController
+                svc?.navigationItem.title = "Map Style"
+                svc?.navigationItem.backBarButtonItem?.title = "Settings"
+                svc?.selected = settings.integer(forKey: "tileSource")
+            default:
+                break
+            }
+        }
+    }
 
 }

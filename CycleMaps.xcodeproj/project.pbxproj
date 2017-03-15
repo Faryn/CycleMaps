@@ -17,9 +17,11 @@
 		DAB068121E47B0C500EFDD3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB068111E47B0C500EFDD3E /* AppDelegate.swift */; };
 		DAB068141E47B0C500EFDD3E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB068131E47B0C500EFDD3E /* MapViewController.swift */; };
 		DAB068171E47B0C500EFDD3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB068151E47B0C500EFDD3E /* Main.storyboard */; };
-		DAB068191E47B0C500EFDD3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB068181E47B0C500EFDD3E /* Assets.xcassets */; };
 		DAB0681C1E47B0C500EFDD3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB0681A1E47B0C500EFDD3E /* LaunchScreen.storyboard */; };
 		DAEA8BC91E5E3D34009CC260 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEA8BC81E5E3D34009CC260 /* SettingsViewController.swift */; };
+		DAEB86681E794CF0009D8059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAEB86671E794CF0009D8059 /* Assets.xcassets */; };
+		DAEDED661E77F9C500FCE1A4 /* TileSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEDED651E77F9C500FCE1A4 /* TileSource.swift */; };
+		DAEDED681E782EF100FCE1A4 /* SettingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEDED671E782EF000FCE1A4 /* SettingDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +38,13 @@
 		DAB068111E47B0C500EFDD3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAB068131E47B0C500EFDD3E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DAB068161E47B0C500EFDD3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DAB068181E47B0C500EFDD3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAB0681B1E47B0C500EFDD3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB0681D1E47B0C500EFDD3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAEA8BC81E5E3D34009CC260 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DAEB86671E794CF0009D8059 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DAEDED641E75FF4D00FCE1A4 /* CycleMaps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CycleMaps.entitlements; sourceTree = "<group>"; };
+		DAEDED651E77F9C500FCE1A4 /* TileSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileSource.swift; sourceTree = "<group>"; };
+		DAEDED671E782EF000FCE1A4 /* SettingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,15 +99,18 @@
 		DAB068101E47B0C500EFDD3E /* CycleMaps */ = {
 			isa = PBXGroup;
 			children = (
+				DAEB86671E794CF0009D8059 /* Assets.xcassets */,
+				DAEDED641E75FF4D00FCE1A4 /* CycleMaps.entitlements */,
 				DAB068111E47B0C500EFDD3E /* AppDelegate.swift */,
 				DAB068131E47B0C500EFDD3E /* MapViewController.swift */,
 				DA38D8051E6F5B06007817F2 /* FilesViewController.swift */,
 				DA38D8071E6F5D8A007817F2 /* FileStore.swift */,
+				DAEDED651E77F9C500FCE1A4 /* TileSource.swift */,
 				DAB068151E47B0C500EFDD3E /* Main.storyboard */,
+				DAEDED671E782EF000FCE1A4 /* SettingDetailViewController.swift */,
 				DAEA8BC81E5E3D34009CC260 /* SettingsViewController.swift */,
 				DA0065F71E6C8D9200A54495 /* GPX.swift */,
 				DA394DCB1E5CB1BF0058AE09 /* LocationSearchTable.swift */,
-				DAB068181E47B0C500EFDD3E /* Assets.xcassets */,
 				DAB0681A1E47B0C500EFDD3E /* LaunchScreen.storyboard */,
 				DAB0681D1E47B0C500EFDD3E /* Info.plist */,
 				DA3FC9841E59FECD005C08C7 /* OverlayTile.swift */,
@@ -149,6 +157,9 @@
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
@@ -180,7 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB0681C1E47B0C500EFDD3E /* LaunchScreen.storyboard in Resources */,
-				DAB068191E47B0C500EFDD3E /* Assets.xcassets in Resources */,
+				DAEB86681E794CF0009D8059 /* Assets.xcassets in Resources */,
 				DAB068171E47B0C500EFDD3E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,11 +251,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAEDED681E782EF100FCE1A4 /* SettingDetailViewController.swift in Sources */,
 				DAB068141E47B0C500EFDD3E /* MapViewController.swift in Sources */,
 				DA3FC9851E59FECD005C08C7 /* OverlayTile.swift in Sources */,
 				DA38D8061E6F5B06007817F2 /* FilesViewController.swift in Sources */,
 				DAB068121E47B0C500EFDD3E /* AppDelegate.swift in Sources */,
 				DAEA8BC91E5E3D34009CC260 /* SettingsViewController.swift in Sources */,
+				DAEDED661E77F9C500FCE1A4 /* TileSource.swift in Sources */,
 				DA394DCC1E5CB1BF0058AE09 /* LocationSearchTable.swift in Sources */,
 				DA0065F81E6C8D9200A54495 /* GPX.swift in Sources */,
 				DA38D8081E6F5D8A007817F2 /* FileStore.swift in Sources */,
@@ -370,8 +383,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6348DBB7C4A2F179600FBF36 /* Pods-CycleMaps.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CycleMaps/CycleMaps.entitlements;
 				DEVELOPMENT_TEAM = 8CV5377K4H;
 				INFOPLIST_FILE = CycleMaps/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
@@ -388,8 +402,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 22AC309FC14DC0EBC48EF77C /* Pods-CycleMaps.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CycleMaps/CycleMaps.entitlements;
 				DEVELOPMENT_TEAM = 8CV5377K4H;
 				INFOPLIST_FILE = CycleMaps/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;

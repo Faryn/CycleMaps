@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/SettingsViewController.swift"
-            timestampString = "510529885.030309"
+            timestampString = "511192152.736625"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -313,12 +313,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "511048811.700156"
+            timestampString = "511180577.187959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "selectedFile(name:url:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -329,12 +329,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "511048811.700156"
+            timestampString = "511180577.187959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
-            landmarkName = "selectedFile(name:url:)"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "isSelected(name:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -377,13 +377,168 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "511048811.700156"
+            timestampString = "511180577.187959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "addOverlay(name:waypoints:)"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "changedSetting(setting:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CycleMaps/FileStore.swift"
+            timestampString = "511180577.187959"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "add(url:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CycleMaps/MapViewController.swift"
+            timestampString = "511180132.711567"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "MapViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CycleMaps/SettingsViewController.swift"
+            timestampString = "511184273.100258"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "SettingsViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CycleMaps.SettingsViewController.__deallocating_deinit"
+                  moduleName = "CycleMaps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulpfeiffer/Dropbox/Dev/CycleMaps/CycleMaps/SettingsViewController.swift"
+                  timestampString = "511184276.628186"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CycleMaps.SettingsViewController.init (style : __C.UITableViewStyle) -&gt; CycleMaps.SettingsViewController"
+                  moduleName = "CycleMaps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulpfeiffer/Dropbox/Dev/CycleMaps/CycleMaps/SettingsViewController.swift"
+                  timestampString = "511184276.63193"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CycleMaps.SettingsViewController.__allocating_init (style : __C.UITableViewStyle) -&gt; CycleMaps.SettingsViewController"
+                  moduleName = "CycleMaps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulpfeiffer/Dropbox/Dev/CycleMaps/CycleMaps/SettingsViewController.swift"
+                  timestampString = "511184276.635181"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CycleMaps.SettingsViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; CycleMaps.SettingsViewController"
+                  moduleName = "CycleMaps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulpfeiffer/Dropbox/Dev/CycleMaps/CycleMaps/SettingsViewController.swift"
+                  timestampString = "511184276.638403"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "62">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CycleMaps.SettingsViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; CycleMaps.SettingsViewController"
+                  moduleName = "CycleMaps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulpfeiffer/Dropbox/Dev/CycleMaps/CycleMaps/SettingsViewController.swift"
+                  timestampString = "511184276.64152"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CycleMaps.SettingsViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;CycleMaps.SettingsViewController&gt;"
+                  moduleName = "CycleMaps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulpfeiffer/Dropbox/Dev/CycleMaps/CycleMaps/SettingsViewController.swift"
+                  timestampString = "511184276.644658"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CycleMaps.SettingsViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;CycleMaps.SettingsViewController&gt;"
+                  moduleName = "CycleMaps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulpfeiffer/Dropbox/Dev/CycleMaps/CycleMaps/SettingsViewController.swift"
+                  timestampString = "511184276.647915"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

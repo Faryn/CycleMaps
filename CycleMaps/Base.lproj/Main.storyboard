@@ -56,7 +56,9 @@
                             <color key="tintColor" red="0.48988837532869878" green="0.31105130888597499" blue="1" alpha="0.33928948479729731" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="ga5-8A-ZmN"/>
+                    <navigationItem key="navigationItem" id="ga5-8A-ZmN">
+                        <barButtonItem key="backBarButtonItem" title="Map" id="mil-qx-dfo"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="map" destination="c8i-WF-Rn5" id="i2b-0d-muz"/>
                     </connections>
@@ -198,6 +200,37 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Map" id="s2H-l4-Gam">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="NiF-ay-j01" detailTextLabel="vWy-cD-14i" style="IBUITableViewCellStyleValue1" id="dCO-yp-ht7">
+                                        <rect key="frame" x="0.0" y="319" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dCO-yp-ht7" id="jBE-Wx-vHa">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Map Style" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NiF-ay-j01">
+                                                    <rect key="frame" x="15" y="12" width="76.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vWy-cD-14i">
+                                                    <rect key="frame" x="296" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="bvB-GQ-I1a" kind="show" identifier="mapStyle" id="nCe-fE-lyN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="ThV-TA-g6M" id="SvO-XS-zSh"/>
@@ -205,15 +238,47 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="kYg-rI-duW">
-                        <barButtonItem key="backBarButtonItem" title="Map" id="QBJ-Zw-wXr"/>
+                        <barButtonItem key="backBarButtonItem" title="Settings" id="QBJ-Zw-wXr"/>
                     </navigationItem>
                     <connections>
                         <outlet property="cacheSwitch" destination="7Qp-Jf-fFW" id="hhn-HG-NMi"/>
+                        <outlet property="mapStyleCell" destination="dCO-yp-ht7" id="Wma-Ni-UwS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hn8-O2-K8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2848.8000000000002" y="818.14092953523243"/>
+        </scene>
+        <!--Map Style-->
+        <scene sceneID="uf5-F7-eOD">
+            <objects>
+                <tableViewController providesPresentationContextTransitionStyle="YES" modalPresentationStyle="currentContext" id="bvB-GQ-I1a" customClass="SettingDetailViewController" customModule="CycleMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="KqW-DA-KEh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapStyle" id="fkm-ye-ruk">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fkm-ye-ruk" id="rU3-jU-hjb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bvB-GQ-I1a" id="Eho-0R-vmI"/>
+                            <outlet property="delegate" destination="bvB-GQ-I1a" id="kKQ-7P-7tc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Map Style" id="tYK-qY-22v">
+                        <barButtonItem key="backBarButtonItem" title="Map Style" id="95t-Yl-I3Y"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xrO-ts-hgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4570.3999999999996" y="814.54272863568224"/>
         </scene>
         <!--GPX Files-->
         <scene sceneID="fEa-Ro-0wr">
@@ -228,18 +293,18 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SCi-ec-7wc" id="s4v-0m-YXA">
-                                    <rect key="frame" x="0.0" y="0.0" width="336" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="336" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W33-Ah-an7">
-                                            <rect key="frame" x="15" y="12" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eXk-Sq-5or">
-                                            <rect key="frame" x="292" y="12" width="44" height="21"/>
+                                            <rect key="frame" x="292" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -261,14 +326,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPG-UU-n1L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5623.1999999999998" y="570.76461769115451"/>
+            <point key="canvasLocation" x="6562.3999999999996" y="570.76461769115451"/>
         </scene>
         <!--Map-->
         <scene sceneID="6mF-Yk-bGz">
             <objects>
                 <navigationController title="Map" automaticallyAdjustsScrollViewInsets="NO" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" toolbarHidden="NO" id="S7A-xP-f7U" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="fa9-CP-ymA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fa9-CP-ymA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -290,7 +355,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SFJ-Kp-ckK" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="FNt-FA-0yY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FNt-FA-0yY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -301,7 +366,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v2O-88-DfJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4684" y="570.76461769115451"/>
+            <point key="canvasLocation" x="5623.1999999999998" y="570.76461769115451"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
