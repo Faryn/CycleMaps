@@ -21,20 +21,26 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var selectedPin:MKPlacemark?
     let settings = UserDefaults.standard
     var overlays = [String: MKOverlay]()
-    var template = TileSource.openCycleMap.templateUrl
-    var tileSource : MKOverlay? = nil
+    var tileSource = TileSource.openCycleMap {
+        willSet {
+            if tileSourceOverlay != nil { map.remove(tileSourceOverlay!) }
+            switch newValue {
+            case .apple:
+                break
+            default:
+                let overlay = OverlayTile(urlTemplate: newValue.templateUrl)
+                overlay.enableCache = !settings.bool(forKey: "cacheDisabled")
+                tileSourceOverlay = overlay
+                map.add(overlay)
+            }
+        }
+    }
+    var tileSourceOverlay : MKOverlay? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
-        let source = settings.integer(forKey: "tileSource")
-        if source >= 1 { //0 is error, 1 is default so we only care about higher numbers
-             template = TileSource(rawValue: source)!.templateUrl // needs error handling
-        }
-        let overlay = OverlayTile(urlTemplate: template)
-        overlay.enableCache = !settings.bool(forKey: "cacheDisabled")
-        tileSource = overlay
-        map.add(overlay)
+        tileSource = TileSource(rawValue: settings.integer(forKey: "tileSource"))!
         checkLocationAuthorizationStatus()
         setupSearchBar()
         addTrackButton()
@@ -89,26 +95,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 overlay.enableCache = !settings.bool(forKey: "cacheDisabled")
             }
         case "tileSource":
-            switchTileSource(to: TileSource(rawValue: settings.integer(forKey: "tileSource"))!)
+            tileSource =  TileSource(rawValue: settings.integer(forKey: "tileSource"))!
         default:
             return
         }
     }
     
-    private func switchTileSource(to: TileSource)
-    {
-        if tileSource != nil { map.remove(tileSource!) }
-        switch to {
-        case .apple:
-            break
-        default:
-            template = to.templateUrl
-            let overlay = OverlayTile(urlTemplate: template)
-            overlay.enableCache = !settings.bool(forKey: "cacheDisabled")
-            tileSource = overlay
-            map.add(overlay)
-        }
-    }
     
     private func addTrackButton() {
         let trackButton = MKUserTrackingBarButtonItem(mapView: map)
