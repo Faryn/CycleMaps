@@ -129,8 +129,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nj8-PK-alo">
-                                                    <rect key="frame" x="97" y="7" width="180" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nj8-PK-alo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <state key="normal" title="Edit Location Settings"/>
                                                     <connections>
@@ -139,8 +139,10 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="nj8-PK-alo" firstAttribute="centerX" secondItem="Bu1-w9-1z8" secondAttribute="centerX" id="7up-ug-HwP"/>
-                                                <constraint firstItem="nj8-PK-alo" firstAttribute="centerY" secondItem="Bu1-w9-1z8" secondAttribute="centerY" id="zHN-Qr-eH3"/>
+                                                <constraint firstItem="nj8-PK-alo" firstAttribute="leading" secondItem="Bu1-w9-1z8" secondAttribute="leading" id="GuJ-i7-gtd"/>
+                                                <constraint firstItem="nj8-PK-alo" firstAttribute="centerY" secondItem="Bu1-w9-1z8" secondAttribute="centerY" id="Qif-Q8-hEq"/>
+                                                <constraint firstItem="nj8-PK-alo" firstAttribute="top" secondItem="Bu1-w9-1z8" secondAttribute="top" id="XyS-4K-TeZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="nj8-PK-alo" secondAttribute="trailing" id="blN-Mh-itN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -155,24 +157,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disable Cache" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlq-XB-CCM">
-                                                    <rect key="frame" x="8" y="11" width="110" height="21"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Qp-Jf-fFW">
                                                     <rect key="frame" x="318" y="6" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="toggleCache:" destination="ThV-TA-g6M" eventType="valueChanged" id="Eka-xl-4aW"/>
                                                     </connections>
                                                 </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disable Cache" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlq-XB-CCM">
+                                                    <rect key="frame" x="8" y="0.0" width="188" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="188" id="aSq-qZ-1Xh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="7Qp-Jf-fFW" secondAttribute="trailing" id="2re-Vz-QuW"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="Nlq-XB-CCM" secondAttribute="leading" id="JXI-9d-RgR"/>
-                                                <constraint firstItem="Nlq-XB-CCM" firstAttribute="centerY" secondItem="uQL-kQ-rRz" secondAttribute="centerY" id="VoH-7v-JF3"/>
-                                                <constraint firstItem="7Qp-Jf-fFW" firstAttribute="centerY" secondItem="uQL-kQ-rRz" secondAttribute="centerY" id="vfx-pM-XeG"/>
+                                                <constraint firstItem="Nlq-XB-CCM" firstAttribute="centerY" secondItem="7Qp-Jf-fFW" secondAttribute="centerY" id="1jH-JB-Ep8"/>
+                                                <constraint firstItem="Nlq-XB-CCM" firstAttribute="leading" secondItem="uQL-kQ-rRz" secondAttribute="leadingMargin" id="I8t-a9-IK6"/>
+                                                <constraint firstItem="Nlq-XB-CCM" firstAttribute="centerY" secondItem="uQL-kQ-rRz" secondAttribute="centerY" id="YDa-Gi-W46"/>
+                                                <constraint firstItem="7Qp-Jf-fFW" firstAttribute="trailing" secondItem="uQL-kQ-rRz" secondAttribute="trailingMargin" id="xNQ-mY-ZNa"/>
+                                                <constraint firstItem="Nlq-XB-CCM" firstAttribute="top" secondItem="uQL-kQ-rRz" secondAttribute="top" id="ytz-IU-kus"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -183,8 +189,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAq-tT-Viy">
-                                                    <rect key="frame" x="139" y="6" width="96" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAq-tT-Viy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <state key="normal" title="Clear Cache"/>
                                                     <connections>
@@ -193,8 +199,10 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="QAq-tT-Viy" firstAttribute="centerY" secondItem="ZQY-QB-llP" secondAttribute="centerY" id="SkL-oR-TYR"/>
-                                                <constraint firstItem="QAq-tT-Viy" firstAttribute="centerX" secondItem="ZQY-QB-llP" secondAttribute="centerX" id="ZTW-EH-zMU"/>
+                                                <constraint firstItem="QAq-tT-Viy" firstAttribute="leading" secondItem="ZQY-QB-llP" secondAttribute="leading" id="31W-SQ-wdF"/>
+                                                <constraint firstItem="QAq-tT-Viy" firstAttribute="centerY" secondItem="ZQY-QB-llP" secondAttribute="centerY" id="CgA-Hq-BK7"/>
+                                                <constraint firstAttribute="trailing" secondItem="QAq-tT-Viy" secondAttribute="trailing" id="HvT-m2-XDJ"/>
+                                                <constraint firstItem="QAq-tT-Viy" firstAttribute="top" secondItem="ZQY-QB-llP" secondAttribute="top" id="M56-gs-4IK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -212,14 +220,14 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Map Style" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NiF-ay-j01">
                                                     <rect key="frame" x="15" y="12" width="76.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vWy-cD-14i">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" id="vWy-cD-14i">
                                                     <rect key="frame" x="296" y="12" width="44" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -269,7 +277,7 @@
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="bvB-GQ-I1a" id="Eho-0R-vmI"/>
-                            <outlet property="delegate" destination="bvB-GQ-I1a" id="kKQ-7P-7tc"/>
+                            <outlet property="delegate" destination="bvB-GQ-I1a" id="5ln-z5-7uF"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Map Style" id="tYK-qY-22v">

@@ -22,6 +22,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     let settings = UserDefaults.standard
     var overlays = [String: MKOverlay]()
     var template = TileSource.openCycleMap.templateUrl
+    var tileSource : MKOverlay? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         let overlay = OverlayTile(urlTemplate: template)
         overlay.enableCache = !settings.bool(forKey: "cacheDisabled")
+        tileSource = overlay
         map.add(overlay)
         checkLocationAuthorizationStatus()
         setupSearchBar()
@@ -86,8 +88,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             if let overlay = map.overlays.last as? OverlayTile {
                 overlay.enableCache = !settings.bool(forKey: "cacheDisabled")
             }
+        case "tileSource":
+            switchTileSource(to: TileSource(rawValue: settings.integer(forKey: "tileSource"))!)
         default:
             return
+        }
+    }
+    
+    private func switchTileSource(to: TileSource)
+    {
+        if tileSource != nil { map.remove(tileSource!) }
+        switch to {
+        case .apple:
+            break
+        default:
+            template = to.templateUrl
+            let overlay = OverlayTile(urlTemplate: template)
+            overlay.enableCache = !settings.bool(forKey: "cacheDisabled")
+            tileSource = overlay
+            map.add(overlay)
         }
     }
     
@@ -132,6 +151,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse || status == .authorizedAlways {
+            locationManager.requestLocation()
+        }
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         map.userTrackingMode = .follow
     }
@@ -147,10 +172,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func toggleBarsOnTap(_ sender: UITapGestureRecognizer) {
-        let hidden = !(self.navigationController?.isNavigationBarHidden)!
-        self.navigationController?.setNavigationBarHidden(hidden, animated: true)
-        self.navigationController?.setToolbarHidden(hidden, animated: true)
-//        overlays["06_Koge_Kobenhavn-11.gpx"]
+            let hidden = !(self.navigationController?.isNavigationBarHidden)!
+            self.navigationController?.setNavigationBarHidden(hidden, animated: true)
+            self.navigationController?.setToolbarHidden(hidden, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

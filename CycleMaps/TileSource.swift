@@ -17,7 +17,7 @@ enum TileSource : Int {
         switch self {
         case .openCycleMap: return "Open Cycle Map"
         case .openStreetMap: return "Open Street Map"
-        case .apple: return "Apple Mapkit (no offline cache)"
+        case .apple: return "Apple Maps (No Caching)"
         }
     }
     

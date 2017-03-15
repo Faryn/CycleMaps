@@ -14,7 +14,7 @@ protocol SettingsViewControllerDelegate {
     func changedSetting(setting: String?)
 }
 
-class SettingsViewController : UITableViewController {
+class SettingsViewController : UITableViewController, SettingDetailViewControllerDelegate {
     var delegate:SettingsViewControllerDelegate? = nil
     let settings = UserDefaults.standard
     
@@ -61,14 +61,19 @@ class SettingsViewController : UITableViewController {
         if let identifier = segue.identifier {
             switch identifier {
             case "mapStyle":
-                let svc = segue.destination as? SettingDetailViewController
-                svc?.navigationItem.title = "Map Style"
-                svc?.navigationItem.backBarButtonItem?.title = "Settings"
-                svc?.selected = settings.integer(forKey: "tileSource")
+                let svc = segue.destination as! SettingDetailViewController
+                svc.navigationItem.title = "Map Style"
+                svc.navigationItem.backBarButtonItem?.title = "Settings"
+                svc.selected = settings.integer(forKey: "tileSource")
+                svc.delegate = self
             default:
                 break
             }
         }
+    }
+    func selectedMapStyle(style: TileSource) {
+        settings.set(style.rawValue, forKey: "tileSource")
+        delegate?.changedSetting(setting: "tileSource")
     }
 
 }
