@@ -39,9 +39,6 @@ class OverlayTile : MKTileOverlay {
         super.init(urlTemplate: URLTemplate)
         self.cache = Cache<Data>(name: "TileCache", config: cacheConfig)
         self.cache!.clearExpired()
-        session.configuration.httpShouldUsePipelining = true
-        session.configuration.httpMaximumConnectionsPerHost = 10
-        print(session.configuration.httpMaximumConnectionsPerHost)
     }
     
     override func loadTile(at path: MKTileOverlayPath, result: @escaping (Data?, Error?) -> Void) {

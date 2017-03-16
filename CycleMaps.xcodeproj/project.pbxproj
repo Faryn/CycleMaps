@@ -163,6 +163,9 @@
 							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
 						};
 					};
 				};

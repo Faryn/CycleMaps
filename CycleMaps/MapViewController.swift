@@ -21,6 +21,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var selectedPin:MKPlacemark?
     let settings = UserDefaults.standard
     var overlays = [String: MKOverlay]()
+    var filesViewController : FilesViewController? = nil
     var tileSource = TileSource.openCycleMap {
         willSet {
             if tileSourceOverlay != nil { map.remove(tileSourceOverlay!) }
@@ -35,7 +36,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         }
     }
-    var tileSourceOverlay : MKOverlay? = nil
+    var tileSourceOverlay : OverlayTile? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +54,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.viewDidAppear(animated)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if appDelegate.importUrl != nil { self.performSegue(withIdentifier: "filesSegue", sender: self) }
-
+        
     }
     
     private func removeOverlay(name : String) {
@@ -61,10 +62,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             self.map.remove(ovl)
             overlays.removeValue(forKey: name)
         }
+        filesViewController?.tableView.reloadData()
     }
     
     private func addOverlay(name : String, waypoints: [GPX.Waypoint]) {
-        print("Waypoints".appending(String(waypoints.count)))
+        //        print("Waypoints".appending(String(waypoints.count)))
         var coordinates = waypoints.map({ (waypoint: GPX.Waypoint!) -> CLLocationCoordinate2D in
             return waypoint.coordinate
         })
@@ -72,20 +74,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         polyline.title = name
         overlays[name] = polyline
         self.map.add(polyline)
-            let loc = MKMapPointForCoordinate(map.userLocation.coordinate)
-            map.setVisibleMapRect(MKMapRectUnion(polyline.boundingMapRect, MKMapRectMake(loc.x, loc.y, 20, 20)), animated: true)
-        let point = MKPointAnnotation()
-        point.coordinate = MKCoordinateForMapPoint(polyline.points()[polyline.pointCount/2])
-        point.title = name
-        self.map.addAnnotation((point))
-        
+        filesViewController?.tableView.reloadData()
+        var rect = MKMapRect()
+        let loc = MKMapPointForCoordinate(map.userLocation.coordinate)
+        if loc.x == 0 && loc.y == 0 {
+            rect = MKMapRectUnion(polyline.boundingMapRect, MKMapRectMake(loc.x, loc.y, 0, 0))
+        } else { rect = polyline.boundingMapRect }
+        map.setVisibleMapRect(rect, edgePadding: .init(top: 20, left: 20, bottom: 20, right: 20), animated: true)
+        //        let point = MKPointAnnotation()
+        //        point.coordinate = MKCoordinateForMapPoint(polyline.points()[polyline.pointCount/2])
+        //        point.title = name
+        //        self.map.addAnnotation((point))
     }
     
     
     func clearCache() {
-        if let overlay = map.overlays.last as? OverlayTile {
-            overlay.clearCache()
-        }
+        tileSourceOverlay?.clearCache()
     }
     
     func changedSetting(setting: String?) {
@@ -164,9 +168,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func toggleBarsOnTap(_ sender: UITapGestureRecognizer) {
-            let hidden = !(self.navigationController?.isNavigationBarHidden)!
-            self.navigationController?.setNavigationBarHidden(hidden, animated: true)
-            self.navigationController?.setToolbarHidden(hidden, animated: true)
+        let hidden = !(self.navigationController?.isNavigationBarHidden)!
+        self.navigationController?.setNavigationBarHidden(hidden, animated: true)
+        self.navigationController?.setToolbarHidden(hidden, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -177,9 +181,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                     svc.delegate = self
                 }
             case "filesSegue":
-                if let fvc = segue.destination as? FilesViewController {
-                fvc.delegate = self
-                }
+                self.filesViewController = segue.destination as? FilesViewController
+                filesViewController?.delegate = self
             default: break
             }
         }
