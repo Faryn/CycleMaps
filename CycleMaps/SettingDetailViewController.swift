@@ -18,7 +18,7 @@ class SettingDetailViewController : UITableViewController {
     var delegate: SettingDetailViewControllerDelegate? = nil
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "mapStyle")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Storyboard.mapStyleCellReuseIdentifier)!
         if indexPath.row < TileSource.count {
             cell.textLabel?.text = TileSource(rawValue: indexPath.row)?.name
             if selected == indexPath.row {

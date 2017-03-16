@@ -382,7 +382,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
             endingLineNumber = "92"
-            landmarkName = "changedSetting(setting:)"
+            landmarkName = "clearCache()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -569,8 +569,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
             endingLineNumber = "73"
-            landmarkName = "tableView(_:didDeselectRowAt:)"
-            landmarkType = "7">
+            landmarkName = "FilesViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -601,8 +601,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
+            landmarkName = "FilesViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

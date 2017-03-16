@@ -20,15 +20,14 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let cacheDisabled = settings.value(forKey: "cacheDisabled") as? Bool {
+        if let cacheDisabled = settings.value(forKey: Constants.Settings.cacheDisabled) as? Bool {
             cacheSwitch.setOn(cacheDisabled, animated: false)
         }
     }
     
     @IBOutlet weak var mapStyleCell: UITableViewCell! {
         didSet {
-            if let mapStyle = TileSource(rawValue: settings.integer(forKey: "tileSource"))?.name {
+            if let mapStyle = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))?.name {
                 mapStyleCell.detailTextLabel?.text = mapStyle
             } else { mapStyleCell.detailTextLabel?.text = TileSource.openCycleMap.name }
         }
@@ -49,9 +48,9 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
     }
     
     @IBAction func toggleCache(_ sender: UISwitch) {
-        settings.set(sender.isOn, forKey: "cacheDisabled")
+        settings.set(sender.isOn, forKey: Constants.Settings.cacheDisabled)
         if let delegate = self.delegate {
-            delegate.changedSetting(setting: "cacheDisabled")
+            delegate.changedSetting(setting: Constants.Settings.cacheDisabled)
         }
         print(sender.isOn)
     }
@@ -60,11 +59,11 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             switch identifier {
-            case "mapStyle":
+            case Constants.Storyboard.mapStyleSegueIdentifier:
                 let svc = segue.destination as! SettingDetailViewController
-                svc.navigationItem.title = "Map Style"
-                svc.navigationItem.backBarButtonItem?.title = "Settings"
-                svc.selected = settings.integer(forKey: "tileSource")
+                svc.navigationItem.title = Constants.Settings.mapStyleTitle
+                svc.navigationItem.backBarButtonItem?.title = Constants.Settings.title
+                svc.selected = settings.integer(forKey: Constants.Settings.tileSource)
                 svc.delegate = self
             default:
                 break
@@ -72,8 +71,8 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
         }
     }
     func selectedMapStyle(style: TileSource) {
-        settings.set(style.rawValue, forKey: "tileSource")
-        delegate?.changedSetting(setting: "tileSource")
+        settings.set(style.rawValue, forKey: Constants.Settings.tileSource)
+        delegate?.changedSetting(setting: Constants.Settings.tileSource)
     }
 
 }

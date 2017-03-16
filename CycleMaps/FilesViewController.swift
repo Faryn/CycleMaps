@@ -34,18 +34,13 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,UIDocum
     
     // MARK: - Table view data source
     
-    struct Storyboard {
-        static let CellReuseIdentifier = "GPXFileCell"
-        static let ShowTrackSegueIdentifier = "Show Track"
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
         return fileStore.files.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCell(withIdentifier: Storyboard.CellReuseIdentifier, for: indexPath)
+        let cell =  tableView.dequeueReusableCell(withIdentifier: Constants.Storyboard.gpxCellReuseIdentifier, for: indexPath)
             if indexPath.row < fileStore.files.count { // just to be safe
                 let url = fileStore.files[indexPath.row]
                 if let size = url.fileSize {

@@ -30,7 +30,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 break
             default:
                 let overlay = OverlayTile(urlTemplate: newValue.templateUrl)
-                overlay.enableCache = !settings.bool(forKey: "cacheDisabled")
+                overlay.enableCache = !settings.bool(forKey: Constants.Settings.cacheDisabled)
                 tileSourceOverlay = overlay
                 map.add(overlay)
             }
@@ -41,7 +41,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
-        tileSource = TileSource(rawValue: settings.integer(forKey: "tileSource"))!
+        tileSource = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
         checkLocationAuthorizationStatus()
         setupSearchBar()
         addTrackButton()
@@ -53,7 +53,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        if appDelegate.importUrl != nil { self.performSegue(withIdentifier: "filesSegue", sender: self) }
+        if appDelegate.importUrl != nil { self.performSegue(withIdentifier: Constants.Storyboard.filesSegueIdentifier, sender: self) }
         
     }
     
@@ -78,8 +78,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         var rect = MKMapRect()
         let loc = MKMapPointForCoordinate(map.userLocation.coordinate)
         if loc.x == 0 && loc.y == 0 {
-            rect = MKMapRectUnion(polyline.boundingMapRect, MKMapRectMake(loc.x, loc.y, 0, 0))
-        } else { rect = polyline.boundingMapRect }
+            rect = polyline.boundingMapRect
+        } else { rect = MKMapRectUnion(polyline.boundingMapRect, MKMapRectMake(loc.x, loc.y, 0, 0)) }
         map.setVisibleMapRect(rect, edgePadding: .init(top: 20, left: 20, bottom: 20, right: 20), animated: true)
         //        let point = MKPointAnnotation()
         //        point.coordinate = MKCoordinateForMapPoint(polyline.points()[polyline.pointCount/2])
@@ -94,12 +94,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func changedSetting(setting: String?) {
         switch setting! {
-        case "cacheDisabled":
+        case Constants.Settings.cacheDisabled:
             if let overlay = map.overlays.last as? OverlayTile {
-                overlay.enableCache = !settings.bool(forKey: "cacheDisabled")
+                overlay.enableCache = !settings.bool(forKey: Constants.Settings.cacheDisabled)
             }
-        case "tileSource":
-            tileSource =  TileSource(rawValue: settings.integer(forKey: "tileSource"))!
+        case Constants.Settings.tileSource:
+            tileSource =  TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
         default:
             return
         }
@@ -176,11 +176,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             switch identifier {
-            case "settingsSegue":
+            case Constants.Storyboard.settingsSegueIdentifier:
                 if let svc = segue.destination as? SettingsViewController {
                     svc.delegate = self
                 }
-            case "filesSegue":
+            case Constants.Storyboard.filesSegueIdentifier:
                 self.filesViewController = segue.destination as? FilesViewController
                 filesViewController?.delegate = self
             default: break

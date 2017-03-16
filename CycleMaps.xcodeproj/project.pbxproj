@@ -14,6 +14,7 @@
 		DA394DCC1E5CB1BF0058AE09 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA394DCB1E5CB1BF0058AE09 /* LocationSearchTable.swift */; };
 		DA3FC9831E59D905005C08C7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3FC9821E59D905005C08C7 /* MapKit.framework */; };
 		DA3FC9851E59FECD005C08C7 /* OverlayTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3FC9841E59FECD005C08C7 /* OverlayTile.swift */; };
+		DA7DBEF11E7B26C600720B5E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DBEF01E7B26C600720B5E /* Constants.swift */; };
 		DAB068121E47B0C500EFDD3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB068111E47B0C500EFDD3E /* AppDelegate.swift */; };
 		DAB068141E47B0C500EFDD3E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB068131E47B0C500EFDD3E /* MapViewController.swift */; };
 		DAB068171E47B0C500EFDD3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB068151E47B0C500EFDD3E /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		DA394DCB1E5CB1BF0058AE09 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		DA3FC9821E59D905005C08C7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DA3FC9841E59FECD005C08C7 /* OverlayTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayTile.swift; sourceTree = "<group>"; };
+		DA7DBEF01E7B26C600720B5E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DAB0680E1E47B0C500EFDD3E /* CycleMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CycleMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB068111E47B0C500EFDD3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAB068131E47B0C500EFDD3E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				DAB068111E47B0C500EFDD3E /* AppDelegate.swift */,
 				DAB068131E47B0C500EFDD3E /* MapViewController.swift */,
 				DA38D8051E6F5B06007817F2 /* FilesViewController.swift */,
+				DA7DBEF01E7B26C600720B5E /* Constants.swift */,
 				DA38D8071E6F5D8A007817F2 /* FileStore.swift */,
 				DAEDED651E77F9C500FCE1A4 /* TileSource.swift */,
 				DAB068151E47B0C500EFDD3E /* Main.storyboard */,
@@ -255,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAEDED681E782EF100FCE1A4 /* SettingDetailViewController.swift in Sources */,
+				DA7DBEF11E7B26C600720B5E /* Constants.swift in Sources */,
 				DAB068141E47B0C500EFDD3E /* MapViewController.swift in Sources */,
 				DA3FC9851E59FECD005C08C7 /* OverlayTile.swift in Sources */,
 				DA38D8061E6F5B06007817F2 /* FilesViewController.swift in Sources */,
