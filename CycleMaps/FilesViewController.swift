@@ -85,6 +85,7 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,UIDocum
             tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
         }
     }
+    @IBOutlet weak var importButton: UIBarButtonItem!
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         handleReceivedGPXURL(url: url)
@@ -92,6 +93,7 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,UIDocum
     
     func documentMenu(_ documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
         documentPicker.delegate = self
+        documentMenu.popoverPresentationController?.barButtonItem = importButton
         present(documentPicker, animated: true, completion: nil)
     }
 }

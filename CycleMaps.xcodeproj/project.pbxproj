@@ -14,7 +14,10 @@
 		DA394DCC1E5CB1BF0058AE09 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA394DCB1E5CB1BF0058AE09 /* LocationSearchTable.swift */; };
 		DA3FC9831E59D905005C08C7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3FC9821E59D905005C08C7 /* MapKit.framework */; };
 		DA3FC9851E59FECD005C08C7 /* OverlayTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3FC9841E59FECD005C08C7 /* OverlayTile.swift */; };
+		DA5B656C1E85D13A00FACE96 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5B656B1E85D13A00FACE96 /* AboutViewController.swift */; };
+		DA5B656E1E85D31800FACE96 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = DA5B656D1E85D31800FACE96 /* about.html */; };
 		DA7DBEF11E7B26C600720B5E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DBEF01E7B26C600720B5E /* Constants.swift */; };
+		DA96311B1E7B2DB30084A16A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA96311A1E7B2DB30084A16A /* CloudKit.framework */; };
 		DAB068121E47B0C500EFDD3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB068111E47B0C500EFDD3E /* AppDelegate.swift */; };
 		DAB068141E47B0C500EFDD3E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB068131E47B0C500EFDD3E /* MapViewController.swift */; };
 		DAB068171E47B0C500EFDD3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB068151E47B0C500EFDD3E /* Main.storyboard */; };
@@ -35,7 +38,10 @@
 		DA394DCB1E5CB1BF0058AE09 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		DA3FC9821E59D905005C08C7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DA3FC9841E59FECD005C08C7 /* OverlayTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayTile.swift; sourceTree = "<group>"; };
+		DA5B656B1E85D13A00FACE96 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		DA5B656D1E85D31800FACE96 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		DA7DBEF01E7B26C600720B5E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DA96311A1E7B2DB30084A16A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		DAB0680E1E47B0C500EFDD3E /* CycleMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CycleMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB068111E47B0C500EFDD3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAB068131E47B0C500EFDD3E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA96311B1E7B2DB30084A16A /* CloudKit.framework in Frameworks */,
 				DA3FC9831E59D905005C08C7 /* MapKit.framework in Frameworks */,
 				84F4FCAF6AACB8F3EDC6BB38 /* Pods_CycleMaps.framework in Frameworks */,
 			);
@@ -74,6 +81,7 @@
 		DA3FC9811E59D905005C08C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA96311A1E7B2DB30084A16A /* CloudKit.framework */,
 				DA3FC9821E59D905005C08C7 /* MapKit.framework */,
 				6C2B318C1C257E26D917092E /* Pods_CycleMaps.framework */,
 			);
@@ -110,6 +118,8 @@
 				DA38D8071E6F5D8A007817F2 /* FileStore.swift */,
 				DAEDED651E77F9C500FCE1A4 /* TileSource.swift */,
 				DAB068151E47B0C500EFDD3E /* Main.storyboard */,
+				DA5B656B1E85D13A00FACE96 /* AboutViewController.swift */,
+				DA5B656D1E85D31800FACE96 /* about.html */,
 				DAEDED671E782EF000FCE1A4 /* SettingDetailViewController.swift */,
 				DAEA8BC81E5E3D34009CC260 /* SettingsViewController.swift */,
 				DA0065F71E6C8D9200A54495 /* GPX.swift */,
@@ -166,6 +176,9 @@
 							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 							com.apple.iCloud = {
 								enabled = 1;
 							};
@@ -196,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5B656E1E85D31800FACE96 /* about.html in Resources */,
 				DAB0681C1E47B0C500EFDD3E /* LaunchScreen.storyboard in Resources */,
 				DAEB86681E794CF0009D8059 /* Assets.xcassets in Resources */,
 				DAB068171E47B0C500EFDD3E /* Main.storyboard in Resources */,
@@ -263,6 +277,7 @@
 				DA3FC9851E59FECD005C08C7 /* OverlayTile.swift in Sources */,
 				DA38D8061E6F5B06007817F2 /* FilesViewController.swift in Sources */,
 				DAB068121E47B0C500EFDD3E /* AppDelegate.swift in Sources */,
+				DA5B656C1E85D13A00FACE96 /* AboutViewController.swift in Sources */,
 				DAEA8BC91E5E3D34009CC260 /* SettingsViewController.swift in Sources */,
 				DAEDED661E77F9C500FCE1A4 /* TileSource.swift in Sources */,
 				DA394DCC1E5CB1BF0058AE09 /* LocationSearchTable.swift in Sources */,
