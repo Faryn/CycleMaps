@@ -26,7 +26,7 @@ class OverlayTile : MKTileOverlay {
     
     let operationQueue = OperationQueue()
     let cacheConfig = Config(
-        frontKind: .memory,  // Your front cache type
+        frontKind: .disk,  // Your front cache type
         backKind: .disk,  // Your back cache type
         expiry: .date(Date().addingTimeInterval(604800)), // 1 Week
         maxSize: 100000)
@@ -42,19 +42,19 @@ class OverlayTile : MKTileOverlay {
     }
     
     override func loadTile(at path: MKTileOverlayPath, result: @escaping (Data?, Error?) -> Void) {
-        let cacheKey = "\(self.urlTemplate)-\(path.x)-\(path.y)-\(path.z)"
-        self.cache?.object(cacheKey) { (data: Data?) in
+        let cacheKey = "\(self.urlTemplate!)-\(path.x)-\(path.y)-\(path.z)"
+        self.cache!.object(cacheKey) { (data: Data?) in
             if data != nil {
-                //print("Cached!")
+                print("Cached!")
                 result(data,nil)
             } else {
-                //print("Requesting data....")
+                print("Requesting Data")
                 let url = self.url(forTilePath: path)
                 let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 3)
                 self.session.dataTask(with: request) {
                     data, response, error in
-                    if let data = data {
-                        self.cache?.add(cacheKey, object: data)
+                    if data != nil {
+                        self.cache?.add(cacheKey, object: data!)
                     }
                     result(data, error)
                     }.resume()

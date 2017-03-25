@@ -13,14 +13,10 @@ import WebKit
 class AboutViewController : UIViewController, UIWebViewDelegate {
     var webView: UIWebView?
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "About"
         
         //Add the Webview
         self.webView = UIWebView(frame: self.view.frame)
@@ -38,10 +34,5 @@ class AboutViewController : UIViewController, UIWebViewDelegate {
             return false
         }
         return true
-    }
-    
-    func closeViewController() {
-        self.dismiss(animated: true, completion: { () -> Void in
-        })
     }
 }

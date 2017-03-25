@@ -280,10 +280,10 @@
             </objects>
             <point key="canvasLocation" x="2848.8000000000002" y="818.14092953523243"/>
         </scene>
-        <!--About View Controller-->
+        <!--About-->
         <scene sceneID="vWR-Ju-8vg">
             <objects>
-                <viewController id="del-8U-vic" customClass="AboutViewController" customModule="CycleMaps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="About" id="del-8U-vic" customClass="AboutViewController" customModule="CycleMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I8w-In-FdY"/>
                         <viewControllerLayoutGuide type="bottom" id="3RY-9w-gAN"/>

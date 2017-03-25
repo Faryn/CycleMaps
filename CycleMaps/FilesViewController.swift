@@ -74,6 +74,7 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,UIDocum
     
     @IBAction func importPressed(_ sender: UIBarButtonItem) {
         let importMenu = UIDocumentMenuViewController(documentTypes: ["com.apple.dt.document.gpx"], in: .import)
+        importMenu.popoverPresentationController?.barButtonItem = importButton
         importMenu.delegate = self
         present(importMenu, animated: true, completion: nil)
     }
@@ -93,7 +94,6 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,UIDocum
     
     func documentMenu(_ documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
         documentPicker.delegate = self
-        documentMenu.popoverPresentationController?.barButtonItem = importButton
         present(documentPicker, animated: true, completion: nil)
     }
 }
