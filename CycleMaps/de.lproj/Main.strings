@@ -1,0 +1,84 @@
+
+/* Class = "UIBarButtonItem"; title = "Map"; ObjectID = "6NQ-tB-l0k"; */
+"6NQ-tB-l0k.title" = "Karte";
+
+/* Class = "UIBarButtonItem"; title = "Map Style"; ObjectID = "95t-Yl-I3Y"; */
+"95t-Yl-I3Y.title" = "Kartenstil";
+
+/* Class = "UIViewController"; title = "Map"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "Karte";
+
+/* Class = "UINavigationItem"; title = "GPX Files"; ObjectID = "GuK-8r-Uj8"; */
+"GuK-8r-Uj8.title" = "GPX Dateien";
+
+/* Class = "UILabel"; text = "About"; ObjectID = "NSq-c5-WS2"; */
+"NSq-c5-WS2.text" = "Über";
+
+/* Class = "UILabel"; text = "Map Style"; ObjectID = "NiF-ay-j01"; */
+"NiF-ay-j01.text" = "Kartenstil";
+
+/* Class = "UILabel"; text = "Disable Cache"; ObjectID = "Nlq-XB-CCM"; */
+"Nlq-XB-CCM.text" = "Cache deaktivieren";
+
+/* Class = "UIButton"; normalTitle = "Clear Cache"; ObjectID = "QAq-tT-Viy"; */
+"QAq-tT-Viy.normalTitle" = "Cache leeren";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "QBJ-Zw-wXr"; */
+"QBJ-Zw-wXr.title" = "Einstellungen";
+
+/* Class = "UIButton"; normalTitle = "⚙"; ObjectID = "Qtg-9y-kTW"; */
+"Qtg-9y-kTW.normalTitle" = "⚙";
+
+/* Class = "UINavigationController"; title = "Map"; ObjectID = "S7A-xP-f7U"; */
+"S7A-xP-f7U.title" = "Karte";
+
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "ThV-TA-g6M"; */
+"ThV-TA-g6M.title" = "Einstellungen";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "W33-Ah-an7"; */
+"W33-Ah-an7.text" = "Titel";
+
+/* Class = "UITableViewSection"; footerTitle = "All downloaded maps are cached to save data."; ObjectID = "aFP-3r-20h"; */
+"aFP-3r-20h.footerTitle" = "Alle heruntergeladenen Daten werden im Cache gesichert, um die Performance zu verbessern.";
+
+/* Class = "UITableViewSection"; headerTitle = "Cache"; ObjectID = "aFP-3r-20h"; */
+"aFP-3r-20h.headerTitle" = "Cache";
+
+/* Class = "UIViewController"; title = "About"; ObjectID = "del-8U-vic"; */
+"del-8U-vic.title" = "Über";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "fTh-fB-9Y7"; */
+"fTh-fB-9Y7.text" = "Untertitel";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "h0Q-tT-lxG"; */
+"h0Q-tT-lxG.text" = "Titel";
+
+/* Class = "UIBarButtonItem"; title = "Import"; ObjectID = "jKo-2C-ew6"; */
+"jKo-2C-ew6.title" = "Import";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "kYg-rI-duW"; */
+"kYg-rI-duW.title" = "Einstellungen";
+
+/* Class = "UIBarButtonItem"; title = "Map"; ObjectID = "mil-qx-dfo"; */
+"mil-qx-dfo.title" = "Karte";
+
+/* Class = "UIButton"; normalTitle = "Edit Location Settings"; ObjectID = "nj8-PK-alo"; */
+"nj8-PK-alo.normalTitle" = "Einstellung Ortungsdienste";
+
+/* Class = "UITableViewSection"; headerTitle = "Map"; ObjectID = "s2H-l4-Gam"; */
+"s2H-l4-Gam.headerTitle" = "Karte";
+
+/* Class = "UINavigationItem"; title = "Map Style"; ObjectID = "tYK-qY-22v"; */
+"tYK-qY-22v.title" = "Kartenstil";
+
+/* Class = "UIButton"; normalTitle = "Contact Support"; ObjectID = "vNL-y3-wqX"; */
+"vNL-y3-wqX.normalTitle" = "Support kontaktieren";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "vWy-cD-14i"; */
+"vWy-cD-14i.text" = "Detail";
+
+/* Class = "UITableViewController"; title = "GPX Files"; ObjectID = "w1t-Fo-jrU"; */
+"w1t-Fo-jrU.title" = "GPX Dateien";
+
+/* Class = "UITableViewSection"; headerTitle = "Location"; ObjectID = "zjO-J9-c9W"; */
+"zjO-J9-c9W.headerTitle" = "Ortungsdienste";

@@ -21,7 +21,7 @@ enum TileSource : Int {
         case .openStreetMap: return "Open Street Map"
         case .mtbMap: return "MTB Map"
         case .hikeBikeMap: return "Hike & Bike Map"
-        case .apple: return "Apple Maps (No Caching)"
+        case .apple: return NSLocalizedString("appleMaps", comment: "")
         }
     }
     

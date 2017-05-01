@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Paul Pfeiffer on 01/05/17.
+
+*/
+
+appleMaps = "Apple Karten (Kein Cache)";
+SearchForPlaces = "Nach Orten suchen";
