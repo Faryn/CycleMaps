@@ -8,13 +8,14 @@
 
 import Foundation
 import UIKit
+import MessageUI
 
 protocol SettingsViewControllerDelegate {
     func clearCache()
     func changedSetting(setting: String?)
 }
 
-class SettingsViewController : UITableViewController, SettingDetailViewControllerDelegate {
+class SettingsViewController : UITableViewController, SettingDetailViewControllerDelegate, MFMailComposeViewControllerDelegate {
     var delegate:SettingsViewControllerDelegate? = nil
     let settings = UserDefaults.standard
     
@@ -24,6 +25,23 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
             cacheSwitch.setOn(cacheDisabled, animated: false)
         }
     }
+    @IBAction func contactSupport(_ sender: UIButton) {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["cyclemaps@thepowl.de"])
+            mail.setSubject("CycleMaps Support")
+            mail.setMessageBody("<p>Send us your issue!</p>", isHTML: true)
+            present(mail, animated: true, completion: nil)
+        } else {
+            // show failure alert
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
     
     @IBOutlet weak var mapStyleCell: UITableViewCell! {
         didSet {

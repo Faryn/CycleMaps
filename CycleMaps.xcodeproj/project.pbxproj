@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84F4FCAF6AACB8F3EDC6BB38 /* Pods_CycleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2B318C1C257E26D917092E /* Pods_CycleMaps.framework */; };
+		CB97A780E6D5C4990A555B3B /* Pods_CycleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF551C031529483C2544467 /* Pods_CycleMaps.framework */; };
 		DA0065F81E6C8D9200A54495 /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0065F71E6C8D9200A54495 /* GPX.swift */; };
 		DA38D8061E6F5B06007817F2 /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38D8051E6F5B06007817F2 /* FilesViewController.swift */; };
 		DA38D8081E6F5D8A007817F2 /* FileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38D8071E6F5D8A007817F2 /* FileStore.swift */; };
@@ -22,6 +22,7 @@
 		DAB068141E47B0C500EFDD3E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB068131E47B0C500EFDD3E /* MapViewController.swift */; };
 		DAB068171E47B0C500EFDD3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB068151E47B0C500EFDD3E /* Main.storyboard */; };
 		DAB0681C1E47B0C500EFDD3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB0681A1E47B0C500EFDD3E /* LaunchScreen.storyboard */; };
+		DABD4C2F1EB7615F0060AD14 /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = DABD4C2E1EB7615F0060AD14 /* keys.plist */; };
 		DAEA8BC91E5E3D34009CC260 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEA8BC81E5E3D34009CC260 /* SettingsViewController.swift */; };
 		DAEB86681E794CF0009D8059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAEB86671E794CF0009D8059 /* Assets.xcassets */; };
 		DAEDED661E77F9C500FCE1A4 /* TileSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEDED651E77F9C500FCE1A4 /* TileSource.swift */; };
@@ -29,9 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		22AC309FC14DC0EBC48EF77C /* Pods-CycleMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CycleMaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps.release.xcconfig"; sourceTree = "<group>"; };
-		6348DBB7C4A2F179600FBF36 /* Pods-CycleMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CycleMaps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps.debug.xcconfig"; sourceTree = "<group>"; };
-		6C2B318C1C257E26D917092E /* Pods_CycleMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CycleMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EC1D672789427C5AEC51910 /* Pods-CycleMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CycleMaps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps.debug.xcconfig"; sourceTree = "<group>"; };
+		B2574A4F329F16CAC8FD6C94 /* Pods-CycleMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CycleMaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps.release.xcconfig"; sourceTree = "<group>"; };
 		DA0065F71E6C8D9200A54495 /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
 		DA38D8051E6F5B06007817F2 /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
 		DA38D8071E6F5D8A007817F2 /* FileStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStore.swift; sourceTree = "<group>"; };
@@ -48,11 +48,13 @@
 		DAB068161E47B0C500EFDD3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DAB0681B1E47B0C500EFDD3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB0681D1E47B0C500EFDD3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DABD4C2E1EB7615F0060AD14 /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		DAEA8BC81E5E3D34009CC260 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DAEB86671E794CF0009D8059 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAEDED641E75FF4D00FCE1A4 /* CycleMaps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CycleMaps.entitlements; sourceTree = "<group>"; };
 		DAEDED651E77F9C500FCE1A4 /* TileSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileSource.swift; sourceTree = "<group>"; };
 		DAEDED671E782EF000FCE1A4 /* SettingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDetailViewController.swift; sourceTree = "<group>"; };
+		DDF551C031529483C2544467 /* Pods_CycleMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CycleMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,28 +64,19 @@
 			files = (
 				DA96311B1E7B2DB30084A16A /* CloudKit.framework in Frameworks */,
 				DA3FC9831E59D905005C08C7 /* MapKit.framework in Frameworks */,
-				84F4FCAF6AACB8F3EDC6BB38 /* Pods_CycleMaps.framework in Frameworks */,
+				CB97A780E6D5C4990A555B3B /* Pods_CycleMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1E63E6E71361F097CEB30338 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6348DBB7C4A2F179600FBF36 /* Pods-CycleMaps.debug.xcconfig */,
-				22AC309FC14DC0EBC48EF77C /* Pods-CycleMaps.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		DA3FC9811E59D905005C08C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				DA96311A1E7B2DB30084A16A /* CloudKit.framework */,
 				DA3FC9821E59D905005C08C7 /* MapKit.framework */,
-				6C2B318C1C257E26D917092E /* Pods_CycleMaps.framework */,
+				DDF551C031529483C2544467 /* Pods_CycleMaps.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -94,7 +87,7 @@
 				DAB068101E47B0C500EFDD3E /* CycleMaps */,
 				DAB0680F1E47B0C500EFDD3E /* Products */,
 				DA3FC9811E59D905005C08C7 /* Frameworks */,
-				1E63E6E71361F097CEB30338 /* Pods */,
+				FBD79E9BBD8BD16A44770832 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,8 +120,18 @@
 				DAB0681A1E47B0C500EFDD3E /* LaunchScreen.storyboard */,
 				DAB0681D1E47B0C500EFDD3E /* Info.plist */,
 				DA3FC9841E59FECD005C08C7 /* OverlayTile.swift */,
+				DABD4C2E1EB7615F0060AD14 /* keys.plist */,
 			);
 			path = CycleMaps;
+			sourceTree = "<group>";
+		};
+		FBD79E9BBD8BD16A44770832 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3EC1D672789427C5AEC51910 /* Pods-CycleMaps.debug.xcconfig */,
+				B2574A4F329F16CAC8FD6C94 /* Pods-CycleMaps.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,12 +141,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAB068201E47B0C500EFDD3E /* Build configuration list for PBXNativeTarget "CycleMaps" */;
 			buildPhases = (
-				A9E40EA9C5B67F0EDC3D79A5 /* [CP] Check Pods Manifest.lock */,
+				7438AABDF5E61A508732B85B /* [CP] Check Pods Manifest.lock */,
 				DAB0680A1E47B0C500EFDD3E /* Sources */,
 				DAB0680B1E47B0C500EFDD3E /* Frameworks */,
 				DAB0680C1E47B0C500EFDD3E /* Resources */,
-				42C8D04E5D4DF259818C3AD3 /* [CP] Embed Pods Frameworks */,
-				891E370B3C7F5D5AF43DA76A /* [CP] Copy Pods Resources */,
+				936CF356478C24FE61C7DFB8 /* [CP] Embed Pods Frameworks */,
+				86318F0503D0866E6EC13E07 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,6 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DABD4C2F1EB7615F0060AD14 /* keys.plist in Resources */,
 				DA5B656E1E85D31800FACE96 /* about.html in Resources */,
 				DAB0681C1E47B0C500EFDD3E /* LaunchScreen.storyboard in Resources */,
 				DAEB86681E794CF0009D8059 /* Assets.xcassets in Resources */,
@@ -219,22 +223,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		42C8D04E5D4DF259818C3AD3 /* [CP] Embed Pods Frameworks */ = {
+		7438AABDF5E61A508732B85B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		891E370B3C7F5D5AF43DA76A /* [CP] Copy Pods Resources */ = {
+		86318F0503D0866E6EC13E07 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -249,19 +253,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A9E40EA9C5B67F0EDC3D79A5 /* [CP] Check Pods Manifest.lock */ = {
+		936CF356478C24FE61C7DFB8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -403,7 +407,7 @@
 		};
 		DAB068211E47B0C500EFDD3E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6348DBB7C4A2F179600FBF36 /* Pods-CycleMaps.debug.xcconfig */;
+			baseConfigurationReference = 3EC1D672789427C5AEC51910 /* Pods-CycleMaps.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				CLANG_ENABLE_MODULES = YES;
@@ -422,7 +426,7 @@
 		};
 		DAB068221E47B0C500EFDD3E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22AC309FC14DC0EBC48EF77C /* Pods-CycleMaps.release.xcconfig */;
+			baseConfigurationReference = B2574A4F329F16CAC8FD6C94 /* Pods-CycleMaps.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				CLANG_ENABLE_MODULES = YES;
