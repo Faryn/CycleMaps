@@ -11,12 +11,16 @@ import Foundation
 enum TileSource : Int {
     case openCycleMap
     case openStreetMap
+    case mtbMap
+    case hikeBikeMap
     case apple
     
     var name: String {
         switch self {
         case .openCycleMap: return "Open Cycle Map"
         case .openStreetMap: return "Open Street Map"
+        case .mtbMap: return "MTB Map"
+        case .hikeBikeMap: return "Hike & Bike Map"
         case .apple: return "Apple Maps (No Caching)"
         }
     }
@@ -32,8 +36,10 @@ enum TileSource : Int {
             }
             return "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png"
         case .openStreetMap: return "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        case .mtbMap: return "http://{s}.tile.mtbmap.cz/mtbmap_tiles/{z}/{x}/{y}.png"
+        case .hikeBikeMap: return "http://{s}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png"
         case .apple: return ""
         }
     }
-    static let count = 3
+    static let count = 6
 }

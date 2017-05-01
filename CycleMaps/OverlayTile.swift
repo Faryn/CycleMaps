@@ -38,7 +38,6 @@ class OverlayTile : MKTileOverlay {
     
     override func loadTile(at path: MKTileOverlayPath, result: @escaping (Data?, Error?) -> Void) {
         let cacheKey = "\(self.urlTemplate!)-\(path.x)-\(path.y)-\(path.z)"
-        print(cacheKey)
         self.cache.object(cacheKey) { (data: Data?) in
             if data != nil {
                 print("Cached!")
