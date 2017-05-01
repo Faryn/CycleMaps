@@ -25,12 +25,12 @@ enum TileSource : Int {
         switch self {
         case .openCycleMap:
             if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
-            let keys = NSDictionary(contentsOfFile: path)
+                let keys = NSDictionary(contentsOfFile: path)
                 if let apikey = keys!.value(forKey: "ocmApiKey") {
                     return "https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=\(apikey)"
                 }
-        }
-        return "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png"
+            }
+            return "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png"
         case .openStreetMap: return "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         case .apple: return ""
         }

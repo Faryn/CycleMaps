@@ -25,25 +25,21 @@ class OverlayTile : MKTileOverlay {
     var enableCache = true
     
     let operationQueue = OperationQueue()
-    let cacheConfig = Config(
-        frontKind: .disk,  // Your front cache type
-        backKind: .disk,  // Your back cache type
-        expiry: .date(Date().addingTimeInterval(604800)), // 1 Week
-        maxSize: 100000)
     let session = URLSession.shared
-    var cache : Cache<Data>?
+    let cache = HybridCache(name: "TileCache")
     let subdomains = ["a","b","c"]
     var subdomainRotation : Int = 0
     
     override init(urlTemplate URLTemplate: String?) {
         super.init(urlTemplate: URLTemplate)
-        self.cache = Cache<Data>(name: "TileCache", config: cacheConfig)
-        self.cache!.clearExpired()
+//        self.cache = HybridCache(name: "TileCache", config: cacheConfig)
+        self.cache.clearExpired()
     }
     
     override func loadTile(at path: MKTileOverlayPath, result: @escaping (Data?, Error?) -> Void) {
         let cacheKey = "\(self.urlTemplate!)-\(path.x)-\(path.y)-\(path.z)"
-        self.cache!.object(cacheKey) { (data: Data?) in
+        print(cacheKey)
+        self.cache.object(cacheKey) { (data: Data?) in
             if data != nil {
                 print("Cached!")
                 result(data,nil)
@@ -54,7 +50,7 @@ class OverlayTile : MKTileOverlay {
                 self.session.dataTask(with: request) {
                     data, response, error in
                     if data != nil {
-                        self.cache?.add(cacheKey, object: data!)
+                        self.cache.add(cacheKey, object: data!)
                     }
                     result(data, error)
                     }.resume()
@@ -70,7 +66,7 @@ class OverlayTile : MKTileOverlay {
     }
     
     func clearCache() {
-        cache?.clear()
+        cache.clear()
         print("Tile Cache cleared!")
     }
     
