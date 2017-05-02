@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class LocationSearchTable: UITableViewController {
+class LocationSearchTable: UITableViewController, UISearchResultsUpdating {
     var matchingItems:[MKMapItem] = []
     var mapView: MKMapView? = nil
     var handleMapSearchDelegate:HandleMapSearch? = nil
@@ -38,12 +38,7 @@ class LocationSearchTable: UITableViewController {
         return addressLine
     }
     
-    
-}
-
-extension LocationSearchTable : UISearchResultsUpdating {
-    @available(iOS 8.0, *)
-    public func updateSearchResults(for searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         guard let mapView = mapView,
             let searchBarText = searchController.searchBar.text else { return }
         let request = MKLocalSearchRequest()
@@ -57,9 +52,6 @@ extension LocationSearchTable : UISearchResultsUpdating {
             self.matchingItems = response.mapItems
             self.tableView.reloadData()
         }
-    }
-    
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
     }
 }
 

@@ -17,7 +17,6 @@
 		DA5B656C1E85D13A00FACE96 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5B656B1E85D13A00FACE96 /* AboutViewController.swift */; };
 		DA5B656E1E85D31800FACE96 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = DA5B656D1E85D31800FACE96 /* about.html */; };
 		DA6FE4871EB7DA2B005B7F97 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA6FE4891EB7DA2B005B7F97 /* Localizable.strings */; };
-		DA6FE48C1EB7DA76005B7F97 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA6FE48B1EB7DA76005B7F97 /* Info.plist */; };
 		DA7DBEF11E7B26C600720B5E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DBEF01E7B26C600720B5E /* Constants.swift */; };
 		DA96311B1E7B2DB30084A16A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA96311A1E7B2DB30084A16A /* CloudKit.framework */; };
 		DAB068121E47B0C500EFDD3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB068111E47B0C500EFDD3E /* AppDelegate.swift */; };
@@ -225,7 +224,6 @@
 				DAB0681C1E47B0C500EFDD3E /* LaunchScreen.storyboard in Resources */,
 				DAEB86681E794CF0009D8059 /* Assets.xcassets in Resources */,
 				DAB068171E47B0C500EFDD3E /* Main.storyboard in Resources */,
-				DA6FE48C1EB7DA76005B7F97 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

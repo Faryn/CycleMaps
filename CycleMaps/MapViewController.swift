@@ -87,6 +87,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         //        self.map.addAnnotation((point))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setToolbarHidden(false, animated: true)
+    }
     
     func clearCache() {
         tileSourceOverlay?.clearCache()
@@ -124,6 +128,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         definesPresentationContext = true
         locationSearchTable.mapView = map
         locationSearchTable.handleMapSearchDelegate = self
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        resultSearchController?.searchResultsUpdater?.updateSearchResults(for: resultSearchController!)
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -215,10 +223,6 @@ extension MapViewController: HandleMapSearch {
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
-        //        if let city = placemark.locality,
-        //            let state = placemark.administrativeArea {
-        //            annotation.subtitle = "\(city) \(state)"
-        //        }
         map.addAnnotation(annotation)
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegionMake(placemark.coordinate, span)
