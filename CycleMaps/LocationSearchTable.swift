@@ -13,6 +13,7 @@ class LocationSearchTable: UITableViewController, UISearchResultsUpdating {
     var matchingItems:[MKMapItem] = []
     var mapView: MKMapView? = nil
     var handleMapSearchDelegate:HandleMapSearch? = nil
+    var searchBar: UISearchBar? = nil
     
     func parseAddress(selectedItem:MKPlacemark) -> String {
         // put a space between "4" and "Melrose Place"
@@ -59,18 +60,19 @@ extension LocationSearchTable {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return matchingItems.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         let selectedItem = matchingItems[indexPath.row].placemark
         cell.textLabel?.text = selectedItem.name
         cell.detailTextLabel?.text = parseAddress(selectedItem: selectedItem)
         return cell
-        
     }
 }
 
 extension LocationSearchTable {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchBar!.resignFirstResponder()
         let selectedItem = matchingItems[indexPath.row].placemark
         handleMapSearchDelegate?.dropPinZoomIn(selectedItem)
         dismiss(animated: true, completion: nil)

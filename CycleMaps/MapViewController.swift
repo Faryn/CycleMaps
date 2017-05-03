@@ -128,9 +128,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         definesPresentationContext = true
         locationSearchTable.mapView = map
         locationSearchTable.handleMapSearchDelegate = self
+        locationSearchTable.searchBar = searchBar
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    internal func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         resultSearchController?.searchResultsUpdater?.updateSearchResults(for: resultSearchController!)
     }
     

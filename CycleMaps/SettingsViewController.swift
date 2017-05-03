@@ -45,15 +45,20 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
     
     @IBOutlet weak var mapStyleCell: UITableViewCell! {
         didSet {
-            if let mapStyle = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))?.name {
-                mapStyleCell.detailTextLabel?.text = mapStyle
-            } else { mapStyleCell.detailTextLabel?.text = TileSource.openCycleMap.name }
+            updateMapStyleCell()
         }
+    }
+    
+    private func updateMapStyleCell() {
+        if let mapStyle = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))?.name {
+            mapStyleCell.detailTextLabel?.text = mapStyle
+        } else { mapStyleCell.detailTextLabel?.text = TileSource.openCycleMap.name }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.setToolbarHidden(true, animated: true)
+        mapStyleCell.setSelected(false, animated: true)
     }
     @IBAction func gotoSettings(_ sender: UIButton) {
         UIApplication.shared.open((URL(string:UIApplicationOpenSettingsURLString)!))
@@ -91,6 +96,7 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
     func selectedMapStyle(style: TileSource) {
         settings.set(style.rawValue, forKey: Constants.Settings.tileSource)
         delegate?.changedSetting(setting: Constants.Settings.tileSource)
+        updateMapStyleCell()
     }
 
 }
