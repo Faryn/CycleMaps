@@ -74,6 +74,7 @@ extension LocationSearchTable {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         searchBar!.resignFirstResponder()
         let selectedItem = matchingItems[indexPath.row].placemark
+        searchBar?.text = selectedItem.name
         handleMapSearchDelegate?.dropPinZoomIn(selectedItem)
         dismiss(animated: true, completion: nil)
         
