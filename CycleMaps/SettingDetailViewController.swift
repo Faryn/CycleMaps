@@ -16,6 +16,7 @@ protocol SettingDetailViewControllerDelegate {
 class SettingDetailViewController : UITableViewController {
     var selected = 1
     var delegate: SettingDetailViewControllerDelegate? = nil
+    let generator = UISelectionFeedbackGenerator()
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Storyboard.mapStyleCellReuseIdentifier)!
@@ -31,9 +32,11 @@ class SettingDetailViewController : UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        generator.selectionChanged()
         delegate?.selectedMapStyle(style: TileSource(rawValue: indexPath.row)!)
         selected = indexPath.row
         tableView.reloadData()
+        generator.prepare()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -88,6 +88,7 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
                 svc.navigationItem.backBarButtonItem?.title = Constants.Settings.title
                 svc.selected = settings.integer(forKey: Constants.Settings.tileSource)
                 svc.delegate = self
+                svc.generator.prepare()
             default:
                 break
             }

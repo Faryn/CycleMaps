@@ -24,6 +24,7 @@
 		2A28584053EE9311421D16BAF0FED765 /* StorageAware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4294819DF785152ADC379E625EDBC495 /* StorageAware.swift */; };
 		2AF4E7CF7C7DCD49C7A753D0F750302B /* BlockModeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D939D666F23A9BCAAC2FB99F419671 /* BlockModeOptions.swift */; };
 		2D398F22B4773D51FC07A99428161CDC /* BatchedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C5E50A780708117212C34CFE269C89 /* BatchedCollection.swift */; };
+		2D65A7271B6F7F32FA642E752B65F99F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C450FCC84ADB38A8DF324176E66358F8 /* Foundation.framework */; };
 		31073309ECFF000FCE396CFFBFB58B33 /* DefaultCacheConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52951C1C9BB95EFE479C127F93FE17D /* DefaultCacheConverter.swift */; };
 		3321329DE80A49FFC1AE3C6215BE9C3A /* Cryptors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9144C9311257C59EDBBF6BA298F89D1B /* Cryptors.swift */; };
 		35DACE1FE9FB5BE830E1D628CDD828A0 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2094057855D285FC44ACD05892F577D2 /* Data+Extension.swift */; };
@@ -43,7 +44,6 @@
 		56D830FE7FC3520FF0F2B936DDEC2B5E /* Pods-CycleMaps-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEBDCD73E73766A4E6C2A8D72242C16 /* Pods-CycleMaps-dummy.m */; };
 		5E07862E450206E8236AD4DAF980FCD0 /* Checksum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CD0460AE8532D0E0656E10DC36C08B /* Checksum.swift */; };
 		5F9FCEB0214469AAE23051CAD98C1576 /* BasicHybridCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88021267C6CF7F9028527B3A9588797B /* BasicHybridCache.swift */; };
-		62E2C867572AA0EC327D377DB38392FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4392316BF1DF3D38D9C0FD4A699CD3BE /* Foundation.framework */; };
 		64497EA608252563E15AE92CA9C88ECC /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D61278CE4ECFA83030C7AE31DB2D8F1 /* Array+Extension.swift */; };
 		66013AE72237506CBD320F1B03B3AFED /* NSDate+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB5765620B216061EF52376B9042A44 /* NSDate+Cache.swift */; };
 		675D305890FFFF35178A58EF79F719A3 /* OFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84979D49255BAB04E3FCAE2772C4777B /* OFB.swift */; };
@@ -59,13 +59,13 @@
 		7942FEC8A16AA48A618C2FFB2FEC9CDD /* BlockModeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35941C61F1BDF36736DC7750781CB685 /* BlockModeWorker.swift */; };
 		7A53EEB662648EEE4FA25B124A810D31 /* RandomAccessBlockModeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD7FA6965F18E2F013E75BA1BC67151 /* RandomAccessBlockModeWorker.swift */; };
 		7AAF610ED240DC1BBB95F52D589907FA /* UInt8+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675DB309814B35E632D8B4D6F1E01430 /* UInt8+Extension.swift */; };
+		7F3EEA304122B674034F7AD5D8270144 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C450FCC84ADB38A8DF324176E66358F8 /* Foundation.framework */; };
 		81546CB0D3BE0DDD0A5F1DAD3861BDE5 /* String+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287762A856012212072FC2562335157 /* String+Cache.swift */; };
 		828290592D5D5C13260F36BFFAAC586B /* AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = D842097D3971E067400ADA75FC919DF0 /* AES.swift */; };
 		856E66E2F4EBB16EF13364B9A8C09C6B /* PKCS5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F4B95E568AB422C5358B958767AEA6 /* PKCS5.swift */; };
 		8FE8EB534497B91744E57EDA0330ABDA /* SyncCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C51D84F6C1CA828DEC713FAEF38868 /* SyncCache.swift */; };
 		96781B978B1FBC4DF3C96145C811183B /* NSData+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7185DCA7F53EB79317FE65C592E59D5B /* NSData+Cache.swift */; };
 		980415D73017547B08ED5539E4727BE3 /* Blowfish+Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9875E3766C3FD5CDEB46BC55DFE3CFAF /* Blowfish+Foundation.swift */; };
-		A0DFCC699BB0DED25E4D3EA8C1BF5653 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4392316BF1DF3D38D9C0FD4A699CD3BE /* Foundation.framework */; };
 		A1E6AE6BE109C5C3D770CC7865A2E79C /* Bit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D88CB9F0468D6DD1C9C5647EF1A25B5 /* Bit.swift */; };
 		A27503DF13A5F0CB2F42A51B5FB2B162 /* HybridCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC941EDC787937064B8C1F0AAD8820CC /* HybridCache.swift */; };
 		A389782842B75B4080B963D88872763D /* CSArrayType+Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A9F376927960FE4CC13072D2652C48 /* CSArrayType+Foundation.swift */; };
@@ -73,7 +73,6 @@
 		A98E0C07F0A1FFC6F357BEC05D5FBCB7 /* StorageKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EF7A50AB35806E7DB9B1599A46EC70 /* StorageKind.swift */; };
 		AE5AAE481379D7D65615DC24D9786456 /* SyncHybridCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E807C638C7E0BB57C29E50F403496C5 /* SyncHybridCache.swift */; };
 		AE8913E23ED24C6AB11B133FDEDEC0B9 /* UInt64+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976C4DFBFDEEA67F15CF87485E5EB8D5 /* UInt64+Extension.swift */; };
-		B2E05B156F98DA5207D413C7138BFA4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4392316BF1DF3D38D9C0FD4A699CD3BE /* Foundation.framework */; };
 		B64478C7D076144B1482D09FB5B8F5A9 /* Cipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CE32D7F89CFDC19328FD732B5E34F1 /* Cipher.swift */; };
 		BA039DB050ABB6A984A6BD27FB66B94D /* ECB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A78A81CED407674DBC8D3F54DFB732E /* ECB.swift */; };
 		BE5B16A433DF1172915422A3A879E115 /* IntegerConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36AA6DAB04011D7FA091EEBB0C714A /* IntegerConvertible.swift */; };
@@ -89,6 +88,7 @@
 		D7A59BA734B9C9FF210C27E0577C7D7A /* Expiry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1EFFEF547941BBDA005B513714463 /* Expiry.swift */; };
 		DA8D96CCE75EFABA7EFF2B4F767849CF /* DiskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34E736CB029C0FBF09EB3AB53350A5 /* DiskStorage.swift */; };
 		E26152100013D6D9DAA78A47D449AAD4 /* RandomBytesSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB73EEC242813A30243ADAD8935874D /* RandomBytesSequence.swift */; };
+		E3AEAFA2DFA2B3726F76E99703C212F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C450FCC84ADB38A8DF324176E66358F8 /* Foundation.framework */; };
 		E558DC2FA607C74BF2750B3A4E710CD6 /* Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A383AB384685A0E6879D5F7C02043197 /* Padding.swift */; };
 		E64EF94D5B35743B44FFDAFB4E71094F /* RandomAccessCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3174C461E935899F0C1B777B2A6C54 /* RandomAccessCryptor.swift */; };
 		E68BB582E7121980FA0B273FF34E1B35 /* UInt16+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13B64F2A14059FD4E29A41B2C935C19 /* UInt16+Extension.swift */; };
@@ -156,7 +156,6 @@
 		3E807C638C7E0BB57C29E50F403496C5 /* SyncHybridCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SyncHybridCache.swift; path = Source/Shared/Library/SyncHybridCache.swift; sourceTree = "<group>"; };
 		421F8B003E949ADAE9A9623ADC12C987 /* SecureBytes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecureBytes.swift; path = Sources/CryptoSwift/SecureBytes.swift; sourceTree = "<group>"; };
 		4294819DF785152ADC379E625EDBC495 /* StorageAware.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StorageAware.swift; path = Source/Shared/Storage/StorageAware.swift; sourceTree = "<group>"; };
-		4392316BF1DF3D38D9C0FD4A699CD3BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		44C50BAA3E0756A97476814909948DF7 /* String+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Extension.swift"; path = "Sources/CryptoSwift/String+Extension.swift"; sourceTree = "<group>"; };
 		4511510D7A1CE7AFF81135FD5F974A33 /* CFB.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CFB.swift; path = Sources/CryptoSwift/BlockMode/CFB.swift; sourceTree = "<group>"; };
 		4608004927AC6105D61327C929DA3ABA /* Pods-CycleMaps-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CycleMaps-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -220,6 +219,7 @@
 		BBB73EEC242813A30243ADAD8935874D /* RandomBytesSequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RandomBytesSequence.swift; path = Sources/CryptoSwift/RandomBytesSequence.swift; sourceTree = "<group>"; };
 		BC941EDC787937064B8C1F0AAD8820CC /* HybridCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HybridCache.swift; path = Source/iOS/HybridCache.swift; sourceTree = "<group>"; };
 		C3C1F16A8E2128FADD12CF89F7F86FE3 /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Sources/CryptoSwift/Operators.swift; sourceTree = "<group>"; };
+		C450FCC84ADB38A8DF324176E66358F8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		CD8C38478D06E82C90FEDCF9F213D5B4 /* Cache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cache.framework; path = Cache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE14CE011F0CD5A527A80ED61FC15A3 /* BlockMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlockMode.swift; path = Sources/CryptoSwift/BlockMode/BlockMode.swift; sourceTree = "<group>"; };
 		D287762A856012212072FC2562335157 /* String+Cache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Cache.swift"; path = "Source/Shared/Extensions/String+Cache.swift"; sourceTree = "<group>"; };
@@ -246,7 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6A832C52A113E1D2691B5B54F2A3E90 /* CryptoSwift.framework in Frameworks */,
-				B2E05B156F98DA5207D413C7138BFA4E /* Foundation.framework in Frameworks */,
+				E3AEAFA2DFA2B3726F76E99703C212F8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62E2C867572AA0EC327D377DB38392FE /* Foundation.framework in Frameworks */,
+				7F3EEA304122B674034F7AD5D8270144 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +262,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0DFCC699BB0DED25E4D3EA8C1BF5653 /* Foundation.framework in Frameworks */,
+				2D65A7271B6F7F32FA642E752B65F99F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,14 +378,6 @@
 			path = "../Target Support Files/CryptoSwift";
 			sourceTree = "<group>";
 		};
-		48E66D3811FBC61F5879F93372180F75 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				4392316BF1DF3D38D9C0FD4A699CD3BE /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
 		64E24E59320AC8AA92568EAB962EC699 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,7 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				D6EAC319B501F3F8BBE778D3605268D5 /* CryptoSwift.framework */,
-				48E66D3811FBC61F5879F93372180F75 /* iOS */,
+				D59E2EEB01DB03C17462989349FF067C /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -460,6 +452,14 @@
 				808030D2D6F856DA6CC6B3D3E6BEB659 /* Pods-CycleMaps */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		D59E2EEB01DB03C17462989349FF067C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C450FCC84ADB38A8DF324176E66358F8 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		DEDC639F5FB909F52136BD3D5BFFBF84 /* Pods */ = {
@@ -561,7 +561,7 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -715,11 +715,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		673254EEAF0B5BF4596080C749645884 /* Release */ = {
+		166E2CAC58E8608AD59A6F0B71C9C3E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -727,218 +728,13 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		6D4843D2B9D2C130397D59504086DDB5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 77DD2FF4CAA58E59AC03C6AAC3B56959 /* Pods-CycleMaps.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-CycleMaps/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-CycleMaps/Pods-CycleMaps.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_CycleMaps;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		9EC50B3BCA54DCC74ED6A1EB76BD81B2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A26F8DB511B60051A58B1C9C846110E3 /* CryptoSwift.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CryptoSwift/CryptoSwift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CryptoSwift/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/CryptoSwift/CryptoSwift.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = CryptoSwift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A28A5470078CDCAF145562A5C12B4D72 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8C2EECAD2A4BD65E8B0834E43EDF33C /* Pods-CycleMaps.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-CycleMaps/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-CycleMaps/Pods-CycleMaps.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_CycleMaps;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B40C0196947C2BB97E0F935B2C0F567D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AEFEFE11E6810860004A68C53D64A67 /* Cache.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Cache/Cache-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Cache/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Cache/Cache.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Cache;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C6ED8394B746D6B8C0C116AC5E294AC8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A26F8DB511B60051A58B1C9C846110E3 /* CryptoSwift.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CryptoSwift/CryptoSwift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CryptoSwift/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/CryptoSwift/CryptoSwift.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = CryptoSwift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		E4F26E6EB105713A6A7E7E2E283AC2DF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
@@ -967,10 +763,235 @@
 			};
 			name = Debug;
 		};
-		FE7DD15DDD50BC45DC12FC5FD5C3CAEA /* Debug */ = {
+		3792A7ADE614200B03F6E4BF0BCED25F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A26F8DB511B60051A58B1C9C846110E3 /* CryptoSwift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CryptoSwift/CryptoSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CryptoSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CryptoSwift/CryptoSwift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = CryptoSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5B63037016593BC8CEB635CB912F5D34 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5AEFEFE11E6810860004A68C53D64A67 /* Cache.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Cache/Cache-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Cache/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Cache/Cache.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Cache;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5D99AA8E243A0F5AB9C3FFD307FA638A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A26F8DB511B60051A58B1C9C846110E3 /* CryptoSwift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CryptoSwift/CryptoSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CryptoSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CryptoSwift/CryptoSwift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = CryptoSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6BD5E132341EFC85020076338C8BE43C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77DD2FF4CAA58E59AC03C6AAC3B56959 /* Pods-CycleMaps.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-CycleMaps/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CycleMaps/Pods-CycleMaps.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_CycleMaps;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		72D766BB1E4FDAC4AF79F2FDCB584243 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8C2EECAD2A4BD65E8B0834E43EDF33C /* Pods-CycleMaps.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-CycleMaps/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CycleMaps/Pods-CycleMaps.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_CycleMaps;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AA0B5BDEB018901CD8F88AAD05F5B893 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E7DE78760D869AA0B8EE9677F6D6FE1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AEFEFE11E6810860004A68C53D64A67 /* Cache.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -992,6 +1013,7 @@
 				PRODUCT_NAME = Cache;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1006,8 +1028,8 @@
 		0A695630508E846FC411B12EBD121AE3 /* Build configuration list for PBXNativeTarget "Cache" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FE7DD15DDD50BC45DC12FC5FD5C3CAEA /* Debug */,
-				B40C0196947C2BB97E0F935B2C0F567D /* Release */,
+				E7DE78760D869AA0B8EE9677F6D6FE1E /* Debug */,
+				5B63037016593BC8CEB635CB912F5D34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1015,8 +1037,8 @@
 		0CCD9DAA93F13221F44440DEDD6A4D39 /* Build configuration list for PBXNativeTarget "CryptoSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9EC50B3BCA54DCC74ED6A1EB76BD81B2 /* Debug */,
-				C6ED8394B746D6B8C0C116AC5E294AC8 /* Release */,
+				5D99AA8E243A0F5AB9C3FFD307FA638A /* Debug */,
+				3792A7ADE614200B03F6E4BF0BCED25F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1024,8 +1046,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E4F26E6EB105713A6A7E7E2E283AC2DF /* Debug */,
-				673254EEAF0B5BF4596080C749645884 /* Release */,
+				166E2CAC58E8608AD59A6F0B71C9C3E0 /* Debug */,
+				AA0B5BDEB018901CD8F88AAD05F5B893 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1033,8 +1055,8 @@
 		47863EE7DF3770907EFF841B06F8F2F1 /* Build configuration list for PBXNativeTarget "Pods-CycleMaps" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6D4843D2B9D2C130397D59504086DDB5 /* Debug */,
-				A28A5470078CDCAF145562A5C12B4D72 /* Release */,
+				6BD5E132341EFC85020076338C8BE43C /* Debug */,
+				72D766BB1E4FDAC4AF79F2FDCB584243 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
