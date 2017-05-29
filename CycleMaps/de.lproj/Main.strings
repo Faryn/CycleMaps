@@ -1,4 +1,7 @@
 
+/* Class = "UILabel"; text = "Keep Display On"; ObjectID = "2b8-ES-XoZ"; */
+"2b8-ES-XoZ.text" = "Displaysperre verhindern";
+
 /* Class = "UIBarButtonItem"; title = "Map"; ObjectID = "6NQ-tB-l0k"; */
 "6NQ-tB-l0k.title" = "Karte";
 
@@ -21,7 +24,7 @@
 "Nlq-XB-CCM.text" = "Cache deaktivieren";
 
 /* Class = "UIButton"; normalTitle = "Clear Cache"; ObjectID = "QAq-tT-Viy"; */
-"QAq-tT-Viy.normalTitle" = "Cache leeren";
+"QAq-tT-Viy.normalTitle" = "Cache löschen";
 
 /* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "QBJ-Zw-wXr"; */
 "QBJ-Zw-wXr.title" = "Einstellungen";
@@ -38,7 +41,7 @@
 /* Class = "UILabel"; text = "Title"; ObjectID = "W33-Ah-an7"; */
 "W33-Ah-an7.text" = "Titel";
 
-/* Class = "UITableViewSection"; footerTitle = "All downloaded maps are cached to save data."; ObjectID = "aFP-3r-20h"; */
+/* Class = "UITableViewSection"; footerTitle = "All downloaded maps are cached to improve performance."; ObjectID = "aFP-3r-20h"; */
 "aFP-3r-20h.footerTitle" = "Alle heruntergeladenen Daten werden im Cache gesichert, um die Performance zu verbessern.";
 
 /* Class = "UITableViewSection"; headerTitle = "Cache"; ObjectID = "aFP-3r-20h"; */
@@ -63,10 +66,13 @@
 "mil-qx-dfo.title" = "Karte";
 
 /* Class = "UIButton"; normalTitle = "Edit Location Settings"; ObjectID = "nj8-PK-alo"; */
-"nj8-PK-alo.normalTitle" = "Einstellung Ortungsdienste";
+"nj8-PK-alo.normalTitle" = "Einstellungen Ortungsdienste";
 
-/* Class = "UITableViewSection"; headerTitle = "Map"; ObjectID = "s2H-l4-Gam"; */
-"s2H-l4-Gam.headerTitle" = "Karte";
+/* Class = "UITableViewSection"; footerTitle = "Enable to keep the display on at all times, at the expense of battery life."; ObjectID = "s2H-l4-Gam"; */
+"s2H-l4-Gam.footerTitle" = "Aktivieren, um die Abschaltung des Displays zu deaktivieren. Das hat eine höhere Akkunutzung zur Folge.";
+
+/* Class = "UITableViewSection"; headerTitle = "Display"; ObjectID = "s2H-l4-Gam"; */
+"s2H-l4-Gam.headerTitle" = "Anzeige";
 
 /* Class = "UINavigationItem"; title = "Map Style"; ObjectID = "tYK-qY-22v"; */
 "tYK-qY-22v.title" = "Kartenstil";
