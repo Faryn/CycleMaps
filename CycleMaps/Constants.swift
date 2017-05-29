@@ -21,5 +21,6 @@ struct Constants {
         static let tileSource = "tileSource"
         static let title = "Settings"
         static let mapStyleTitle = "Map Style"
+        static let idleTimerDisabled = "idleTimerDisabled"
     }
 }

@@ -24,7 +24,12 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
         if let cacheDisabled = settings.value(forKey: Constants.Settings.cacheDisabled) as? Bool {
             cacheSwitch.setOn(cacheDisabled, animated: false)
         }
+        if let disableIdleTimer = settings.value(forKey: Constants.Settings.idleTimerDisabled) as? Bool {
+            idleTimerSwitch.setOn(disableIdleTimer, animated: false)
+        }
     }
+    @IBOutlet weak var idleTimerSwitch: UISwitch!
+    
     @IBAction func contactSupport(_ sender: UIButton) {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
@@ -69,6 +74,11 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
           delegate.clearCache()
         }
     }
+    
+    @IBAction func toggleIdleTimer(_ sender: UISwitch) {
+        settings.set(sender.isOn, forKey: Constants.Settings.idleTimerDisabled)
+    }
+    
     
     @IBAction func toggleCache(_ sender: UISwitch) {
         settings.set(sender.isOn, forKey: Constants.Settings.cacheDisabled)

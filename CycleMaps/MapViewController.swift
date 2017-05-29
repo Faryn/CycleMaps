@@ -54,8 +54,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.viewDidAppear(animated)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if appDelegate.importUrl != nil { self.performSegue(withIdentifier: Constants.Storyboard.filesSegueIdentifier, sender: self) }
+        if settings.bool(forKey: Constants.Settings.idleTimerDisabled) {
+            print("Disabled!")
+            UIApplication.shared.isIdleTimerDisabled = true
+        }
         
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if UIApplication.shared.isIdleTimerDisabled {
+            UIApplication.shared.isIdleTimerDisabled = false
+        }
+    }
+    
+//    private func
     
     private func removeOverlay(name : String) {
         if let ovl = overlays[name] {
