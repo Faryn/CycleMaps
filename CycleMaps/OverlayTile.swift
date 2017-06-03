@@ -22,13 +22,13 @@ class OverlayTile : MKTileOverlay {
         }
     }
     
-    var enableCache = true
+    internal var enableCache = true
     
-    let operationQueue = OperationQueue()
-    let session = URLSession.shared
-    let cache = HybridCache(name: "TileCache")
-    let subdomains = ["a","b","c"]
-    var subdomainRotation : Int = 0
+    private let operationQueue = OperationQueue()
+    private let session = URLSession.shared
+    private let cache = HybridCache(name: "TileCache")
+    private let subdomains = ["a","b","c"]
+    private var subdomainRotation : Int = 0
     
     override init(urlTemplate URLTemplate: String?) {
         super.init(urlTemplate: URLTemplate)
@@ -57,14 +57,14 @@ class OverlayTile : MKTileOverlay {
         }
     }
     
-    func getSubdomain() -> String {
+    private func getSubdomain() -> String {
         if subdomainRotation >= 2 {
             subdomainRotation = 0
         } else { subdomainRotation += 1 }
         return String(subdomains[subdomainRotation])
     }
     
-    func clearCache() {
+    internal func clearCache() {
         cache.clear()
         print("Tile Cache cleared!")
     }

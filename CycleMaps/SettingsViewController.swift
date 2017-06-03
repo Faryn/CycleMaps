@@ -43,7 +43,7 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
         }
     }
     
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+    internal func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
     
@@ -105,7 +105,7 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
             }
         }
     }
-    func selectedMapStyle(style: TileSource) {
+    internal func selectedMapStyle(style: TileSource) {
         settings.set(style.rawValue, forKey: Constants.Settings.tileSource)
         delegate?.changedSetting(setting: Constants.Settings.tileSource)
         updateMapStyleCell()
