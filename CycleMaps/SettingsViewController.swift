@@ -72,6 +72,7 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
     @IBAction func clearCache(_ sender: UIButton) {
         if let delegate = self.delegate {
           delegate.clearCache()
+          sender.isEnabled = false
         }
     }
     
