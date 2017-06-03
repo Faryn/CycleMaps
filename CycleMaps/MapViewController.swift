@@ -45,7 +45,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.viewDidLoad()
         locationManager.delegate = self
         tileSource = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
-        checkLocationAuthorizationStatus()
         setupSearchBar()
         addTrackButton()
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toggleBarsOnTap(_:)))
@@ -96,10 +95,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             rect = polyline.boundingMapRect
         } else { rect = MKMapRectUnion(polyline.boundingMapRect, MKMapRectMake(loc.x, loc.y, 0, 0)) }
         map.setVisibleMapRect(rect, edgePadding: .init(top: 20, left: 20, bottom: 20, right: 20), animated: true)
-        //        let point = MKPointAnnotation()
-        //        point.coordinate = MKCoordinateForMapPoint(polyline.points()[polyline.pointCount/2])
-        //        point.title = name
-        //        self.map.addAnnotation((point))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -163,22 +158,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         else { return MKOverlayRenderer(overlay: overlay) }
     }
     
-    func checkLocationAuthorizationStatus() {
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            locationManager.requestLocation()
-        } else {
-            locationManager.requestWhenInUseAuthorization()
-        }
-    }
-    
+    // Will be called shortly after locationmanager is instantiated
+    // Map is initialized in following mode so we only need to disable if permission is missing
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse || status == .authorizedAlways {
-            locationManager.requestLocation()
+        if status == .denied || status == .restricted {
+                map.userTrackingMode = .none
         }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        map.userTrackingMode = .follow
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -188,6 +173,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var map: MKMapView! {
         didSet {
             map.delegate = self
+            map.userTrackingMode = .follow
         }
     }
     
