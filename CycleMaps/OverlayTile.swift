@@ -37,7 +37,7 @@ class OverlayTile : MKTileOverlay {
     }
     
     override func loadTile(at path: MKTileOverlayPath, result: @escaping (Data?, Error?) -> Void) {
-        let cacheKey = "\(self.urlTemplate!)-\(path.x)-\(path.y)-\(path.z)"
+        let cacheKey = "\(self.urlTemplate!)-\(path.x)-\(path.y)-\(path.z)-\(path.contentScaleFactor)"
         self.cache.object(cacheKey) { (data: Data?) in
             if data != nil {
                 print("Cached!")
@@ -74,7 +74,13 @@ class OverlayTile : MKTileOverlay {
         urlString = urlString?.replacingOccurrences(of: "{x}", with: String(path.x))
         urlString = urlString?.replacingOccurrences(of: "{y}", with: String(path.y))
         urlString = urlString?.replacingOccurrences(of: "{s}", with:getSubdomain())
-        //print("CachedTileOverlay:: url() urlString: \(urlString)")
+        if path.contentScaleFactor >= 2 {
+            urlString = urlString?.replacingOccurrences(of: "{csf}", with: "@2x")
+        }
+        else {
+        urlString = urlString?.replacingOccurrences(of: "{csf}", with: "@1x")
+        }
+//        print("CachedTileOverlay:: url() urlString: \(urlString)")
         return URL(string: urlString!)!
     }
 }

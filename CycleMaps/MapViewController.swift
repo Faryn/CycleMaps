@@ -30,6 +30,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 break
             default:
                 let overlay = OverlayTile(urlTemplate: newValue.templateUrl)
+                if UIScreen.main.scale >= 2 && newValue.retina {
+                    overlay.tileSize = CGSize(width: 512, height: 512)
+                }
                 overlay.enableCache = !settings.bool(forKey: Constants.Settings.cacheDisabled)
                 tileSourceOverlay = overlay
                 map.add(overlay)

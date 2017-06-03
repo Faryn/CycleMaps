@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB97A780E6D5C4990A555B3B /* Pods_CycleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF551C031529483C2544467 /* Pods_CycleMaps.framework */; };
+		4E3B935A6091A2D1A477207E /* Pods_CycleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA3938BF04A7174AA5E1CF6 /* Pods_CycleMaps.framework */; };
 		DA0065F81E6C8D9200A54495 /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0065F71E6C8D9200A54495 /* GPX.swift */; };
 		DA38D8061E6F5B06007817F2 /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38D8051E6F5B06007817F2 /* FilesViewController.swift */; };
 		DA38D8081E6F5D8A007817F2 /* FileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38D8071E6F5D8A007817F2 /* FileStore.swift */; };
@@ -31,8 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3EC1D672789427C5AEC51910 /* Pods-CycleMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CycleMaps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps.debug.xcconfig"; sourceTree = "<group>"; };
-		B2574A4F329F16CAC8FD6C94 /* Pods-CycleMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CycleMaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps.release.xcconfig"; sourceTree = "<group>"; };
+		3069207BFD476D1FDAE52954 /* Pods-CycleMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CycleMaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps.release.xcconfig"; sourceTree = "<group>"; };
+		D36BC016CD788E17B8380C55 /* Pods-CycleMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CycleMaps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps.debug.xcconfig"; sourceTree = "<group>"; };
 		DA0065F71E6C8D9200A54495 /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
 		DA38D8051E6F5B06007817F2 /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
 		DA38D8071E6F5D8A007817F2 /* FileStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStore.swift; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 		DAEDED641E75FF4D00FCE1A4 /* CycleMaps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CycleMaps.entitlements; sourceTree = "<group>"; };
 		DAEDED651E77F9C500FCE1A4 /* TileSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileSource.swift; sourceTree = "<group>"; };
 		DAEDED671E782EF000FCE1A4 /* SettingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDetailViewController.swift; sourceTree = "<group>"; };
-		DDF551C031529483C2544467 /* Pods_CycleMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CycleMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEA3938BF04A7174AA5E1CF6 /* Pods_CycleMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CycleMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,19 +68,28 @@
 			files = (
 				DA96311B1E7B2DB30084A16A /* CloudKit.framework in Frameworks */,
 				DA3FC9831E59D905005C08C7 /* MapKit.framework in Frameworks */,
-				CB97A780E6D5C4990A555B3B /* Pods_CycleMaps.framework in Frameworks */,
+				4E3B935A6091A2D1A477207E /* Pods_CycleMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A381A8DC6A9DDD85A5746B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D36BC016CD788E17B8380C55 /* Pods-CycleMaps.debug.xcconfig */,
+				3069207BFD476D1FDAE52954 /* Pods-CycleMaps.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DA3FC9811E59D905005C08C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				DA96311A1E7B2DB30084A16A /* CloudKit.framework */,
 				DA3FC9821E59D905005C08C7 /* MapKit.framework */,
-				DDF551C031529483C2544467 /* Pods_CycleMaps.framework */,
+				EEA3938BF04A7174AA5E1CF6 /* Pods_CycleMaps.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -91,7 +100,7 @@
 				DAB068101E47B0C500EFDD3E /* CycleMaps */,
 				DAB0680F1E47B0C500EFDD3E /* Products */,
 				DA3FC9811E59D905005C08C7 /* Frameworks */,
-				FBD79E9BBD8BD16A44770832 /* Pods */,
+				1A381A8DC6A9DDD85A5746B4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,15 +139,6 @@
 			path = CycleMaps;
 			sourceTree = "<group>";
 		};
-		FBD79E9BBD8BD16A44770832 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3EC1D672789427C5AEC51910 /* Pods-CycleMaps.debug.xcconfig */,
-				B2574A4F329F16CAC8FD6C94 /* Pods-CycleMaps.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,12 +146,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAB068201E47B0C500EFDD3E /* Build configuration list for PBXNativeTarget "CycleMaps" */;
 			buildPhases = (
-				7438AABDF5E61A508732B85B /* [CP] Check Pods Manifest.lock */,
+				774C82E738F38BFA504E8AC9 /* [CP] Check Pods Manifest.lock */,
 				DAB0680A1E47B0C500EFDD3E /* Sources */,
 				DAB0680B1E47B0C500EFDD3E /* Frameworks */,
 				DAB0680C1E47B0C500EFDD3E /* Resources */,
-				936CF356478C24FE61C7DFB8 /* [CP] Embed Pods Frameworks */,
-				86318F0503D0866E6EC13E07 /* [CP] Copy Pods Resources */,
+				59DBB7F92ACD64AB65868771 /* [CP] Embed Pods Frameworks */,
+				42861D725C2577BC2D198C59 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -230,22 +230,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7438AABDF5E61A508732B85B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		86318F0503D0866E6EC13E07 /* [CP] Copy Pods Resources */ = {
+		42861D725C2577BC2D198C59 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -260,7 +245,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		936CF356478C24FE61C7DFB8 /* [CP] Embed Pods Frameworks */ = {
+		59DBB7F92ACD64AB65868771 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -273,6 +258,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		774C82E738F38BFA504E8AC9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -426,14 +426,14 @@
 		};
 		DAB068211E47B0C500EFDD3E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3EC1D672789427C5AEC51910 /* Pods-CycleMaps.debug.xcconfig */;
+			baseConfigurationReference = D36BC016CD788E17B8380C55 /* Pods-CycleMaps.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CycleMaps/CycleMaps.entitlements;
 				DEVELOPMENT_TEAM = 8CV5377K4H;
 				INFOPLIST_FILE = CycleMaps/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Paul-Pfeiffer.CycleMaps";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -445,14 +445,14 @@
 		};
 		DAB068221E47B0C500EFDD3E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B2574A4F329F16CAC8FD6C94 /* Pods-CycleMaps.release.xcconfig */;
+			baseConfigurationReference = 3069207BFD476D1FDAE52954 /* Pods-CycleMaps.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CycleMaps/CycleMaps.entitlements;
 				DEVELOPMENT_TEAM = 8CV5377K4H;
 				INFOPLIST_FILE = CycleMaps/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Paul-Pfeiffer.CycleMaps";
 				PRODUCT_NAME = "$(TARGET_NAME)";

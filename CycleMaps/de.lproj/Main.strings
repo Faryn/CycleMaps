@@ -69,7 +69,7 @@
 "nj8-PK-alo.normalTitle" = "Einstellungen Ortungsdienste";
 
 /* Class = "UITableViewSection"; footerTitle = "Enable to keep the display on at all times, at the expense of battery life."; ObjectID = "s2H-l4-Gam"; */
-"s2H-l4-Gam.footerTitle" = "Aktivieren, um die Abschaltung des Displays zu deaktivieren. Das hat eine höhere Akkunutzung zur Folge.";
+"s2H-l4-Gam.footerTitle" = "Aktivieren, um die Abschaltung des Displays zu verhindern. Das hat eine höhere Akkunutzung zur Folge.";
 
 /* Class = "UITableViewSection"; headerTitle = "Display"; ObjectID = "s2H-l4-Gam"; */
 "s2H-l4-Gam.headerTitle" = "Anzeige";
