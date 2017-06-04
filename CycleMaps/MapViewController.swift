@@ -9,19 +9,20 @@
 import UIKit
 import MapKit
 
-
 protocol HandleMapSearch {
     func dropPinZoomIn(_ placemark:MKPlacemark)
 }
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate, SettingsViewControllerDelegate, FilesViewControllerDelegate {
-    
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,
+    UISearchBarDelegate, UIPopoverPresentationControllerDelegate, SettingsViewControllerDelegate,
+    FilesViewControllerDelegate {
+
     let locationManager = CLLocationManager()
     var resultSearchController:UISearchController?
     var selectedPin:MKPlacemark?
     let settings = UserDefaults.standard
     var overlays = [String: MKOverlay]()
-    var filesViewController : FilesViewController? = nil
+    var filesViewController:FilesViewController?
     var tileSource = TileSource.openCycleMap {
         willSet {
             if tileSourceOverlay != nil { map.remove(tileSourceOverlay!) }
@@ -39,8 +40,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         }
     }
-    var tileSourceOverlay : OverlayTile? = nil
-    
+    var tileSourceOverlay : OverlayTile?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -51,24 +52,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.view.addGestureRecognizer(gestureRecognizer)
         //gpxURL = NSURL(string: "http://cs193p.stanford.edu/Vacation.gpx") // for demo/debug/testing
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        if appDelegate.importUrl != nil { self.performSegue(withIdentifier: Constants.Storyboard.filesSegueIdentifier, sender: self) }
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        if appDelegate?.importUrl != nil { self.performSegue(withIdentifier: Constants.Storyboard.filesSegueIdentifier, sender: self) }
         if settings.bool(forKey: Constants.Settings.idleTimerDisabled) {
             print("Disabled!")
             UIApplication.shared.isIdleTimerDisabled = true
         }
         
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         if UIApplication.shared.isIdleTimerDisabled {
             UIApplication.shared.isIdleTimerDisabled = false
         }
     }
-    
+
 //    private func
     
     private func removeOverlay(name : String) {
