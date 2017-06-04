@@ -2,7 +2,6 @@
  Configuration needed to create a new cache instance
  */
 public struct Config {
-
   /// Front cache type
   public let frontKind: StorageKind
   /// Back cache type
@@ -14,31 +13,32 @@ public struct Config {
   public let maxSize: UInt
   /// Maximum amount of items to store in memory
   public let maxObjects: Int
+  /// (optional) A folder to store the disk cache contents. Defaults to a prefixed directory in Caches if nil
+  public let cacheDirectory: String?
 
   // MARK: - Initialization
 
   /**
    Creates a new instance of Config.
-
    - Parameter frontKind: Front cache type
    - Parameter backKind: Back cache type
    - Parameter expiry: Expiry date that will be applied by default for every added object
    - Parameter maxSize: Maximum size of the cache storage
    - Parameter maxObjects: Maximum amount of objects to be stored in memory
    */
-  public init(frontKind: StorageKind, backKind: StorageKind, expiry: Expiry = .never, maxSize: UInt = 0, maxObjects: Int = 0) {
+  public init(frontKind: StorageKind, backKind: StorageKind, expiry: Expiry = .never, maxSize: UInt = 0, maxObjects: Int = 0, cacheDirectory: String? = nil) {
     self.frontKind = frontKind
     self.backKind = backKind
     self.expiry = expiry
     self.maxSize = maxSize
     self.maxObjects = maxObjects
+    self.cacheDirectory = cacheDirectory
   }
 }
 
 // MARK: - Defaults
 
 extension Config {
-
   /**
    Default configuration used when config is not specified
    */

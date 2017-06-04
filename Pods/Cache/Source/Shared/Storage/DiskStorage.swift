@@ -5,10 +5,8 @@ import CryptoSwift
  File-based cache storage
  */
 public final class DiskStorage: StorageAware {
-
   /// Domain prefix
   public static let prefix = "no.hyper.Cache.Disk"
-
   /// Storage root path
   public let path: String
   /// Maximum size of the cache storage
@@ -17,39 +15,42 @@ public final class DiskStorage: StorageAware {
   public fileprivate(set) var writeQueue: DispatchQueue
   /// Queue for read operations
   public fileprivate(set) var readQueue: DispatchQueue
-
   /// File manager to read/write to the disk
-  fileprivate lazy var fileManager: FileManager = {
-    let fileManager = FileManager()
-    return fileManager
-  }()
+  fileprivate let fileManager = FileManager()
 
   // MARK: - Initialization
 
   /**
    Creates a new disk storage.
-
    - Parameter name: A name of the storage
    - Parameter maxSize: Maximum size of the cache storage
+   - Parameter cacheDirectory: Path to custom directory to be used as a storage
    */
-  public required init(name: String, maxSize: UInt = 0) {
-    self.maxSize = maxSize
-    let cacheName = name.capitalized
-    let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory,
-      FileManager.SearchPathDomainMask.userDomainMask, true)
+    public required init(name: String, maxSize: UInt = 0, cacheDirectory: String? = nil) {
+      self.maxSize = maxSize
 
-    path = "\(paths.first!)/\(DiskStorage.prefix).\(cacheName)"
-    writeQueue = DispatchQueue(label: "\(DiskStorage.prefix).\(cacheName).WriteQueue",
-      attributes: [])
-    readQueue = DispatchQueue(label: "\(DiskStorage.prefix).\(cacheName).ReadQueue",
-      attributes: [])
+      let fullName = [DiskStorage.prefix, name.capitalized].joined(separator: ".")
+
+      if let cacheDirectory = cacheDirectory {
+        path = cacheDirectory
+      } else {
+        do {
+          let url = try fileManager.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+
+          path = url.appendingPathComponent(fullName, isDirectory: true).path
+        } catch {
+          fatalError("Failed to find or get acces to caches directory: \(error)")
+        }
+      }
+
+      writeQueue = DispatchQueue(label: "\(fullName).WriteQueue")
+      readQueue = DispatchQueue(label: "\(fullName).ReadQueue")
   }
 
   // MARK: - CacheAware
 
   /**
    Saves passed object on the disk.
-
    - Parameter key: Unique key to identify the object in the cache
    - Parameter object: Object that needs to be cached
    - Parameter expiry: Expiration date for the cached object
@@ -83,12 +84,22 @@ public final class DiskStorage: StorageAware {
   }
 
   /**
-   Tries to retrieve the object from the disk storage.
-
+   Gets information about the cached object.
    - Parameter key: Unique key to identify the object in the cache
    - Parameter completion: Completion closure returns object or nil
    */
   public func object<T: Cachable>(_ key: String, completion: @escaping (_ object: T?) -> Void) {
+    cacheEntry(key) { (entry: CacheEntry<T>?) in
+      completion(entry?.object)
+    }
+  }
+
+  /**
+   Get cache entry which includes object with metadata.
+   - Parameter key: Unique key to identify the object in the cache
+   - Parameter completion: Completion closure returns object wrapper with metadata or nil
+   */
+  public func cacheEntry<T: Cachable>(_ key: String, completion: @escaping (_ object: CacheEntry<T>?) -> Void) {
     readQueue.async { [weak self] in
       guard let weakSelf = self else {
         completion(nil)
@@ -102,13 +113,30 @@ public final class DiskStorage: StorageAware {
         cachedObject = T.decode(data) as? T
       }
 
-      completion(cachedObject)
+      if let cachedObject = cachedObject,
+        let expiry = weakSelf.cachedObjectExpiry(path: filePath) {
+        completion(CacheEntry(object: cachedObject, expiry: expiry))
+        return
+      }
+
+      completion(nil)
     }
+  }
+
+  private func cachedObjectExpiry(path: String) -> Expiry? {
+    do {
+      let attributes = try fileManager.attributesOfItem(atPath: path)
+      guard let modificationDate = attributes[FileAttributeKey.modificationDate] as? Date else {
+        return nil
+      }
+      return Expiry.date(modificationDate)
+    } catch {}
+
+    return nil
   }
 
   /**
    Removes the object from the cache by the given key.
-
    - Parameter key: Unique key to identify the object in the cache
    - Parameter completion: Completion closure to be called when the task is done
    */
@@ -129,7 +157,6 @@ public final class DiskStorage: StorageAware {
 
   /**
    Removes the object from the cache if it's expired.
-
    - Parameter key: Unique key to identify the object in the cache
    - Parameter completion: Completion closure to be called when the task is done
    */
@@ -156,7 +183,6 @@ public final class DiskStorage: StorageAware {
 
   /**
    Clears the cache storage.
-
    - Parameter completion: Completion closure to be called when the task is done
    */
   public func clear(_ completion: (() -> Void)? = nil) {
@@ -178,7 +204,6 @@ public final class DiskStorage: StorageAware {
 
   /**
    Clears all expired objects.
-
    - Parameter completion: Completion closure to be called when the task is done
    */
   public func clearExpired(_ completion: (() -> Void)? = nil) {
@@ -234,7 +259,6 @@ public final class DiskStorage: StorageAware {
 
   /**
    Removes expired resource objects.
-
    - Parameter objects: Resource objects to remove
    - Parameter totalSize: Total size
    */
@@ -271,7 +295,6 @@ public final class DiskStorage: StorageAware {
 
   /**
    Builds file name from the key.
-
    - Parameter key: Unique key to identify the object in the cache
    - Returns: A md5 or base64 string
    */
@@ -290,7 +313,6 @@ public final class DiskStorage: StorageAware {
 
   /**
    Builds file path from the key.
-
    - Parameter key: Unique key to identify the object in the cache
    - Returns: A string path based on key
    */

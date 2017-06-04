@@ -4,7 +4,6 @@ import Foundation
  Wrapper around hybrid cache to work with cached data synchronously
  */
 public struct SyncHybridCache {
-
   /// Cache that requires sync operations
   let cache: BasicHybridCache
 
@@ -12,7 +11,6 @@ public struct SyncHybridCache {
 
   /**
    Creates a wrapper around cache object.
-
    - Parameter cache: Cache that requires sync operations
    */
   public init(_ cache: BasicHybridCache) {
@@ -23,7 +21,6 @@ public struct SyncHybridCache {
 
   /**
    Adds passed object to the front and back cache storages.
-
    - Parameter key: Unique key to identify the object in the cache
    - Parameter object: Object that needs to be cached
    - Parameter expiry: Expiration date for the cached object
@@ -31,7 +28,7 @@ public struct SyncHybridCache {
   public func add<T: Cachable>(_ key: String, object: T, expiry: Expiry? = nil) {
     let semaphore = DispatchSemaphore(value: 0)
 
-    cache.add(key, object: object, expiry: expiry) {
+    cache.add(object, forKey: key, expiry: expiry) {
       semaphore.signal()
     }
 
@@ -40,16 +37,14 @@ public struct SyncHybridCache {
 
   /**
    Tries to retrieve the object from to the front and back cache storages.
-
    - Parameter key: Unique key to identify the object in the cache
    - Returns: Found object or nil
    */
   public func object<T: Cachable>(_ key: String) -> T? {
     var result: T?
-
     let semaphore = DispatchSemaphore(value: 0)
 
-    cache.object(key) { (object: T?) in
+    cache.object(forKey: key) { (object: T?) in
       result = object
       semaphore.signal()
     }
@@ -61,7 +56,6 @@ public struct SyncHybridCache {
 
   /**
    Removes the object from to the front and back cache storages.
-
    - Parameter key: Unique key to identify the object in the cache
    */
   public func remove(_ key: String) {
