@@ -8,37 +8,38 @@
 
 import UIKit
 
-protocol FilesViewControllerDelegate  {
-    func selectedFile(name : String, url: URL)
-    func deselectedFile(name : String)
+protocol FilesViewControllerDelegate: class {
+    func selectedFile(name: String, url: URL)
+    func deselectedFile(name: String)
     func isSelected(name: String) -> Bool
 }
 
-class FilesViewController: UITableViewController, UIDocumentMenuDelegate,UIDocumentPickerDelegate,UINavigationControllerDelegate {
-    var delegate : FilesViewControllerDelegate? = nil
+class FilesViewController: UITableViewController, UIDocumentMenuDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate {
+    weak var delegate: FilesViewControllerDelegate?
     let fileStore = FileStore(withExtensions: ["gpx"])
-    
+
     private func handleReceivedGPXURL(url: URL) {
         fileStore.add(url: url as URL)
         tableView.reloadData()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        if let url = appDelegate.importUrl {
-            self.handleReceivedGPXURL(url: url)
-            appDelegate.importUrl = nil
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            if let url = appDelegate.importUrl {
+                self.handleReceivedGPXURL(url: url)
+                appDelegate.importUrl = nil
+            }
         }
     }
-    
+
     // MARK: - Table view data source
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
         return fileStore.files.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: Constants.Storyboard.gpxCellReuseIdentifier, for: indexPath)
             if indexPath.row < fileStore.files.count { // just to be safe
@@ -54,16 +55,15 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,UIDocum
             }
             return cell
     }
-    
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let url = fileStore.files[indexPath.row]
         if delegate!.isSelected(name: url.lastPathComponent) {
             delegate?.deselectedFile(name: url.lastPathComponent)
-        } else { delegate?.selectedFile(name: url.lastPathComponent , url: url ) }
+        } else { delegate?.selectedFile(name: url.lastPathComponent, url: url ) }
 //        tableView.reloadData()
     }
-    
+
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let url = fileStore.files[indexPath.row]
         delegate?.deselectedFile(name: url.lastPathComponent)
@@ -71,14 +71,13 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,UIDocum
         print("deselect")
     }
 
-    
     @IBAction func importPressed(_ sender: UIBarButtonItem) {
         let importMenu = UIDocumentMenuViewController(documentTypes: ["com.apple.dt.document.gpx"], in: .import)
         importMenu.popoverPresentationController?.barButtonItem = importButton
         importMenu.delegate = self
         present(importMenu, animated: true, completion: nil)
     }
-    
+
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let url = fileStore.files[indexPath.row]
@@ -87,11 +86,11 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,UIDocum
         }
     }
     @IBOutlet weak var importButton: UIBarButtonItem!
-    
+
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         handleReceivedGPXURL(url: url)
     }
-    
+
     func documentMenu(_ documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
         documentPicker.delegate = self
         present(documentPicker, animated: true, completion: nil)

@@ -198,10 +198,10 @@ fileprivate extension AES {
         b3 = F1(t[3], t[0], t[1], t[2]) ^ rk[rounds][3]
 
         return [
-            UInt8(b0 & 0xFF),UInt8((b0 >> 8) & 0xFF),UInt8((b0 >> 16) & 0xFF),UInt8((b0 >> 24) & 0xFF),
-            UInt8(b1 & 0xFF),UInt8((b1 >> 8) & 0xFF),UInt8((b1 >> 16) & 0xFF),UInt8((b1 >> 24) & 0xFF),
-            UInt8(b2 & 0xFF),UInt8((b2 >> 8) & 0xFF),UInt8((b2 >> 16) & 0xFF),UInt8((b2 >> 24) & 0xFF),
-            UInt8(b3 & 0xFF),UInt8((b3 >> 8) & 0xFF),UInt8((b3 >> 16) & 0xFF),UInt8((b3 >> 24) & 0xFF)
+            UInt8(b0 & 0xFF), UInt8((b0 >> 8) & 0xFF), UInt8((b0 >> 16) & 0xFF), UInt8((b0 >> 24) & 0xFF),
+            UInt8(b1 & 0xFF), UInt8((b1 >> 8) & 0xFF), UInt8((b1 >> 16) & 0xFF), UInt8((b1 >> 24) & 0xFF),
+            UInt8(b2 & 0xFF), UInt8((b2 >> 8) & 0xFF), UInt8((b2 >> 16) & 0xFF), UInt8((b2 >> 24) & 0xFF),
+            UInt8(b3 & 0xFF), UInt8((b3 >> 8) & 0xFF), UInt8((b3 >> 16) & 0xFF), UInt8((b3 >> 24) & 0xFF)
         ] as Array<UInt8>
     }
 

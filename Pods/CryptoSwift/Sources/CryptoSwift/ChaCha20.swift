@@ -31,9 +31,9 @@ public final class ChaCha20: BlockCipher {
         self.key = Key(bytes: key)
 
         if nonce.count == 8 {
-            self.counter = [0,0,0,0,0,0,0,0] + nonce
+            self.counter = [0, 0, 0, 0, 0, 0, 0, 0] + nonce
         } else {
-            self.counter = [0,0,0,0] + nonce
+            self.counter = [0, 0, 0, 0] + nonce
         }
 
         assert(self.counter.count == 16)
@@ -181,9 +181,9 @@ public final class ChaCha20: BlockCipher {
         x14 = x14 &+ j14
         x15 = x15 &+ j15
 
-        block.replaceSubrange(0..<4,   with: x0.bigEndian.bytes())
-        block.replaceSubrange(4..<8,   with: x1.bigEndian.bytes())
-        block.replaceSubrange(8..<12,  with: x2.bigEndian.bytes())
+        block.replaceSubrange(0..<4, with: x0.bigEndian.bytes())
+        block.replaceSubrange(4..<8, with: x1.bigEndian.bytes())
+        block.replaceSubrange(8..<12, with: x2.bigEndian.bytes())
         block.replaceSubrange(12..<16, with: x3.bigEndian.bytes())
         block.replaceSubrange(16..<20, with: x4.bigEndian.bytes())
         block.replaceSubrange(20..<24, with: x5.bigEndian.bytes())
@@ -210,7 +210,7 @@ public final class ChaCha20: BlockCipher {
 
         while bytes.count >= ChaCha20.blockSize {
             self.core(block: &block, counter: counter, key: key)
-            for (i,x) in block.enumerated() {
+            for (i, x) in block.enumerated() {
                 out.append(bytes[i] ^ x)
             }
             var u: UInt32 = 1

@@ -111,7 +111,6 @@ public final class Poly1305: Authenticator {
         r[15] = UInt32(k[15] & 15)
         r[16] = 0
 
-
         var inlen = input.count
         var inpos = 0
         while inlen > 0 {

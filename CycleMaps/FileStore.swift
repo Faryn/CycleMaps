@@ -9,26 +9,28 @@
 import Foundation
 
 class FileStore {
-    
+
     init(withExtensions: [String]) {
         docRootDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         extensions = withExtensions
         reloadFiles()
     }
-    
+
     var fileManager = FileManager()
     var extensions = [String]()
     var files: [URL] = []
-    private var docRootDir :URL
-    
+    private var docRootDir: URL
+
     private func reloadFiles() {
         do {
-            let contents = try fileManager.contentsOfDirectory(at: docRootDir as URL, includingPropertiesForKeys: [URLResourceKey.creationDateKey, URLResourceKey.localizedNameKey, URLResourceKey.fileSizeKey], options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles)
-                files = contents.filter( { extensions.contains($0.pathExtension) } )
-        }
-        catch {print(error)}
+            let contents =
+                try fileManager.contentsOfDirectory(at: docRootDir as URL,
+                includingPropertiesForKeys: [URLResourceKey.creationDateKey, URLResourceKey.localizedNameKey, URLResourceKey.fileSizeKey],
+                options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles)
+                files = contents.filter({ extensions.contains($0.pathExtension) })
+        } catch {print(error)}
     }
-    
+
     // adds a file to the internal file storage
     func add(url: URL) {
         let name = url.lastPathComponent
@@ -38,14 +40,14 @@ class FileStore {
             reloadFiles()
         } catch { print(error) }
     }
-    
+
     func remove(url: URL) {
         do {
             try fileManager.removeItem(at: url as URL)
             reloadFiles()
         } catch { print(error) }
     }
-    
+
 }
 
 extension URL {
@@ -56,11 +58,10 @@ extension URL {
             if let created = val as? String {
                 return created
             }
-        }
-        catch { print(error) }
+        } catch { print(error) }
         return nil
     }
-    
+
     var fileSize: NSNumber? {
         var val: AnyObject?
         do {
@@ -68,8 +69,7 @@ extension URL {
             if let size = val as? NSNumber {
                 return size
             }
-        }
-        catch { print(error) }
+        } catch { print(error) }
         return nil
     }
 }

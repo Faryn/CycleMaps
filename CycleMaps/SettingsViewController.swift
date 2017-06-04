@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 import MessageUI
 
-protocol SettingsViewControllerDelegate {
+protocol SettingsViewControllerDelegate: class {
     func clearCache()
     func changedSetting(setting: String?)
 }
 
-class SettingsViewController : UITableViewController, SettingDetailViewControllerDelegate, MFMailComposeViewControllerDelegate {
-    var delegate:SettingsViewControllerDelegate? = nil
+class SettingsViewController: UITableViewController, SettingDetailViewControllerDelegate, MFMailComposeViewControllerDelegate {
+    weak var delegate: SettingsViewControllerDelegate?
     let settings = UserDefaults.standard
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if let cacheDisabled = settings.value(forKey: Constants.Settings.cacheDisabled) as? Bool {
@@ -29,7 +29,7 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
         }
     }
     @IBOutlet weak var idleTimerSwitch: UISwitch!
-    
+
     @IBAction func contactSupport(_ sender: UIButton) {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
@@ -42,24 +42,23 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
             // show failure alert
         }
     }
-    
+
     internal func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
-    
-    
+
     @IBOutlet weak var mapStyleCell: UITableViewCell! {
         didSet {
             updateMapStyleCell()
         }
     }
-    
+
     private func updateMapStyleCell() {
         if let mapStyle = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))?.name {
             mapStyleCell.detailTextLabel?.text = mapStyle
         } else { mapStyleCell.detailTextLabel?.text = TileSource.openCycleMap.name }
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.setToolbarHidden(true, animated: true)
@@ -68,19 +67,18 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
     @IBAction func gotoSettings(_ sender: UIButton) {
         UIApplication.shared.open((URL(string:UIApplicationOpenSettingsURLString)!))
     }
-    
+
     @IBAction func clearCache(_ sender: UIButton) {
         if let delegate = self.delegate {
           delegate.clearCache()
           sender.isEnabled = false
         }
     }
-    
+
     @IBAction func toggleIdleTimer(_ sender: UISwitch) {
         settings.set(sender.isOn, forKey: Constants.Settings.idleTimerDisabled)
     }
-    
-    
+
     @IBAction func toggleCache(_ sender: UISwitch) {
         settings.set(sender.isOn, forKey: Constants.Settings.cacheDisabled)
         if let delegate = self.delegate {
@@ -89,17 +87,18 @@ class SettingsViewController : UITableViewController, SettingDetailViewControlle
         print(sender.isOn)
     }
     @IBOutlet weak var cacheSwitch: UISwitch!
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             switch identifier {
             case Constants.Storyboard.mapStyleSegueIdentifier:
-                let svc = segue.destination as! SettingDetailViewController
-                svc.navigationItem.title = Constants.Settings.mapStyleTitle
-                svc.navigationItem.backBarButtonItem?.title = Constants.Settings.title
-                svc.selected = settings.integer(forKey: Constants.Settings.tileSource)
-                svc.delegate = self
-                svc.generator.prepare()
+                if let svc = segue.destination as? SettingDetailViewController {
+                    svc.navigationItem.title = Constants.Settings.mapStyleTitle
+                    svc.navigationItem.backBarButtonItem?.title = Constants.Settings.title
+                    svc.selected = settings.integer(forKey: Constants.Settings.tileSource)
+                    svc.delegate = self
+                    svc.generator.prepare()
+                }
             default:
                 break
             }

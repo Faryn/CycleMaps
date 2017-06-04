@@ -9,8 +9,8 @@
 import UIKit
 import MapKit
 
-protocol HandleMapSearch {
-    func dropPinZoomIn(_ placemark:MKPlacemark)
+protocol HandleMapSearch: class {
+    func dropPinZoomIn(_ placemark: MKPlacemark)
 }
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,
@@ -18,11 +18,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     FilesViewControllerDelegate {
 
     let locationManager = CLLocationManager()
-    var resultSearchController:UISearchController?
-    var selectedPin:MKPlacemark?
+    var resultSearchController: UISearchController?
+    var selectedPin: MKPlacemark?
     let settings = UserDefaults.standard
     var overlays = [String: MKOverlay]()
-    var filesViewController:FilesViewController?
+    var filesViewController: FilesViewController?
     var tileSource = TileSource.openCycleMap {
         willSet {
             if tileSourceOverlay != nil { map.remove(tileSourceOverlay!) }
@@ -40,7 +40,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         }
     }
-    var tileSourceOverlay : OverlayTile?
+    var tileSourceOverlay: OverlayTile?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,12 +56,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        if appDelegate?.importUrl != nil { self.performSegue(withIdentifier: Constants.Storyboard.filesSegueIdentifier, sender: self) }
+        if appDelegate?.importUrl != nil {
+            self.performSegue(withIdentifier: Constants.Storyboard.filesSegueIdentifier, sender: self)
+        }
         if settings.bool(forKey: Constants.Settings.idleTimerDisabled) {
             print("Disabled!")
             UIApplication.shared.isIdleTimerDisabled = true
         }
-        
+
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,16 +73,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 
 //    private func
-    
-    private func removeOverlay(name : String) {
+
+    private func removeOverlay(name: String) {
         if let ovl = overlays[name] {
             self.map.remove(ovl)
             overlays.removeValue(forKey: name)
         }
         filesViewController?.tableView.reloadData()
     }
-    
-    private func addOverlay(name : String, waypoints: [GPX.Waypoint]) {
+
+    private func addOverlay(name: String, waypoints: [GPX.Waypoint]) {
         //        print("Waypoints".appending(String(waypoints.count)))
         var coordinates = waypoints.map({ (waypoint: GPX.Waypoint!) -> CLLocationCoordinate2D in
             return waypoint.coordinate
@@ -97,16 +99,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         } else { rect = MKMapRectUnion(polyline.boundingMapRect, MKMapRectMake(loc.x, loc.y, 0, 0)) }
         map.setVisibleMapRect(rect, edgePadding: .init(top: 20, left: 20, bottom: 20, right: 20), animated: true)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.setToolbarHidden(false, animated: true)
     }
-    
+
     func clearCache() {
         tileSourceOverlay?.clearCache()
     }
-    
+
     func changedSetting(setting: String?) {
         switch setting! {
         case Constants.Settings.cacheDisabled:
@@ -119,46 +121,44 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             return
         }
     }
-    
-    
+
     private func addTrackButton() {
         let trackButton = MKUserTrackingBarButtonItem(mapView: map)
         self.toolbarItems?.insert(trackButton, at: 0)
     }
-    
-    private func setupSearchBar(){
-        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
-        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
-        resultSearchController?.searchResultsUpdater = locationSearchTable
-        let searchBar = resultSearchController!.searchBar
-        searchBar.sizeToFit()
-        searchBar.placeholder = NSLocalizedString("SearchForPlaces", comment: "Displayed as Search String")
-        navigationItem.titleView = resultSearchController?.searchBar
-        resultSearchController?.hidesNavigationBarDuringPresentation = false
-        resultSearchController?.dimsBackgroundDuringPresentation = true
-        definesPresentationContext = true
-        locationSearchTable.mapView = map
-        locationSearchTable.handleMapSearchDelegate = self
-        locationSearchTable.searchBar = searchBar
+    private func setupSearchBar() {
+        if let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as? LocationSearchTable {
+            resultSearchController = UISearchController(searchResultsController: locationSearchTable)
+            resultSearchController?.searchResultsUpdater = locationSearchTable
+            let searchBar = resultSearchController!.searchBar
+            searchBar.sizeToFit()
+            searchBar.placeholder = NSLocalizedString("SearchForPlaces", comment: "Displayed as Search String")
+            navigationItem.titleView = resultSearchController?.searchBar
+            resultSearchController?.hidesNavigationBarDuringPresentation = false
+            resultSearchController?.dimsBackgroundDuringPresentation = true
+            definesPresentationContext = true
+            locationSearchTable.mapView = map
+            locationSearchTable.handleMapSearchDelegate = self
+            locationSearchTable.searchBar = searchBar
+        }
     }
-    
+
     internal func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         resultSearchController?.searchResultsUpdater?.updateSearchResults(for: resultSearchController!)
     }
-    
+
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if  overlay is OverlayTile {
             return MKTileOverlayRenderer(tileOverlay: (overlay as? MKTileOverlay)!)
         }
-        if (overlay is MKPolyline) {
-            let pr = MKPolylineRenderer(overlay: overlay);
-            pr.strokeColor = UIColor.blue.withAlphaComponent(0.5);
-            pr.lineWidth = 5;
-            return pr;
-        }
-        else { return MKOverlayRenderer(overlay: overlay) }
+        if overlay is MKPolyline {
+            let pr = MKPolylineRenderer(overlay: overlay)
+            pr.strokeColor = UIColor.blue.withAlphaComponent(0.5)
+            pr.lineWidth = 5
+            return pr
+        } else { return MKOverlayRenderer(overlay: overlay) }
     }
-    
+
     // Will be called shortly after locationmanager is instantiated
     // Map is initialized in following mode so we only need to disable if permission is missing
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -166,24 +166,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 map.userTrackingMode = .none
         }
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Failed to find user's location: \(error.localizedDescription)")
     }
-    
+
     @IBOutlet weak var map: MKMapView! {
         didSet {
             map.delegate = self
             map.userTrackingMode = .follow
         }
     }
-    
+
     func toggleBarsOnTap(_ sender: UITapGestureRecognizer) {
         let hidden = !(self.navigationController?.isNavigationBarHidden)!
         self.navigationController?.setNavigationBarHidden(hidden, animated: true)
         self.navigationController?.setToolbarHidden(hidden, animated: true)
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             switch identifier {
@@ -198,7 +198,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         }
     }
-    
+
     // MARK: - FilesViewDelegate
     func selectedFile(name: String, url: URL) {
         GPX.parse(url as URL) {
@@ -207,18 +207,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
         }
     }
-    
+
     func deselectedFile(name: String) {
         removeOverlay(name: name)
     }
-    
+
     func isSelected(name: String) -> Bool {
         return overlays[name] != nil
     }
 }
 
 extension MapViewController: HandleMapSearch {
-    func dropPinZoomIn(_ placemark:MKPlacemark){
+    func dropPinZoomIn(_ placemark: MKPlacemark) {
         // cache the pin
         selectedPin = placemark
         // clear existing pins
@@ -233,18 +233,16 @@ extension MapViewController: HandleMapSearch {
     }
 }
 
-extension GPX.Waypoint: MKAnnotation
-{
+extension GPX.Waypoint: MKAnnotation {
     // MARK: - MKAnnotation
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
-    
+
     var title: String? { return name }
-    
+
     var subtitle: String? { return info }
 }
-
 
 private extension MKPolyline {
     convenience init(coordinates coords: Array<CLLocationCoordinate2D>) {

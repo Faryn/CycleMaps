@@ -31,10 +31,10 @@ extension Array {
 }
 
 extension Array where Element: Integer, Element.IntegerLiteralType == UInt8 {
-    
+
     public init(hex: String) {
         self.init(reserveCapacity: hex.unicodeScalars.lazy.underestimatedCount)
-        var buffer:UInt8?
+        var buffer: UInt8?
         var skip = hex.hasPrefix("0x") ? 2 : 0
         for char in hex.unicodeScalars.lazy {
             guard skip == 0 else {
@@ -45,9 +45,9 @@ extension Array where Element: Integer, Element.IntegerLiteralType == UInt8 {
                 self.removeAll()
                 return
             }
-            let v:UInt8
-            let c:UInt8 = UInt8(char.value)
-            switch c{
+            let v: UInt8
+            let c: UInt8 = UInt8(char.value)
+            switch c {
             case let c where c <= 57:
                 v = c - 48
             case let c where c >= 65 && c <= 70:
@@ -65,9 +65,9 @@ extension Array where Element: Integer, Element.IntegerLiteralType == UInt8 {
                 buffer = v
             }
         }
-        if let b = buffer{
+        if let b = buffer {
             self.append(b as! Element)
         }
     }
-    
+
 }

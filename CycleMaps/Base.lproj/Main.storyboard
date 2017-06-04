@@ -237,19 +237,19 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hiN-bA-Waq">
-                                        <rect key="frame" x="0.0" y="386.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="387" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="hiN-bA-Waq" id="jN6-gH-xdQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Keep Display On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2b8-ES-XoZ">
-                                                    <rect key="frame" x="16" y="7" width="125.5" height="31"/>
+                                                    <rect key="frame" x="16" y="7" width="126" height="31"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RyS-Bu-FoS">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RyS-Bu-FoS">
                                                     <rect key="frame" x="310" y="7" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="toggleIdleTimer:" destination="ThV-TA-g6M" eventType="valueChanged" id="XVW-iP-FGH"/>
@@ -257,11 +257,11 @@
                                                 </switch>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="RyS-Bu-FoS" secondAttribute="trailing" id="3YQ-AR-xNW"/>
+                                                <constraint firstItem="RyS-Bu-FoS" firstAttribute="top" secondItem="2b8-ES-XoZ" secondAttribute="top" id="5Mc-LX-9gL"/>
                                                 <constraint firstItem="2b8-ES-XoZ" firstAttribute="leading" secondItem="jN6-gH-xdQ" secondAttribute="leadingMargin" constant="1" id="GWd-bz-PSF"/>
-                                                <constraint firstItem="2b8-ES-XoZ" firstAttribute="top" secondItem="RyS-Bu-FoS" secondAttribute="top" id="GZG-Rt-YJQ"/>
-                                                <constraint firstItem="2b8-ES-XoZ" firstAttribute="bottom" secondItem="RyS-Bu-FoS" secondAttribute="bottom" id="Tp4-aS-SBU"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="RyS-Bu-FoS" secondAttribute="trailing" constant="1" id="XiL-4v-X7J"/>
                                                 <constraint firstItem="2b8-ES-XoZ" firstAttribute="centerY" secondItem="jN6-gH-xdQ" secondAttribute="centerY" id="ZDj-jZ-d2t"/>
+                                                <constraint firstItem="RyS-Bu-FoS" firstAttribute="bottom" secondItem="2b8-ES-XoZ" secondAttribute="bottom" id="mz4-Pz-eB9"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -290,13 +290,13 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2FW-Vb-Nu5">
-                                        <rect key="frame" x="0.0" y="538.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="539" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2FW-Vb-Nu5" id="Gf0-hD-h35">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNL-y3-wqX">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNL-y3-wqX">
                                                     <rect key="frame" x="0.0" y="-1" width="375" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="Contact Support"/>
@@ -306,10 +306,10 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="vNL-y3-wqX" firstAttribute="leading" secondItem="Gf0-hD-h35" secondAttribute="leadingMargin" constant="-8" id="2JM-mf-WQW"/>
-                                                <constraint firstItem="vNL-y3-wqX" firstAttribute="centerY" secondItem="Gf0-hD-h35" secondAttribute="centerY" id="M24-hW-nh2"/>
-                                                <constraint firstItem="vNL-y3-wqX" firstAttribute="centerX" secondItem="Gf0-hD-h35" secondAttribute="centerX" id="cqo-X4-pUf"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="vNL-y3-wqX" secondAttribute="trailing" constant="-8" id="j4h-8T-tJg"/>
+                                                <constraint firstItem="vNL-y3-wqX" firstAttribute="leading" secondItem="Gf0-hD-h35" secondAttribute="leading" id="5s8-Qu-zBc"/>
+                                                <constraint firstAttribute="trailing" secondItem="vNL-y3-wqX" secondAttribute="trailing" id="7qu-5Y-XFU"/>
+                                                <constraint firstItem="vNL-y3-wqX" firstAttribute="top" secondItem="Gf0-hD-h35" secondAttribute="topMargin" constant="-9" id="FxT-zH-Nif"/>
+                                                <constraint firstItem="vNL-y3-wqX" firstAttribute="centerY" secondItem="Gf0-hD-h35" secondAttribute="centerY" id="MhC-D0-cQh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

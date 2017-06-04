@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-protocol SettingDetailViewControllerDelegate {
+protocol SettingDetailViewControllerDelegate: class {
     func selectedMapStyle(style: TileSource)
 }
 
-class SettingDetailViewController : UITableViewController {
+class SettingDetailViewController: UITableViewController {
     var selected = 1
-    var delegate: SettingDetailViewControllerDelegate? = nil
+    weak var delegate: SettingDetailViewControllerDelegate?
     let generator = UISelectionFeedbackGenerator()
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Storyboard.mapStyleCellReuseIdentifier)!
         if indexPath.row < TileSource.count {
@@ -30,7 +30,7 @@ class SettingDetailViewController : UITableViewController {
         }
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         generator.selectionChanged()
         delegate?.selectedMapStyle(style: TileSource(rawValue: indexPath.row)!)
@@ -38,11 +38,11 @@ class SettingDetailViewController : UITableViewController {
         tableView.reloadData()
         generator.prepare()
     }
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return TileSource.count
     }

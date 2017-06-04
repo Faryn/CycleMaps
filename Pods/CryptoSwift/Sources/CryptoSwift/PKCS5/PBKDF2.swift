@@ -38,7 +38,7 @@ public extension PKCS5 {
         ///   - variant: hash variant
         ///   - iterations: iteration count, a positive integer
         ///   - keyLength: intended length of derived key
-        public init(password: Array<UInt8>, salt: Array<UInt8>, iterations: Int = 4096 /* c */ , keyLength: Int? = nil /* dkLen */ , variant: HMAC.Variant = .sha256) throws {
+        public init(password: Array<UInt8>, salt: Array<UInt8>, iterations: Int = 4096 /* c */, keyLength: Int? = nil /* dkLen */, variant: HMAC.Variant = .sha256) throws {
             precondition(iterations > 0)
 
             let prf = HMAC(key: password, variant: variant)

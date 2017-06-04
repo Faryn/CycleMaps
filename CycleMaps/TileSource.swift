@@ -8,14 +8,14 @@
 
 import Foundation
 
-enum TileSource : Int {
+enum TileSource: Int {
     case openCycleMap
     case openStreetMap
     case mtbMap
     case hikeBikeMap
     case cartoDbLight
     case apple
-    
+
     var name: String {
         switch self {
         case .openCycleMap: return "Open Cycle Map (Retina)"
@@ -26,7 +26,7 @@ enum TileSource : Int {
         case .apple: return NSLocalizedString("appleMaps", comment: "")
         }
     }
-    
+
     var templateUrl: String {
         switch self {
         case .openCycleMap:
@@ -45,7 +45,7 @@ enum TileSource : Int {
         }
     }
     static let count = 6
-    
+
     var retina: Bool {
         switch self {
         case .openCycleMap: return true
@@ -54,4 +54,3 @@ enum TileSource : Int {
         }
     }
 }
-

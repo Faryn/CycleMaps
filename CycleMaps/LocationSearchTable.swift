@@ -10,12 +10,12 @@ import Foundation
 import MapKit
 
 class LocationSearchTable: UITableViewController, UISearchResultsUpdating {
-    var matchingItems:[MKMapItem] = []
-    var mapView: MKMapView? = nil
-    var handleMapSearchDelegate:HandleMapSearch? = nil
-    var searchBar: UISearchBar? = nil
-    
-    func parseAddress(selectedItem:MKPlacemark) -> String {
+    var matchingItems: [MKMapItem] = []
+    var mapView: MKMapView?
+    weak var handleMapSearchDelegate: HandleMapSearch?
+    var searchBar: UISearchBar?
+
+    func parseAddress(selectedItem: MKPlacemark) -> String {
         // put a space between "4" and "Melrose Place"
         let firstSpace = (selectedItem.subThoroughfare != nil && selectedItem.thoroughfare != nil) ? " " : ""
         // put a comma between street and city/state
@@ -38,7 +38,7 @@ class LocationSearchTable: UITableViewController, UISearchResultsUpdating {
         )
         return addressLine
     }
-    
+
     func updateSearchResults(for searchController: UISearchController) {
         guard let mapView = mapView,
             let searchBarText = searchController.searchBar.text else { return }
@@ -60,7 +60,7 @@ extension LocationSearchTable {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return matchingItems.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         let selectedItem = matchingItems[indexPath.row].placemark
@@ -77,6 +77,6 @@ extension LocationSearchTable {
         searchBar?.text = selectedItem.name
         handleMapSearchDelegate?.dropPinZoomIn(selectedItem)
         dismiss(animated: true, completion: nil)
-        
+
     }
 }

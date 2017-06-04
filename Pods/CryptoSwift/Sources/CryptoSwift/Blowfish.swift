@@ -483,7 +483,6 @@ extension Blowfish: Cipher {
         return out
     }
 
-
     /// Decrypt the 8-byte padded buffer
     ///
     /// - Parameter bytes: Ciphertext data
@@ -506,6 +505,3 @@ extension Blowfish: Cipher {
         return out
     }
 }
-
-
-
