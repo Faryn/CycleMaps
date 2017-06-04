@@ -70,9 +70,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if UIApplication.shared.isIdleTimerDisabled {
             UIApplication.shared.isIdleTimerDisabled = false
         }
+        map.addAnnotation(map.userLocation)
+        map.userTrackingMode = .none
+        map.showsUserLocation = false
     }
-
-//    private func
 
     private func removeOverlay(name: String) {
         if let ovl = overlays[name] {
@@ -127,7 +128,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.toolbarItems?.insert(trackButton, at: 0)
     }
     private func setupSearchBar() {
-        if let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as? LocationSearchTable {
+        if let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable")
+            as? LocationSearchTable {
             resultSearchController = UISearchController(searchResultsController: locationSearchTable)
             resultSearchController?.searchResultsUpdater = locationSearchTable
             let searchBar = resultSearchController!.searchBar
@@ -165,6 +167,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if status == .denied || status == .restricted {
                 map.userTrackingMode = .none
         }
+        if status == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -174,7 +179,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var map: MKMapView! {
         didSet {
             map.delegate = self
-            map.userTrackingMode = .follow
+            map.setUserTrackingMode(.follow, animated: true)
         }
     }
 
