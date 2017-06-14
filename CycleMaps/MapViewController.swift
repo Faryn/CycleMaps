@@ -21,7 +21,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var resultSearchController: UISearchController?
     var selectedPin: MKPlacemark?
     let settings = UserDefaults.standard
-    var overlays = [String: MKOverlay]()
+    var overlays = [String: [MKOverlay]]()
     var filesViewController: FilesViewController?
     var tileSource = TileSource.openCycleMap {
         willSet {
@@ -76,23 +76,45 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 
     private func removeOverlay(name: String) {
-        if let ovl = overlays[name] {
-            self.map.remove(ovl)
+        if let overlay = overlays[name] {
+            for segment in overlay {
+                self.map.remove(segment)
+            }
             overlays.removeValue(forKey: name)
         }
         filesViewController?.tableView.reloadData()
     }
 
+    private func displayGpx(name: String, waypoints: [GPX.Waypoint], tracks: [GPX.Track], routes: [GPX.Track]) {
+        if tracks.count > 0 {
+            for track in tracks {
+                addOverlay(name: name, waypoints: track.fixes)
+            }
+        } else if routes.count > 0 {
+            for track in routes {
+                addOverlay(name: name, waypoints: track.fixes)
+            }
+        } else if waypoints.count > 0 {
+            addOverlay(name: name, waypoints: waypoints)
+        }
+    }
+
     private func addOverlay(name: String, waypoints: [GPX.Waypoint]) {
-        //        print("Waypoints".appending(String(waypoints.count)))
         var coordinates = waypoints.map({ (waypoint: GPX.Waypoint!) -> CLLocationCoordinate2D in
             return waypoint.coordinate
         })
         let polyline = MKPolyline(coordinates: &coordinates, count: waypoints.count)
         polyline.title = name
-        overlays[name] = polyline
+        if overlays[name] == nil {
+            overlays[name] = []
+        }
+        overlays[name]?.append(polyline)
         self.map.add(polyline)
         filesViewController?.tableView.reloadData()
+        showPolylineOnMap(polyline: polyline)
+    }
+
+    private func showPolylineOnMap(polyline: MKPolyline) {
         var rect = MKMapRect()
         let loc = MKMapPointForCoordinate(map.userLocation.coordinate)
         if loc.x == 0 && loc.y == 0 {
@@ -208,7 +230,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func selectedFile(name: String, url: URL) {
         GPX.parse(url as URL) {
             if let gpx = $0 {
-                self.addOverlay(name: name, waypoints: gpx.waypoints)
+                self.displayGpx(name: name, waypoints: gpx.waypoints, tracks: gpx.tracks, routes: gpx.routes)
             }
         }
     }

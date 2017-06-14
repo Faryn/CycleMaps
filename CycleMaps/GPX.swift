@@ -161,7 +161,7 @@ class GPX: NSObject, XMLParserDelegate {
             let longitude = Double(attributeDict["lon"]!)
             waypoint = Waypoint(latitude: latitude!, longitude: longitude!)
 //        case "link":
-//            link = Link(href: (attributeDict["href"])!)
+//            link = Link(href: attributeDict["href"]! as String)
         default: break
         }
     }
@@ -171,7 +171,7 @@ class GPX: NSObject, XMLParserDelegate {
         case "wpt":
             if waypoint != nil { waypoints.append(waypoint!); waypoint = nil }
         case "trkpt", "rtept":
-            if waypoint != nil { waypoints.append(waypoint!); waypoint = nil }
+            if waypoint != nil { track?.fixes.append(waypoint!); waypoint = nil }
         case "trk", "trkseg", "rte":
             track = nil
         case "link":
