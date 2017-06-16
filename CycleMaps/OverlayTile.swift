@@ -32,12 +32,12 @@ class OverlayTile: MKTileOverlay {
     override init(urlTemplate URLTemplate: String?) {
         super.init(urlTemplate: URLTemplate)
         //        self.cache = HybridCache(name: "TileCache", config: cacheConfig)
-        self.cache.clearExpired()
+        self.cache.async.clearExpired()
     }
 
     override func loadTile(at path: MKTileOverlayPath, result: @escaping (Data?, Error?) -> Void) {
         let cacheKey = "\(self.urlTemplate!)-\(path.x)-\(path.y)-\(path.z)-\(path.contentScaleFactor)"
-        self.cache.object(cacheKey) { (data: Data?) in
+        self.cache.async.object(forKey: cacheKey) { (data: Data?) in
             if data != nil {
                 print("Cached!")
                 result(data, nil)
@@ -47,7 +47,7 @@ class OverlayTile: MKTileOverlay {
                 let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 3)
                 self.session.dataTask(with: request) { data, _, error in
                     if data != nil {
-                        self.cache.add(cacheKey, object: data!)
+                        self.cache.async.addObject(data!, forKey: cacheKey)
                     }
                     result(data, error)
                     }.resume()
@@ -63,7 +63,7 @@ class OverlayTile: MKTileOverlay {
     }
 
     internal func clearCache() {
-        cache.clear()
+        cache.async.clear()
         print("Tile Cache cleared!")
     }
 

@@ -1,6 +1,6 @@
-platform :ios, '10.2'
+platform :ios, '10.3'
 use_frameworks!
 
 target 'CycleMaps' do
-pod 'Cache', '~> 2.2'
+pod 'Cache', :git => 'https://github.com/hyperoslo/Cache.git'
 end

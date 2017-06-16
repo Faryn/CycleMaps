@@ -5,27 +5,23 @@ import Foundation
 /**
  Implementation of Cachable protocol.
  */
-extension String: Cachable {
-  public typealias CacheType = String
+extension Data: Cachable {
+  public typealias CacheType = Data
 
   /**
-   Creates a string from Data.
+   Creates an instance from Data.
    - Parameter data: Data to decode from
    - Returns: An optional CacheType
    */
   public static func decode(_ data: Data) -> CacheType? {
-    guard let string = String(data: data, encoding: String.Encoding.utf8) else {
-      return nil
-    }
-
-    return string
+    return data
   }
 
   /**
-   Encodes a string to Data.
+   Encodes an instance to Data.
    - Returns: Optional Data
    */
   public func encode() -> Data? {
-    return data(using: String.Encoding.utf8)
+    return self
   }
 }
