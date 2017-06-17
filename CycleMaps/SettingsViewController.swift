@@ -21,6 +21,9 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 11.0, *) {
+            self.navigationItem.largeTitleDisplayMode = .always
+        }
         if let cacheDisabled = settings.value(forKey: Constants.Settings.cacheDisabled) as? Bool {
             cacheSwitch.setOn(cacheDisabled, animated: false)
         }

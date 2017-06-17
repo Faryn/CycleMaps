@@ -25,6 +25,9 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate, UIDocu
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .always
+        }
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             if let url = appDelegate.importUrl {
                 self.handleReceivedGPXURL(url: url)

@@ -44,6 +44,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .never
+        }
         locationManager.delegate = self
         tileSource = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
         setupSearchBar()
@@ -70,7 +73,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if UIApplication.shared.isIdleTimerDisabled {
             UIApplication.shared.isIdleTimerDisabled = false
         }
-        map.addAnnotation(map.userLocation)
         map.userTrackingMode = .none
         map.showsUserLocation = false
     }
@@ -155,8 +157,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             resultSearchController = UISearchController(searchResultsController: locationSearchTable)
             resultSearchController?.searchResultsUpdater = locationSearchTable
             let searchBar = resultSearchController!.searchBar
-            searchBar.sizeToFit()
             searchBar.placeholder = NSLocalizedString("SearchForPlaces", comment: "Displayed as Search String")
+            searchBar.sizeToFit()
+            searchBar.searchBarStyle = .minimal
             navigationItem.titleView = resultSearchController?.searchBar
             resultSearchController?.hidesNavigationBarDuringPresentation = false
             resultSearchController?.dimsBackgroundDuringPresentation = true
@@ -205,7 +208,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
 
-    func toggleBarsOnTap(_ sender: UITapGestureRecognizer) {
+    @objc func toggleBarsOnTap(_ sender: UITapGestureRecognizer) {
         let hidden = !(self.navigationController?.isNavigationBarHidden)!
         self.navigationController?.setNavigationBarHidden(hidden, animated: true)
         self.navigationController?.setToolbarHidden(hidden, animated: true)
