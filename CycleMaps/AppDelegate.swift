@@ -25,6 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         importUrl = url
+        if let navigationViewController = window?.rootViewController as? UINavigationController {
+            if let mapViewController = navigationViewController.topViewController as? MapViewController {
+                mapViewController.importFile()
+            }
+        }
         return true
     }
 

@@ -58,15 +58,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        if appDelegate?.importUrl != nil {
-            self.performSegue(withIdentifier: Constants.Storyboard.filesSegueIdentifier, sender: self)
-        }
         if settings.bool(forKey: Constants.Settings.idleTimerDisabled) {
             print("Disabled!")
             UIApplication.shared.isIdleTimerDisabled = true
         }
 
+    }
+    
+    func importFile() {
+        self.performSegue(withIdentifier: Constants.Storyboard.filesSegueIdentifier, sender: self)
     }
 
     override func viewWillDisappear(_ animated: Bool) {

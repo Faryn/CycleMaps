@@ -18,8 +18,10 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate, UIDocu
     weak var delegate: FilesViewControllerDelegate?
     let fileStore = FileStore(withExtensions: ["gpx"])
 
-    private func handleReceivedGPXURL(url: URL) {
-        fileStore.add(url: url as URL)
+    private func handleReceivedGpxUrl(urls: [URL]) {
+        for url in urls {
+            fileStore.add(url: url)
+        }
         tableView.reloadData()
     }
 
@@ -30,7 +32,7 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate, UIDocu
         }
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             if let url = appDelegate.importUrl {
-                self.handleReceivedGPXURL(url: url)
+                self.handleReceivedGpxUrl(urls: [url])
                 appDelegate.importUrl = nil
             }
         }
@@ -91,7 +93,11 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate, UIDocu
     @IBOutlet weak var importButton: UIBarButtonItem!
 
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
-        handleReceivedGPXURL(url: url)
+        handleReceivedGpxUrl(urls: [url])
+    }
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        handleReceivedGpxUrl(urls: urls)
     }
 
     func documentMenu(_ documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
