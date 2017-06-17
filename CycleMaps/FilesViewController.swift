@@ -28,7 +28,7 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate, UIDocu
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if #available(iOS 11.0, *) {
-            navigationItem.largeTitleDisplayMode = .always
+//            navigationItem.largeTitleDisplayMode = .always
         }
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             if let url = appDelegate.importUrl {
@@ -77,7 +77,7 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate, UIDocu
     }
 
     @IBAction func importPressed(_ sender: UIBarButtonItem) {
-        let importMenu = UIDocumentMenuViewController(documentTypes: ["com.apple.dt.document.gpx"], in: .import)
+        let importMenu = UIDocumentMenuViewController(documentTypes: ["com.apple.dt.document.gpx", "public.xml"], in: .import)
         importMenu.popoverPresentationController?.barButtonItem = importButton
         importMenu.delegate = self
         present(importMenu, animated: true, completion: nil)

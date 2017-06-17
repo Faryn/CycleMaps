@@ -45,7 +45,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 11.0, *) {
-            navigationItem.largeTitleDisplayMode = .never
+//            navigationItem.largeTitleDisplayMode = .never
         }
         locationManager.delegate = self
         tileSource = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
