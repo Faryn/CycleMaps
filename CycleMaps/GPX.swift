@@ -16,9 +16,14 @@ class GPX: NSObject, XMLParserDelegate {
     var routes = [Track]()
 
     typealias GPXCompletionHandler = (GPX?) -> Void
+    static var gpxCache: [URL: GPX] = [:]
 
     class func parse(_ url: URL, completionHandler: @escaping GPXCompletionHandler) {
-        GPX(url: url, completionHandler: completionHandler).parse()
+        if let gpx = GPX.gpxCache[url] {
+            DispatchQueue.main.async {
+                completionHandler(gpx)
+            }
+        } else { GPX(url: url, completionHandler: completionHandler).parse() }
     }
 
     // MARK: - Public Classes
@@ -109,6 +114,7 @@ class GPX: NSObject, XMLParserDelegate {
     }
 
     fileprivate func complete(_ success: Bool) {
+        GPX.gpxCache[url] = self
         DispatchQueue.main.async {
             self.completionHandler(success ? self : nil)
         }

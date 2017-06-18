@@ -21,7 +21,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var resultSearchController: UISearchController?
     var selectedPin: MKPlacemark?
     let settings = UserDefaults.standard
-    var overlays = [String: [MKOverlay]]()
     var filesViewController: FilesViewController?
     var tileSource = TileSource.openCycleMap {
         willSet {
@@ -62,9 +61,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             print("Disabled!")
             UIApplication.shared.isIdleTimerDisabled = true
         }
-
     }
-    
+
     func importFile() {
         self.performSegue(withIdentifier: Constants.Storyboard.filesSegueIdentifier, sender: self)
     }
@@ -75,54 +73,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         map.userTrackingMode = .none
         map.showsUserLocation = false
-    }
-
-    private func removeOverlay(name: String) {
-        if let overlay = overlays[name] {
-            for segment in overlay {
-                self.map.remove(segment)
-            }
-            overlays.removeValue(forKey: name)
-        }
-        filesViewController?.tableView.reloadData()
-    }
-
-    private func displayGpx(name: String, waypoints: [GPX.Waypoint], tracks: [GPX.Track], routes: [GPX.Track]) {
-        if tracks.count > 0 {
-            for track in tracks {
-                addOverlay(name: name, waypoints: track.fixes)
-            }
-        } else if routes.count > 0 {
-            for track in routes {
-                addOverlay(name: name, waypoints: track.fixes)
-            }
-        } else if waypoints.count > 0 {
-            addOverlay(name: name, waypoints: waypoints)
-        }
-    }
-
-    private func addOverlay(name: String, waypoints: [GPX.Waypoint]) {
-        var coordinates = waypoints.map({ (waypoint: GPX.Waypoint!) -> CLLocationCoordinate2D in
-            return waypoint.coordinate
-        })
-        let polyline = MKPolyline(coordinates: &coordinates, count: waypoints.count)
-        polyline.title = name
-        if overlays[name] == nil {
-            overlays[name] = []
-        }
-        overlays[name]?.append(polyline)
-        self.map.add(polyline)
-        filesViewController?.tableView.reloadData()
-        showPolylineOnMap(polyline: polyline)
-    }
-
-    private func showPolylineOnMap(polyline: MKPolyline) {
-        var rect = MKMapRect()
-        let loc = MKMapPointForCoordinate(map.userLocation.coordinate)
-        if loc.x == 0 && loc.y == 0 {
-            rect = polyline.boundingMapRect
-        } else { rect = MKMapRectUnion(polyline.boundingMapRect, MKMapRectMake(loc.x, loc.y, 0, 0)) }
-        map.setVisibleMapRect(rect, edgePadding: .init(top: 20, left: 20, bottom: 20, right: 20), animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -201,7 +151,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         print("Failed to find user's location: \(error.localizedDescription)")
     }
 
-    @IBOutlet weak var map: MKMapView! {
+    @IBOutlet weak var map: MapView! {
         didSet {
             map.delegate = self
             map.setUserTrackingMode(.follow, animated: true)
@@ -212,6 +162,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let hidden = !(self.navigationController?.isNavigationBarHidden)!
         self.navigationController?.setNavigationBarHidden(hidden, animated: true)
         self.navigationController?.setToolbarHidden(hidden, animated: true)
+        performSegue(withIdentifier: "importSegue", sender: self)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -233,17 +184,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func selectedFile(name: String, url: URL) {
         GPX.parse(url as URL) {
             if let gpx = $0 {
-                self.displayGpx(name: name, waypoints: gpx.waypoints, tracks: gpx.tracks, routes: gpx.routes)
+                self.map.displayGpx(name: name, gpx: gpx)
+                self.filesViewController?.tableView.reloadData()
             }
         }
     }
 
     func deselectedFile(name: String) {
-        removeOverlay(name: name)
+        map.removeOverlay(name: name)
+        filesViewController?.tableView.reloadData()
+
     }
 
     func isSelected(name: String) -> Bool {
-        return overlays[name] != nil
+        return map.namedOverlays[name] != nil
     }
 }
 

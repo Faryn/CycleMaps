@@ -14,7 +14,8 @@ protocol FilesViewControllerDelegate: class {
     func isSelected(name: String) -> Bool
 }
 
-class FilesViewController: UITableViewController, UIDocumentMenuDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate {
+class FilesViewController: UITableViewController, UIDocumentMenuDelegate,
+                           UIDocumentPickerDelegate, UINavigationControllerDelegate {
     weak var delegate: FilesViewControllerDelegate?
     let fileStore = FileStore(withExtensions: ["gpx"])
 
@@ -46,16 +47,18 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate, UIDocu
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCell(withIdentifier: Constants.Storyboard.gpxCellReuseIdentifier, for: indexPath)
+        let cell =  tableView.dequeueReusableCell(withIdentifier:
+                Constants.Storyboard.gpxCellReuseIdentifier, for: indexPath)
             if indexPath.row < fileStore.files.count { // just to be safe
                 let url = fileStore.files[indexPath.row]
                 if let size = url.fileSize {
-                    cell.detailTextLabel?.text = ByteCountFormatter.string(fromByteCount: Int64(size.intValue), countStyle: ByteCountFormatter.CountStyle.file)
+                    cell.detailTextLabel?.text = ByteCountFormatter.string(fromByteCount: Int64(size.intValue),
+                                                                           countStyle: ByteCountFormatter.CountStyle.file)
                 }
                 cell.textLabel?.text = url.lastPathComponent
-                cell.accessoryType = .none
+                //cell.accessoryType = .none
                 if delegate!.isSelected(name: url.lastPathComponent) {
-                    cell.accessoryType = .checkmark
+                    //cell.accessoryType = .checkmark
                 }
             }
             return cell
@@ -74,6 +77,10 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate, UIDocu
         delegate?.deselectedFile(name: url.lastPathComponent)
         tableView.reloadData()
         print("deselect")
+    }
+
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        performSegue(withIdentifier: "fileDetailSegue", sender: indexPath)
     }
 
     @IBAction func importPressed(_ sender: UIBarButtonItem) {
@@ -95,7 +102,7 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate, UIDocu
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
         handleReceivedGpxUrl(urls: [url])
     }
-    
+
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         handleReceivedGpxUrl(urls: urls)
     }
@@ -103,5 +110,15 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate, UIDocu
     func documentMenu(_ documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
         documentPicker.delegate = self
         present(documentPicker, animated: true, completion: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "fileDetailSegue" {
+            if let fileDetailViewController = segue.destination as? FileDetailViewController {
+                if let indexPath = sender as? IndexPath {
+                    fileDetailViewController.fileUrl = fileStore.files[indexPath.row]
+                }
+            }
+        }
     }
 }
