@@ -162,7 +162,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let hidden = !(self.navigationController?.isNavigationBarHidden)!
         self.navigationController?.setNavigationBarHidden(hidden, animated: true)
         self.navigationController?.setToolbarHidden(hidden, animated: true)
-        performSegue(withIdentifier: "importSegue", sender: self)
+        //performSegue(withIdentifier: "importSegue", sender: self)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

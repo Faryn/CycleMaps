@@ -59,6 +59,14 @@ class FileDetailViewController: UITableViewController, MKMapViewDelegate {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setToolbarHidden(true, animated: true)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setToolbarHidden(false, animated: true)
+    }
+
     func getPlacemarks() {
         if let track = tracks?.first {
             CLGeocoder().reverseGeocodeLocation(CLLocation(

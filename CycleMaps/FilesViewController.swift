@@ -56,20 +56,25 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,
                                                                            countStyle: ByteCountFormatter.CountStyle.file)
                 }
                 cell.textLabel?.text = url.lastPathComponent
-                //cell.accessoryType = .none
+//                cell.accessoryType = .none
                 if delegate!.isSelected(name: url.lastPathComponent) {
-                    //cell.accessoryType = .checkmark
+//                    cell.accessoryType = .checkmark
                 }
             }
             return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell =  tableView.dequeueReusableCell(withIdentifier:
+            Constants.Storyboard.gpxCellReuseIdentifier, for: indexPath)
         let url = fileStore.files[indexPath.row]
         if delegate!.isSelected(name: url.lastPathComponent) {
             delegate?.deselectedFile(name: url.lastPathComponent)
-        } else { delegate?.selectedFile(name: url.lastPathComponent, url: url ) }
-//        tableView.reloadData()
+            cell.textLabel?.textColor = UIColor.black
+        } else {
+            delegate?.selectedFile(name: url.lastPathComponent, url: url )
+            cell.textLabel?.textColor = UIColor.blue
+        }
     }
 
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

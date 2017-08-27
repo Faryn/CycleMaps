@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4E3B935A6091A2D1A477207E /* Pods_CycleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA3938BF04A7174AA5E1CF6 /* Pods_CycleMaps.framework */; };
 		DA0065F81E6C8D9200A54495 /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0065F71E6C8D9200A54495 /* GPX.swift */; };
-		DA076DBB1EF5CC9800D8563C /* FileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA076DBA1EF5CC9800D8563C /* FileDetailViewController.swift */; };
 		DA38D8061E6F5B06007817F2 /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38D8051E6F5B06007817F2 /* FilesViewController.swift */; };
 		DA38D8081E6F5D8A007817F2 /* FileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38D8071E6F5D8A007817F2 /* FileStore.swift */; };
 		DA394DCC1E5CB1BF0058AE09 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA394DCB1E5CB1BF0058AE09 /* LocationSearchTable.swift */; };
@@ -19,6 +18,7 @@
 		DA5B656E1E85D31800FACE96 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = DA5B656D1E85D31800FACE96 /* about.html */; };
 		DA6FE4871EB7DA2B005B7F97 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA6FE4891EB7DA2B005B7F97 /* Localizable.strings */; };
 		DA7DBEF11E7B26C600720B5E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DBEF01E7B26C600720B5E /* Constants.swift */; };
+		DA8B9CB81F53472E0040A2A7 /* FileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B9CB71F53472E0040A2A7 /* FileDetailViewController.swift */; };
 		DA96311B1E7B2DB30084A16A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA96311A1E7B2DB30084A16A /* CloudKit.framework */; };
 		DAAED6181EF6E1680035537F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAED6171EF6E1680035537F /* MapView.swift */; };
 		DAB068121E47B0C500EFDD3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB068111E47B0C500EFDD3E /* AppDelegate.swift */; };
@@ -36,7 +36,6 @@
 		3069207BFD476D1FDAE52954 /* Pods-CycleMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CycleMaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps.release.xcconfig"; sourceTree = "<group>"; };
 		D36BC016CD788E17B8380C55 /* Pods-CycleMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CycleMaps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps.debug.xcconfig"; sourceTree = "<group>"; };
 		DA0065F71E6C8D9200A54495 /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
-		DA076DBA1EF5CC9800D8563C /* FileDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDetailViewController.swift; sourceTree = "<group>"; };
 		DA38D8051E6F5B06007817F2 /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
 		DA38D8071E6F5D8A007817F2 /* FileStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStore.swift; sourceTree = "<group>"; };
 		DA394DCB1E5CB1BF0058AE09 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		DA6FE48A1EB7DA31005B7F97 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA6FE48B1EB7DA76005B7F97 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA7DBEF01E7B26C600720B5E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DA8B9CB71F53472E0040A2A7 /* FileDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDetailViewController.swift; sourceTree = "<group>"; };
 		DA9583451EDCC9B20096B100 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		DA96311A1E7B2DB30084A16A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		DAAED6171EF6E1680035537F /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -119,11 +119,11 @@
 		DAB068101E47B0C500EFDD3E /* CycleMaps */ = {
 			isa = PBXGroup;
 			children = (
+				DA8B9CB71F53472E0040A2A7 /* FileDetailViewController.swift */,
 				DA6FE48B1EB7DA76005B7F97 /* Info.plist */,
 				DAEB86671E794CF0009D8059 /* Assets.xcassets */,
 				DAEDED641E75FF4D00FCE1A4 /* CycleMaps.entitlements */,
 				DAB068111E47B0C500EFDD3E /* AppDelegate.swift */,
-				DA076DBA1EF5CC9800D8563C /* FileDetailViewController.swift */,
 				DAB068131E47B0C500EFDD3E /* MapViewController.swift */,
 				DAAED6171EF6E1680035537F /* MapView.swift */,
 				DA38D8051E6F5B06007817F2 /* FilesViewController.swift */,
@@ -258,9 +258,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftHash/SwiftHash.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHash.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -273,13 +278,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CycleMaps-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DA7907721EE4216900B11D5D /* ShellScript */ = {
@@ -303,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAEDED681E782EF100FCE1A4 /* SettingDetailViewController.swift in Sources */,
+				DA8B9CB81F53472E0040A2A7 /* FileDetailViewController.swift in Sources */,
 				DA7DBEF11E7B26C600720B5E /* Constants.swift in Sources */,
 				DAB068141E47B0C500EFDD3E /* MapViewController.swift in Sources */,
 				DA3FC9851E59FECD005C08C7 /* OverlayTile.swift in Sources */,
@@ -311,7 +320,6 @@
 				DA5B656C1E85D13A00FACE96 /* AboutViewController.swift in Sources */,
 				DAAED6181EF6E1680035537F /* MapView.swift in Sources */,
 				DAEA8BC91E5E3D34009CC260 /* SettingsViewController.swift in Sources */,
-				DA076DBB1EF5CC9800D8563C /* FileDetailViewController.swift in Sources */,
 				DAEDED661E77F9C500FCE1A4 /* TileSource.swift in Sources */,
 				DA394DCC1E5CB1BF0058AE09 /* LocationSearchTable.swift in Sources */,
 				DA0065F81E6C8D9200A54495 /* GPX.swift in Sources */,
