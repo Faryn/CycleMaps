@@ -23,7 +23,6 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,
         for url in urls {
             fileStore.add(url: url)
         }
-        tableView.reloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +36,7 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,
                 appDelegate.importUrl = nil
             }
         }
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -51,29 +51,23 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,
                 Constants.Storyboard.gpxCellReuseIdentifier, for: indexPath)
             if indexPath.row < fileStore.files.count { // just to be safe
                 let url = fileStore.files[indexPath.row]
-                if let size = url.fileSize {
-                    cell.detailTextLabel?.text = ByteCountFormatter.string(fromByteCount: Int64(size.intValue),
-                                                                           countStyle: ByteCountFormatter.CountStyle.file)
-                }
                 cell.textLabel?.text = url.lastPathComponent
-//                cell.accessoryType = .none
                 if delegate!.isSelected(name: url.lastPathComponent) {
-//                    cell.accessoryType = .checkmark
+                    cell.textLabel?.textColor = UIColor.blue
                 }
             }
             return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell =  tableView.dequeueReusableCell(withIdentifier:
-            Constants.Storyboard.gpxCellReuseIdentifier, for: indexPath)
+        let cell = tableView.cellForRow(at: indexPath)
         let url = fileStore.files[indexPath.row]
         if delegate!.isSelected(name: url.lastPathComponent) {
             delegate?.deselectedFile(name: url.lastPathComponent)
-            cell.textLabel?.textColor = UIColor.black
+            cell?.textLabel?.textColor = UIColor.black
         } else {
             delegate?.selectedFile(name: url.lastPathComponent, url: url )
-            cell.textLabel?.textColor = UIColor.blue
+            cell?.textLabel?.textColor = UIColor.blue
         }
     }
 

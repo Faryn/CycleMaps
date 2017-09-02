@@ -11,6 +11,8 @@ import MapKit
 
 class FileDetailViewController: UITableViewController, MKMapViewDelegate {
 
+    let fileStore = FileStore(withExtensions: ["gpx"])
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var waypointsLabel: UILabel!
     @IBOutlet weak var startLabel: UILabel!
@@ -19,7 +21,7 @@ class FileDetailViewController: UITableViewController, MKMapViewDelegate {
 
     var fileUrl: URL? {
         didSet {
-            fileName = fileUrl?.lastPathComponent
+            fileName = fileUrl?.deletingPathExtension().lastPathComponent
         }
     }
 
@@ -33,6 +35,11 @@ class FileDetailViewController: UITableViewController, MKMapViewDelegate {
                 distanceLabel.text = String(format: "%.3f km", totalDistance!*0.001)
             } else { distanceLabel.text = String(format: "%.3f mi", totalDistance!*0.000621371) }
         }
+    }
+
+    @IBAction func shareFile(_ sender: UIBarButtonItem) {
+        let activityVC = UIActivityViewController(activityItems: [fileUrl!], applicationActivities: nil)
+        present(activityVC, animated: true, completion: nil)
     }
 
     var waypointCount: Int? {
@@ -60,7 +67,7 @@ class FileDetailViewController: UITableViewController, MKMapViewDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setToolbarHidden(true, animated: true)
+        navigationController?.setToolbarHidden(false, animated: true)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -80,6 +87,12 @@ class FileDetailViewController: UITableViewController, MKMapViewDelegate {
                 longitude: (track.fixes.last?.longitude)!),
                 completionHandler: { (placemarks, _) in self.destinationPoint = placemarks?.first })
         }
+    }
+
+    @IBAction func deleteFile(_ sender: UIBarButtonItem) {
+        // TODO: If the track is currently displayed on the map it'll stay there after the file is removed.
+        fileStore.remove(url: fileUrl!)
+        navigationController?.popViewController(animated: true)
     }
 
     var fileName: String?

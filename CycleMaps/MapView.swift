@@ -24,6 +24,7 @@ class MapView: MKMapView {
         }
         namedOverlays[name]?.append(polyline)
         add(polyline)
+        showPolylineOnMap(name: name)
         //        let startAnnotation = MKPointAnnotation()
         //        let stopAnnotation = MKPointAnnotation()
         //        startAnnotation.coordinate = coordinates.first!
@@ -41,7 +42,7 @@ class MapView: MKMapView {
             overlayRect = MKMapRectUnion(overlayRect, MKMapRectMake(loc.x, loc.y, 0, 0))
         }
         setVisibleMapRect(mapRectThatFits(overlayRect),
-                          edgePadding: .init(top: 0, left: 0, bottom: 0, right: 0), animated: true)
+                          edgePadding: .init(top: 10, left: 10, bottom: 10, right: 10), animated: true)
     }
 
     func removeOverlay(name: String) {

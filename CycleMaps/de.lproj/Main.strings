@@ -1,6 +1,15 @@
 
+/* Class = "UILabel"; text = "Title"; ObjectID = "1pE-ad-gjL"; */
+"1pE-ad-gjL.text" = "Titel";
+
 /* Class = "UILabel"; text = "Keep Display On"; ObjectID = "2b8-ES-XoZ"; */
 "2b8-ES-XoZ.text" = "Displaysperre verhindern";
+
+/* Class = "UILabel"; text = "Waypoints"; ObjectID = "2hH-uD-NlL"; */
+"2hH-uD-NlL.text" = "Wegpunkte";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "455-IO-Yfu"; */
+"455-IO-Yfu.text" = "Detail";
 
 /* Class = "UIBarButtonItem"; title = "Map"; ObjectID = "6NQ-tB-l0k"; */
 "6NQ-tB-l0k.title" = "Karte";
@@ -23,6 +32,9 @@
 /* Class = "UILabel"; text = "Disable Cache"; ObjectID = "Nlq-XB-CCM"; */
 "Nlq-XB-CCM.text" = "Cache deaktivieren";
 
+/* Class = "UILabel"; text = "Loading..."; ObjectID = "Nrg-Ed-CYj"; */
+"Nrg-Ed-CYj.text" = "Lädt...";
+
 /* Class = "UIButton"; normalTitle = "Clear Cache"; ObjectID = "QAq-tT-Viy"; */
 "QAq-tT-Viy.normalTitle" = "Cache löschen";
 
@@ -38,11 +50,14 @@
 /* Class = "UITableViewController"; title = "Settings"; ObjectID = "ThV-TA-g6M"; */
 "ThV-TA-g6M.title" = "Einstellungen";
 
-/* Class = "UILabel"; text = "Title"; ObjectID = "W33-Ah-an7"; */
-"W33-Ah-an7.text" = "Titel";
+/* Class = "UILabel"; text = "Loading..."; ObjectID = "UJb-7L-1IS"; */
+"UJb-7L-1IS.text" = "Lädt...";
+
+/* Class = "UILabel"; text = "Distance"; ObjectID = "UrO-dS-Ska"; */
+"UrO-dS-Ska.text" = "Entfernung";
 
 /* Class = "UITableViewSection"; footerTitle = "All downloaded maps are cached to improve performance."; ObjectID = "aFP-3r-20h"; */
-"aFP-3r-20h.footerTitle" = "Alle heruntergeladenen Daten werden im Cache gesichert, um die Performance zu verbessern.";
+"aFP-3r-20h.footerTitle" = "Alle heruntergeladenen Karten werden im Cache gesichert, um die Performance zu verbessern.";
 
 /* Class = "UITableViewSection"; headerTitle = "Cache"; ObjectID = "aFP-3r-20h"; */
 "aFP-3r-20h.headerTitle" = "Cache";
@@ -59,11 +74,20 @@
 /* Class = "UIBarButtonItem"; title = "Import"; ObjectID = "jKo-2C-ew6"; */
 "jKo-2C-ew6.title" = "Import";
 
+/* Class = "UILabel"; text = "Destination"; ObjectID = "k1d-pe-DBe"; */
+"k1d-pe-DBe.text" = "Ziel";
+
+/* Class = "UILabel"; text = "Loading..."; ObjectID = "k8c-AC-MQc"; */
+"k8c-AC-MQc.text" = "Lädt...";
+
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "kYg-rI-duW"; */
 "kYg-rI-duW.title" = "Einstellungen";
 
 /* Class = "UIBarButtonItem"; title = "Map"; ObjectID = "mil-qx-dfo"; */
 "mil-qx-dfo.title" = "Karte";
+
+/* Class = "UITableViewController"; title = "File Detail"; ObjectID = "nFN-rV-xJh"; */
+"nFN-rV-xJh.title" = "Datei Detail";
 
 /* Class = "UIButton"; normalTitle = "Edit Location Settings"; ObjectID = "nj8-PK-alo"; */
 "nj8-PK-alo.normalTitle" = "Einstellungen Ortungsdienste";
@@ -77,6 +101,9 @@
 /* Class = "UINavigationItem"; title = "Map Style"; ObjectID = "tYK-qY-22v"; */
 "tYK-qY-22v.title" = "Kartenstil";
 
+/* Class = "UILabel"; text = "Loading..."; ObjectID = "v5t-H5-V38"; */
+"v5t-H5-V38.text" = "Lädt...";
+
 /* Class = "UIButton"; normalTitle = "Contact Support"; ObjectID = "vNL-y3-wqX"; */
 "vNL-y3-wqX.normalTitle" = "Support kontaktieren";
 
@@ -85,6 +112,12 @@
 
 /* Class = "UITableViewController"; title = "GPX Files"; ObjectID = "w1t-Fo-jrU"; */
 "w1t-Fo-jrU.title" = "GPX Dateien";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "y7M-tX-YHg"; */
+"y7M-tX-YHg.text" = "Name";
+
+/* Class = "UILabel"; text = "Starting Point"; ObjectID = "yQF-Ur-Q7M"; */
+"yQF-Ur-Q7M.text" = "Startpunkt";
 
 /* Class = "UITableViewSection"; headerTitle = "Location"; ObjectID = "zjO-J9-c9W"; */
 "zjO-J9-c9W.headerTitle" = "Ortungsdienste";
