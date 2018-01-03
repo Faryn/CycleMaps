@@ -15,7 +15,7 @@ protocol HandleMapSearch: class {
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,
     UISearchBarDelegate, UIPopoverPresentationControllerDelegate, SettingsViewControllerDelegate,
-    FilesViewControllerDelegate {
+    FilesViewControllerDelegate, UIGestureRecognizerDelegate {
 
     let locationManager = CLLocationManager()
     var resultSearchController: UISearchController?
@@ -42,6 +42,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var tileSourceOverlay: OverlayTile?
     var quickZoomStart: CGFloat?
     var quickZoomStartLevel: Double?
+    var tapGestureRecognizer: UITapGestureRecognizer?
+    var quickZoomGestureRecognizer : UILongPressGestureRecognizer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,13 +54,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         tileSource = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
         setupSearchBar()
         addTrackButton()
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toggleBarsOnTap(_:)))
-        self.view.addGestureRecognizer(tapGestureRecognizer)
-        let quickZoomGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleQuickZoom(_:)))
-        quickZoomGestureRecognizer.numberOfTapsRequired = 1
-        quickZoomGestureRecognizer.minimumPressDuration = 0.1
-        self.view.addGestureRecognizer(quickZoomGestureRecognizer)
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toggleBarsOnTap(_:)))
+        tapGestureRecognizer!.delegate = self
+        self.view.addGestureRecognizer(tapGestureRecognizer!)
+        quickZoomGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleQuickZoom(_:)))
+        quickZoomGestureRecognizer!.numberOfTapsRequired = 1
+        quickZoomGestureRecognizer!.minimumPressDuration = 0.1
+        self.view.addGestureRecognizer(quickZoomGestureRecognizer!)
         //gpxURL = NSURL(string: "http://cs193p.stanford.edu/Vacation.gpx") // for demo/debug/testing
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == self.tapGestureRecognizer && otherGestureRecognizer == quickZoomGestureRecognizer {
+            return true
+        }
+        return false
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -167,10 +177,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     @objc func toggleBarsOnTap(_ sender: UITapGestureRecognizer) {
         let hidden = !(self.navigationController?.isNavigationBarHidden)!
-//        self.navigationController?.setNavigationBarHidden(hidden, animated: true)
-//        self.navigationController?.setToolbarHidden(hidden, animated: true)
-//        print(map.zoomLevel)
-//        //performSegue(withIdentifier: "importSegue", sender: self)
+        self.navigationController?.setNavigationBarHidden(hidden, animated: true)
+        self.navigationController?.setToolbarHidden(hidden, animated: true)
+        print(map.zoomLevel)
+        //performSegue(withIdentifier: "importSegue", sender: self)
     }
 
     @objc func handleQuickZoom(_ sender: UILongPressGestureRecognizer) {
