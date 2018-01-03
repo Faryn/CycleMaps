@@ -23,6 +23,7 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,
         for url in urls {
             fileStore.add(url: url)
         }
+        tableView.reloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -30,13 +31,17 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,
         if #available(iOS 11.0, *) {
 //            navigationItem.largeTitleDisplayMode = .always
         }
+        initiateImport()
+        tableView.reloadData()
+    }
+    
+    func initiateImport() {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             if let url = appDelegate.importUrl {
                 self.handleReceivedGpxUrl(urls: [url])
                 appDelegate.importUrl = nil
             }
         }
-        tableView.reloadData()
     }
 
     // MARK: - Table view data source

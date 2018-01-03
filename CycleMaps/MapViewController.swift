@@ -40,18 +40,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     var tileSourceOverlay: OverlayTile?
+    var quickZoomStart: CGFloat?
+    var quickZoomStartLevel: Double?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 11.0, *) {
-//            navigationItem.largeTitleDisplayMode = .never
+            navigationItem.largeTitleDisplayMode = .never
         }
         locationManager.delegate = self
         tileSource = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
         setupSearchBar()
         addTrackButton()
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toggleBarsOnTap(_:)))
-        self.view.addGestureRecognizer(gestureRecognizer)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toggleBarsOnTap(_:)))
+        self.view.addGestureRecognizer(tapGestureRecognizer)
+        let quickZoomGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleQuickZoom(_:)))
+        quickZoomGestureRecognizer.numberOfTapsRequired = 1
+        quickZoomGestureRecognizer.minimumPressDuration = 0.1
+        self.view.addGestureRecognizer(quickZoomGestureRecognizer)
         //gpxURL = NSURL(string: "http://cs193p.stanford.edu/Vacation.gpx") // for demo/debug/testing
     }
 
@@ -65,6 +71,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     func importFile() {
         self.performSegue(withIdentifier: Constants.Storyboard.filesSegueIdentifier, sender: self)
+        if filesViewController != nil { filesViewController?.initiateImport() }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -160,9 +167,36 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     @objc func toggleBarsOnTap(_ sender: UITapGestureRecognizer) {
         let hidden = !(self.navigationController?.isNavigationBarHidden)!
-        self.navigationController?.setNavigationBarHidden(hidden, animated: true)
-        self.navigationController?.setToolbarHidden(hidden, animated: true)
-        //performSegue(withIdentifier: "importSegue", sender: self)
+//        self.navigationController?.setNavigationBarHidden(hidden, animated: true)
+//        self.navigationController?.setToolbarHidden(hidden, animated: true)
+//        print(map.zoomLevel)
+//        //performSegue(withIdentifier: "importSegue", sender: self)
+    }
+
+    @objc func handleQuickZoom(_ sender: UILongPressGestureRecognizer) {
+        print("success")
+        switch sender.state {
+        case .began:
+            self.quickZoomStart = sender.location(in: sender.view).y
+            self.quickZoomStartLevel = map.zoomLevel
+            print(map.zoomLevel)
+        case .changed:
+            if self.quickZoomStart != nil {
+                var newZoomLevel = quickZoomStartLevel!
+                let distance = self.quickZoomStart! - sender.location(in: sender.view).y
+                print(distance)
+                if distance > 0 {
+                    newZoomLevel = self.quickZoomStartLevel! * Double(distance)
+                } else if distance < 0 {
+                    newZoomLevel = self.quickZoomStartLevel! / (Double(distance) * -1)
+                }
+//                let newZoomLevel = pow(self.quickZoomStartLevel!, Double(distance * CGFloat(0.005)+1))
+                print(newZoomLevel)
+                map.zoomLevel = newZoomLevel
+            }
+        default:
+            break
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

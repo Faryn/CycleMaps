@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/OverlayTile.swift"
-            timestampString = "515355388.572003"
+            timestampString = "536706076.836386"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
@@ -250,11 +250,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "525812012.244074"
+            timestampString = "536706076.836889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239">
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "MKPolyline"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -264,11 +266,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "525812012.244301"
+            timestampString = "536706076.837312"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239">
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "MKPolyline"
+            landmarkType = "21">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -326,11 +330,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "525812012.24446"
+            timestampString = "536706076.837614"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239">
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "MKPolyline"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -463,11 +469,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "525812012.244558"
+            timestampString = "536706076.837894"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239">
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "MKPolyline"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -477,7 +485,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/FilesViewController.swift"
-            timestampString = "526060824.613179"
+            timestampString = "536706076.838165"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -493,7 +501,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/FilesViewController.swift"
-            timestampString = "526060824.613231"
+            timestampString = "536706076.838213"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
@@ -509,7 +517,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/OverlayTile.swift"
-            timestampString = "515355388.572003"
+            timestampString = "536706076.838257"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -525,7 +533,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/OverlayTile.swift"
-            timestampString = "515359007.192818"
+            timestampString = "536706076.8385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -541,7 +549,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/OverlayTile.swift"
-            timestampString = "515359007.192818"
+            timestampString = "536706076.838739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
@@ -557,7 +565,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/OverlayTile.swift"
-            timestampString = "515359007.192818"
+            timestampString = "536706076.839005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -573,7 +581,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/OverlayTile.swift"
-            timestampString = "518270306.923663"
+            timestampString = "536706076.839247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
@@ -589,7 +597,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/OverlayTile.swift"
-            timestampString = "518270306.923663"
+            timestampString = "536706076.839483"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
@@ -621,7 +629,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/OverlayTile.swift"
-            timestampString = "515355388.572003"
+            timestampString = "536706076.839735"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -637,11 +645,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "525812012.244791"
+            timestampString = "536706076.839973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239">
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "MKPolyline"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -651,11 +661,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "525812012.244868"
+            timestampString = "536706076.840245"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239">
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "MKPolyline"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -665,11 +677,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "525812012.245048"
+            timestampString = "536706076.840519"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239">
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "MKPolyline"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -679,11 +693,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "525812012.245122"
+            timestampString = "536706076.840781"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239">
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "MKPolyline"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -693,11 +709,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "525812012.245175"
+            timestampString = "536706076.841036"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239">
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "MKPolyline"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -707,11 +725,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "525812012.245227"
+            timestampString = "536706076.841288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239">
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "MKPolyline"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -721,11 +741,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "525812012.245278"
+            timestampString = "536706076.841543"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239">
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "MKPolyline"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -735,7 +757,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/FilesViewController.swift"
-            timestampString = "526060824.61343"
+            timestampString = "536706076.841873"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
@@ -828,11 +850,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "525812012.245379"
+            timestampString = "536706076.841925"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239">
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "MKPolyline"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -842,11 +866,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "525812012.245431"
+            timestampString = "536706076.842225"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239">
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "MKPolyline"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -856,11 +882,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "525812012.24548"
+            timestampString = "536706076.842498"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -872,11 +898,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "525812012.245527"
+            timestampString = "536706076.842798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "viewWillDisappear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -888,11 +914,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "525812012.245577"
+            timestampString = "536706076.843077"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -904,43 +930,120 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/AppDelegate.swift"
-            timestampString = "520027588.659959"
+            timestampString = "536706076.843385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
             landmarkName = "application(_:open:options:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CycleMaps/FilesViewController.swift"
+            timestampString = "536706076.843452"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "FilesViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CycleMaps/FilesViewController.swift"
+            timestampString = "536706076.843501"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "FilesViewController"
+            landmarkType = "3">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "CycleMaps.AppDelegate.application (__ObjC.UIApplication, open : Foundation.URL, options : Swift.Dictionary&lt;__C.UIApplicationOpenURLOptionsKey, Any&gt;) -&gt; Swift.Bool"
+                  symbolName = "CycleMaps.FilesViewController.importButton.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIBarButtonItem&gt;"
                   moduleName = "CycleMaps"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/paul/Dropbox/Dev/CycleMaps/CycleMaps/AppDelegate.swift"
-                  timestampString = "525551573.037286"
+                  urlString = "file:///Users/paul/Dropbox/Dev/CycleMaps/CycleMaps/FilesViewController.swift"
+                  timestampString = "536706077.115536"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "328">
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "48">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "CycleMaps.AppDelegate.application (__ObjC.UIApplication, open : Foundation.URL, options : Swift.Dictionary&lt;__C.UIApplicationOpenURLOptionsKey, Any&gt;) -&gt; Swift.Bool"
+                  symbolName = "CycleMaps.FilesViewController.importButton.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIBarButtonItem&gt;"
                   moduleName = "CycleMaps"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/paul/Dropbox/Dev/CycleMaps/CycleMaps/AppDelegate.swift"
-                  timestampString = "525551573.042691"
+                  urlString = "file:///Users/paul/Dropbox/Dev/CycleMaps/CycleMaps/FilesViewController.swift"
+                  timestampString = "536706077.118827"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "1048">
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CycleMaps.FilesViewController.init(style: __C.UITableViewStyle) -&gt; CycleMaps.FilesViewController"
+                  moduleName = "CycleMaps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paul/Dropbox/Dev/CycleMaps/CycleMaps/FilesViewController.swift"
+                  timestampString = "536706077.131022"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "1156">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CycleMaps.FilesViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; CycleMaps.FilesViewController"
+                  moduleName = "CycleMaps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paul/Dropbox/Dev/CycleMaps/CycleMaps/FilesViewController.swift"
+                  timestampString = "536706077.138184"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "1436">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CycleMaps.FilesViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;CycleMaps.FilesViewController&gt;"
+                  moduleName = "CycleMaps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paul/Dropbox/Dev/CycleMaps/CycleMaps/FilesViewController.swift"
+                  timestampString = "536706077.140556"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "1156">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -948,75 +1051,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CycleMaps/FilesViewController.swift"
-            timestampString = "526060824.613543"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "documentPicker(_:didPickDocumentAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/FilesViewController.swift"
-            timestampString = "526060824.613586"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "documentPicker(_:didPickDocumentsAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CycleMaps/FilesViewController.swift"
-            timestampString = "526060824.613631"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "FilesViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CycleMaps/FilesViewController.swift"
-            timestampString = "526060824.613673"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "FilesViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CycleMaps/FilesViewController.swift"
-            timestampString = "526060824.613719"
+            timestampString = "536706076.843545"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "113"
@@ -1032,12 +1071,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/FilesViewController.swift"
-            timestampString = "526060824.613756"
+            timestampString = "536706076.843594"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
             endingLineNumber = "81"
-            landmarkName = "tableView(_:accessoryButtonTappedForRowWith:)"
+            landmarkName = "tableView(_:didDeselectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1064,13 +1103,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/FileDetailViewController.swift"
-            timestampString = "526060824.613814"
+            timestampString = "536523417.927355"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
             endingLineNumber = "91"
-            landmarkName = "FileDetailViewController"
-            landmarkType = "3">
+            landmarkName = "getPlacemarks()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1080,7 +1119,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapView.swift"
-            timestampString = "526060824.614427"
+            timestampString = "536706076.843683"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
@@ -1096,12 +1135,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CycleMaps/MapView.swift"
-            timestampString = "526060824.614541"
+            timestampString = "536706076.844017"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
             endingLineNumber = "38"
             landmarkName = "showPolylineOnMap(name:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CycleMaps/MapViewController.swift"
+            timestampString = "536706076.844277"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "handleQuickZoom(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

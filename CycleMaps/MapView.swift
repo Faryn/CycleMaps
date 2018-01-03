@@ -68,4 +68,23 @@ class MapView: MKMapView {
         }
         showPolylineOnMap(name: name)
     }
+
+    var zoomLevel: Double {
+        get {
+            print(region.center.latitude, region.center.longitude)
+            return self.region.span.latitudeDelta
+        }
+
+        set (newZoomLevel) {
+            var newRegion = MKCoordinateRegion()
+            newRegion.center = region.center
+            newRegion.span.latitudeDelta = 0.0000000000000002
+            newRegion.span.longitudeDelta = min(newZoomLevel, 360)
+//            newRegion = regionThatFits(newRegion)
+            // Setting the region will reset camera heading so we preserve it here
+            let heading = camera.heading
+            setRegion(newRegion, animated: false)
+            camera.heading = heading
+        }
+    }
 }

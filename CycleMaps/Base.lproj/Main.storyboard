@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="S7A-xP-f7U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="S7A-xP-f7U">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -620,6 +620,7 @@
                         <outlet property="distanceLabel" destination="k8c-AC-MQc" id="MAr-hp-CNK"/>
                         <outlet property="mapView" destination="tp8-q8-b0L" id="NLn-0z-Vp8"/>
                         <outlet property="nameLabel" destination="455-IO-Yfu" id="6RS-kC-R2o"/>
+                        <outlet property="shareButton" destination="Qcu-QN-ChG" id="rSn-em-SoD"/>
                         <outlet property="startLabel" destination="Nrg-Ed-CYj" id="XGf-y7-6OZ"/>
                         <outlet property="waypointsLabel" destination="UJb-7L-1IS" id="l2D-Jo-aYg"/>
                     </connections>

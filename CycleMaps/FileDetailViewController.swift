@@ -27,18 +27,20 @@ class FileDetailViewController: UITableViewController, MKMapViewDelegate {
 
     private var useKilometers: Bool {
         return NSLocale.current.usesMetricSystem
-    }
+    } 
 
     var totalDistance: Double? {
         didSet {
             if useKilometers {
-                distanceLabel.text = String(format: "%.3f km", totalDistance!*0.001)
-            } else { distanceLabel.text = String(format: "%.3f mi", totalDistance!*0.000621371) }
+                distanceLabel.text = String(format: "%.2f km", totalDistance!*0.001)
+            } else { distanceLabel.text = String(format: "%.2f mi", totalDistance!*0.000621371) }
         }
     }
+    @IBOutlet weak var shareButton: UIBarButtonItem!
 
     @IBAction func shareFile(_ sender: UIBarButtonItem) {
         let activityVC = UIActivityViewController(activityItems: [fileUrl!], applicationActivities: nil)
+        activityVC.popoverPresentationController?.barButtonItem = shareButton
         present(activityVC, animated: true, completion: nil)
     }
 
