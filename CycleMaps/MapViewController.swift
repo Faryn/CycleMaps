@@ -196,9 +196,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 let distance = self.quickZoomStart! - sender.location(in: sender.view).y
                 print(distance)
                 if distance > 0 {
-                    newZoomLevel = self.quickZoomStartLevel! * Double(distance)
+                    newZoomLevel = self.quickZoomStartLevel! * Double(distance/2)
                 } else if distance < 0 {
-                    newZoomLevel = self.quickZoomStartLevel! / (Double(distance) * -1)
+                    newZoomLevel = self.quickZoomStartLevel! / (Double(distance/2) * -1)
                 }
 //                let newZoomLevel = pow(self.quickZoomStartLevel!, Double(distance * CGFloat(0.005)+1))
                 print(newZoomLevel)
