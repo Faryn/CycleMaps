@@ -71,7 +71,7 @@ class MapView: MKMapView {
 
     var zoomLevel: Double {
         get {
-            print(region.center.latitude, region.center.longitude)
+//            print(region.center.latitude, region.center.longitude)
             return self.region.span.latitudeDelta
         }
 

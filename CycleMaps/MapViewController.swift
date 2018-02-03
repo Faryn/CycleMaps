@@ -63,7 +63,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.view.addGestureRecognizer(quickZoomGestureRecognizer!)
         //gpxURL = NSURL(string: "http://cs193p.stanford.edu/Vacation.gpx") // for demo/debug/testing
     }
-    
+
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer == self.tapGestureRecognizer && otherGestureRecognizer == quickZoomGestureRecognizer {
             return true
@@ -180,28 +180,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.navigationController?.setNavigationBarHidden(hidden, animated: true)
         self.navigationController?.setToolbarHidden(hidden, animated: true)
         print(map.zoomLevel)
-        //performSegue(withIdentifier: "importSegue", sender: self)
     }
 
     @objc func handleQuickZoom(_ sender: UILongPressGestureRecognizer) {
-        print("success")
         switch sender.state {
         case .began:
             self.quickZoomStart = sender.location(in: sender.view).y
             self.quickZoomStartLevel = map.zoomLevel
-            print(map.zoomLevel)
         case .changed:
             if self.quickZoomStart != nil {
                 var newZoomLevel = quickZoomStartLevel!
-                let distance = self.quickZoomStart! - sender.location(in: sender.view).y
+                var distance = self.quickZoomStart! - sender.location(in: sender.view).y
+                if distance > 1 {
+                    distance = pow(1.02, distance)
+                } else if distance < -1 {
+                    distance = pow(0.98, distance*(-1))
+                } else { distance = 1 }
                 print(distance)
-                if distance > 0 {
-                    newZoomLevel = self.quickZoomStartLevel! * Double(distance/2)
-                } else if distance < 0 {
-                    newZoomLevel = self.quickZoomStartLevel! / (Double(distance/2) * -1)
-                }
-//                let newZoomLevel = pow(self.quickZoomStartLevel!, Double(distance * CGFloat(0.005)+1))
-                print(newZoomLevel)
+                newZoomLevel = self.quickZoomStartLevel! * Double(distance)
                 map.zoomLevel = newZoomLevel
             }
         default:
