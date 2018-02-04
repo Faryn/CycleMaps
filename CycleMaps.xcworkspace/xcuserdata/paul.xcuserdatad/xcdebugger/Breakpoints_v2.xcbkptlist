@@ -919,8 +919,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "111"
             endingLineNumber = "111"
-            landmarkName = "FilesViewController"
-            landmarkType = "3">
+            landmarkName = "documentPicker(_:didPickDocumentAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1028,8 +1028,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "119"
             endingLineNumber = "119"
-            landmarkName = "FilesViewController"
-            landmarkType = "3">
+            landmarkName = "documentMenu(_:didPickDocumentPicker:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
