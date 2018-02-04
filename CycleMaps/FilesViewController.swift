@@ -18,6 +18,7 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,
                            UIDocumentPickerDelegate, UINavigationControllerDelegate {
     weak var delegate: FilesViewControllerDelegate?
     let fileStore = FileStore(withExtensions: ["gpx"])
+    let generator = UISelectionFeedbackGenerator()
 
     private func handleReceivedGpxUrl(urls: [URL]) {
         for url in urls {
@@ -29,12 +30,13 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if #available(iOS 11.0, *) {
-//            navigationItem.largeTitleDisplayMode = .always
+            navigationItem.largeTitleDisplayMode = .always
         }
         initiateImport()
         tableView.reloadData()
+        generator.prepare()
     }
-    
+
     func initiateImport() {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             if let url = appDelegate.importUrl {
@@ -67,6 +69,8 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         let url = fileStore.files[indexPath.row]
+        generator.selectionChanged()
+        generator.prepare()
         if delegate!.isSelected(name: url.lastPathComponent) {
             delegate?.deselectedFile(name: url.lastPathComponent)
             cell?.textLabel?.textColor = UIColor.black
@@ -77,10 +81,11 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,
     }
 
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        generator.selectionChanged()
+        generator.prepare()
         let url = fileStore.files[indexPath.row]
         delegate?.deselectedFile(name: url.lastPathComponent)
         tableView.reloadData()
-        print("deselect")
     }
 
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {

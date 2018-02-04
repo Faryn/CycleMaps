@@ -25,7 +25,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var quickZoomStart: CGFloat?
     var quickZoomStartLevel: Double?
     var tapGestureRecognizer: UITapGestureRecognizer?
-    var quickZoomGestureRecognizer : UILongPressGestureRecognizer?
+    var quickZoomGestureRecognizer: UILongPressGestureRecognizer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +66,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         if UIApplication.shared.isIdleTimerDisabled {
             UIApplication.shared.isIdleTimerDisabled = false
         }
@@ -74,6 +75,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.setToolbarHidden(false, animated: true)
     }
@@ -99,6 +101,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let trackButton = MKUserTrackingBarButtonItem(mapView: map)
         self.toolbarItems?.insert(trackButton, at: 0)
     }
+
     private func setupSearchBar() {
         if let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable")
             as? LocationSearchTable {
@@ -127,10 +130,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             return MKTileOverlayRenderer(tileOverlay: (overlay as? MKTileOverlay)!)
         }
         if overlay is MKPolyline {
-            let pr = MKPolylineRenderer(overlay: overlay)
-            pr.strokeColor = UIColor.blue.withAlphaComponent(0.5)
-            pr.lineWidth = 5
-            return pr
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = UIColor.blue.withAlphaComponent(0.5)
+            renderer.lineWidth = 5
+            return renderer
         } else { return MKOverlayRenderer(overlay: overlay) }
     }
 
@@ -160,7 +163,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let hidden = !(self.navigationController?.isNavigationBarHidden)!
         self.navigationController?.setNavigationBarHidden(hidden, animated: true)
         self.navigationController?.setToolbarHidden(hidden, animated: true)
-        print(map.zoomLevel)
     }
 
     @objc func handleQuickZoom(_ sender: UILongPressGestureRecognizer) {

@@ -32,7 +32,7 @@ class GPX: NSObject, XMLParserDelegate {
         var fixes = [Waypoint]()
 
         override var description: String {
-            let waypointDescription = "fixes=[\n" + (fixes.map { $0.description }).joined(separator:  "\n") + "\n]"
+            let waypointDescription = "fixes=[\n" + (fixes.map { $0.description }).joined(separator: "\n") + "\n]"
             return [super.description, waypointDescription].joined(separator: " ")
         }
     }

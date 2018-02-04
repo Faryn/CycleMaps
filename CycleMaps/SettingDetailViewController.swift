@@ -56,7 +56,7 @@ class SettingDetailViewController: UITableViewController, MKMapViewDelegate {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return TileSource.count
     }
-    
+
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if  overlay is OverlayTile {
             return MKTileOverlayRenderer(tileOverlay: (overlay as? MKTileOverlay)!)

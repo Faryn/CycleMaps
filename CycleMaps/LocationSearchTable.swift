@@ -23,7 +23,7 @@ class LocationSearchTable: UITableViewController, UISearchResultsUpdating {
         // put a space between "Washington" and "DC"
         let secondSpace = (selectedItem.subAdministrativeArea != nil && selectedItem.administrativeArea != nil) ? " " : ""
         let addressLine = String(
-            format:"%@%@%@%@%@%@%@",
+            format: "%@%@%@%@%@%@%@",
             // street number
             selectedItem.subThoroughfare ?? "",
             firstSpace,

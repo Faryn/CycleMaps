@@ -42,7 +42,7 @@ class OverlayTile: MKTileOverlay {
             case .value(let data):
                 print("Cached!")
                 result(data, nil)
-            case .error(_):
+            case .error:
                 print("Requesting Data")
                 let url = self.url(forTilePath: path)
                 let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 3)
@@ -72,7 +72,7 @@ class OverlayTile: MKTileOverlay {
         var urlString = urlTemplate?.replacingOccurrences(of: "{z}", with: String(path.z))
         urlString = urlString?.replacingOccurrences(of: "{x}", with: String(path.x))
         urlString = urlString?.replacingOccurrences(of: "{y}", with: String(path.y))
-        urlString = urlString?.replacingOccurrences(of: "{s}", with:getSubdomain())
+        urlString = urlString?.replacingOccurrences(of: "{s}", with: getSubdomain())
         if path.contentScaleFactor >= 2 {
             urlString = urlString?.replacingOccurrences(of: "{csf}", with: "@2x")
         } else {

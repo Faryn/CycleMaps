@@ -22,7 +22,7 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 11.0, *) {
-//            self.navigationItem.largeTitleDisplayMode = .always
+            self.navigationItem.largeTitleDisplayMode = .always
         }
         if let cacheDisabled = settings.value(forKey: Constants.Settings.cacheDisabled) as? Bool {
             cacheSwitch.setOn(cacheDisabled, animated: false)
@@ -107,6 +107,7 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
             }
         }
     }
+
     internal func selectedMapStyle(style: TileSource) {
         settings.set(style.rawValue, forKey: Constants.Settings.tileSource)
         delegate?.changedSetting(setting: Constants.Settings.tileSource)
