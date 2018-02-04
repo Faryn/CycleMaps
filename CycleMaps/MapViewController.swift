@@ -22,24 +22,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var selectedPin: MKPlacemark?
     let settings = UserDefaults.standard
     var filesViewController: FilesViewController?
-    var tileSource = TileSource.openCycleMap {
-        willSet {
-            if tileSourceOverlay != nil { map.remove(tileSourceOverlay!) }
-            switch newValue {
-            case .apple:
-                break
-            default:
-                let overlay = OverlayTile(urlTemplate: newValue.templateUrl)
-                if UIScreen.main.scale >= 2 && newValue.retina {
-                    overlay.tileSize = CGSize(width: 512, height: 512)
-                }
-                overlay.enableCache = !settings.bool(forKey: Constants.Settings.cacheDisabled)
-                tileSourceOverlay = overlay
-                map.add(overlay)
-            }
-        }
-    }
-    var tileSourceOverlay: OverlayTile?
     var quickZoomStart: CGFloat?
     var quickZoomStartLevel: Double?
     var tapGestureRecognizer: UITapGestureRecognizer?
@@ -51,7 +33,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             navigationItem.largeTitleDisplayMode = .never
         }
         locationManager.delegate = self
-        tileSource = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
+        map.tileSource = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
         setupSearchBar()
         addTrackButton()
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toggleBarsOnTap(_:)))
@@ -74,7 +56,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if settings.bool(forKey: Constants.Settings.idleTimerDisabled) {
-            print("Disabled!")
             UIApplication.shared.isIdleTimerDisabled = true
         }
     }
@@ -98,7 +79,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 
     func clearCache() {
-        tileSourceOverlay?.clearCache()
+        map.tileSourceOverlay?.clearCache()
     }
 
     func changedSetting(setting: String?) {
@@ -108,7 +89,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 overlay.enableCache = !settings.bool(forKey: Constants.Settings.cacheDisabled)
             }
         case Constants.Settings.tileSource:
-            tileSource =  TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
+            map.tileSource =  TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
         default:
             return
         }

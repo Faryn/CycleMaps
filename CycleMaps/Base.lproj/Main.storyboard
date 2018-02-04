@@ -47,14 +47,6 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="NES-hi-DjG"/>
-                        <barButtonItem systemItem="bookmarks" id="DR9-PI-xA2">
-                            <connections>
-                                <segue destination="9pq-sd-hZ9" kind="popoverPresentation" popoverAnchorBarButtonItem="DR9-PI-xA2" id="bqf-Dm-HpF">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="XBa-KP-RT6"/>
                         <barButtonItem style="plain" id="PAl-gv-Pcx">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qtg-9y-kTW">
                                 <rect key="frame" x="329" y="0.0" width="30" height="44"/>
@@ -374,6 +366,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <mapView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="zf6-kQ-Hqb" customClass="MapView" customModule="CycleMaps" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="72" width="375" height="275"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </mapView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapStyle" id="fkm-ye-ruk">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -392,6 +388,9 @@
                     <navigationItem key="navigationItem" title="Map Style" id="tYK-qY-22v">
                         <barButtonItem key="backBarButtonItem" title="Map Style" id="95t-Yl-I3Y"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="previewMap" destination="zf6-kQ-Hqb" id="MRa-IN-nB2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xrO-ts-hgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -659,40 +658,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIA-bK-fsy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="992.79999999999995" y="35.532233883058474"/>
-        </scene>
-        <!--Map Style-->
-        <scene sceneID="ZdO-BN-MJr">
-            <objects>
-                <tableViewController modalPresentationStyle="currentContext" id="9pq-sd-hZ9" customClass="SettingDetailViewController" customModule="CycleMaps" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gcg-hC-ow0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapStyle" id="QW4-Be-OMJ">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QW4-Be-OMJ" id="KKk-gX-rAs">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="9pq-sd-hZ9" id="2jd-JD-Sp2"/>
-                            <outlet property="delegate" destination="9pq-sd-hZ9" id="KzZ-BK-JsD"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Map Style" id="crz-3A-m11">
-                        <barButtonItem key="backBarButtonItem" title="Map Style" id="YKA-hz-DTr"/>
-                    </navigationItem>
-                    <value key="contentSizeForViewInPopover" type="size" width="375" height="200"/>
-                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="200"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xip-BA-jDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4599" y="-125"/>
         </scene>
     </scenes>
 </document>

@@ -25,7 +25,7 @@ class OverlayTile: MKTileOverlay {
 
     private let operationQueue = OperationQueue()
     private let session = URLSession.shared
-    private let cache = try! Storage(diskConfig: DiskConfig(name: "TileCache"), memoryConfig: MemoryConfig(expiry: .never, countLimit: 500, totalCostLimit: 2000))
+    private let cache = try! Storage(diskConfig: DiskConfig(name: "TileCache"), memoryConfig: MemoryConfig(expiry: .never, countLimit: 1000, totalCostLimit: 20000))
     private let subdomains = ["a", "b", "c"]
     private var subdomainRotation: Int = 0
 
@@ -76,7 +76,7 @@ class OverlayTile: MKTileOverlay {
         if path.contentScaleFactor >= 2 {
             urlString = urlString?.replacingOccurrences(of: "{csf}", with: "@2x")
         } else {
-            urlString = urlString?.replacingOccurrences(of: "{csf}", with: "@1x")
+            urlString = urlString?.replacingOccurrences(of: "{csf}", with: "")
         }
         //        print("CachedTileOverlay:: url() urlString: \(urlString)")
         return URL(string: urlString!)!

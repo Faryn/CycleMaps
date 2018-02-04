@@ -12,6 +12,7 @@ import MapKit
 class FileDetailViewController: UITableViewController, MKMapViewDelegate {
 
     let fileStore = FileStore(withExtensions: ["gpx"])
+    let settings = UserDefaults.standard
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var waypointsLabel: UILabel!
@@ -27,7 +28,7 @@ class FileDetailViewController: UITableViewController, MKMapViewDelegate {
 
     private var useKilometers: Bool {
         return NSLocale.current.usesMetricSystem
-    } 
+    }
 
     var totalDistance: Double? {
         didSet {
@@ -102,6 +103,7 @@ class FileDetailViewController: UITableViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MapView! {
         didSet {
             mapView.delegate = self
+            mapView.tileSource = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
         }
     }
 

@@ -14,6 +14,7 @@ enum TileSource: Int {
     case mtbMap
     case hikeBikeMap
     case cartoDbLight
+    case wikiMediaMaps
     case apple
 
     var name: String {
@@ -23,6 +24,7 @@ enum TileSource: Int {
         case .mtbMap: return "MTB Map"
         case .hikeBikeMap: return "Hike & Bike Map"
         case .cartoDbLight: return "Carto DB Light (Retina)"
+        case .wikiMediaMaps: return "WikiMedia Maps (Retina)"
         case .apple: return NSLocalizedString("appleMaps", comment: "")
         }
     }
@@ -41,15 +43,17 @@ enum TileSource: Int {
         case .mtbMap: return "http://{s}.tile.mtbmap.cz/mtbmap_tiles/{z}/{x}/{y}.png"
         case .hikeBikeMap: return "http://{s}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png"
         case .cartoDbLight: return "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}{csf}.png"
+        case .wikiMediaMaps: return "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{csf}.png"
         case .apple: return ""
         }
     }
-    static let count = 6
+    static let count = 7
 
     var retina: Bool {
         switch self {
         case .openCycleMap: return true
         case .cartoDbLight: return true
+        case .wikiMediaMaps: return true
         default: return false
         }
     }

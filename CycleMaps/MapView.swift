@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 
 class MapView: MKMapView {
-
+    let settings = UserDefaults.standard
     var namedOverlays = [String: [MKOverlay]]()
 
     func addOverlay(name: String, waypoints: [GPX.Waypoint]) {
@@ -33,6 +33,25 @@ class MapView: MKMapView {
         //        startAnnotation.subtitle = "Start"
         //        addAnnotations([startAnnotation, stopAnnotation])
     }
+    
+    var tileSource = TileSource.openCycleMap {
+        willSet {
+            if tileSourceOverlay != nil { remove(tileSourceOverlay!) }
+            switch newValue {
+            case .apple:
+                break
+            default:
+                let overlay = OverlayTile(urlTemplate: newValue.templateUrl)
+                if UIScreen.main.scale >= 2 && newValue.retina {
+                    overlay.tileSize = CGSize(width: 512, height: 512)
+                }
+                overlay.enableCache = !settings.bool(forKey: Constants.Settings.cacheDisabled)
+                tileSourceOverlay = overlay
+                add(overlay)
+            }
+        }
+    }
+    var tileSourceOverlay: OverlayTile?
 
     private func showPolylineOnMap(name: String) {
         var overlayRect = namedOverlays[name]!.first!.boundingMapRect
