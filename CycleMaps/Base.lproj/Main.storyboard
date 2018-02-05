@@ -155,7 +155,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Cache" footerTitle="All downloaded maps are cached to improve performance." id="aFP-3r-20h">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Z1M-Wx-G4O">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Z1M-Wx-G4O">
                                         <rect key="frame" x="0.0" y="163" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="Z1M-Wx-G4O" id="uQL-kQ-rRz">
@@ -242,7 +242,7 @@
                                             <segue destination="bvB-GQ-I1a" kind="show" identifier="mapStyle" id="nCe-fE-lyN"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hiN-bA-Waq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="hiN-bA-Waq">
                                         <rect key="frame" x="0.0" y="386.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="hiN-bA-Waq" id="jN6-gH-xdQ">
@@ -331,6 +331,7 @@
                         <barButtonItem key="backBarButtonItem" title="Settings" id="QBJ-Zw-wXr"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="aboutCell" destination="gs6-xS-gNY" id="kFw-xz-dRe"/>
                         <outlet property="cacheSwitch" destination="7Qp-Jf-fFW" id="hhn-HG-NMi"/>
                         <outlet property="idleTimerSwitch" destination="RyS-Bu-FoS" id="uUq-ZP-uno"/>
                         <outlet property="mapStyleCell" destination="dCO-yp-ht7" id="Wma-Ni-UwS"/>

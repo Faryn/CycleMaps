@@ -15,7 +15,8 @@ protocol SettingsViewControllerDelegate: class {
     func changedSetting(setting: String?)
 }
 
-class SettingsViewController: UITableViewController, SettingDetailViewControllerDelegate, MFMailComposeViewControllerDelegate {
+class SettingsViewController: UITableViewController, SettingDetailViewControllerDelegate,
+        MFMailComposeViewControllerDelegate {
     weak var delegate: SettingsViewControllerDelegate?
     let settings = UserDefaults.standard
 
@@ -31,6 +32,7 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
             idleTimerSwitch.setOn(disableIdleTimer, animated: false)
         }
     }
+    @IBOutlet weak var aboutCell: UITableViewCell!
     @IBOutlet weak var idleTimerSwitch: UISwitch!
 
     @IBAction func contactSupport(_ sender: UIButton) {
@@ -38,7 +40,7 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             mail.setToRecipients(["cyclemaps@thepowl.de"])
-            mail.setSubject("CycleMaps Support")
+            mail.setSubject("RadMaps Support")
             mail.setMessageBody("<p>Send us your issue!</p>", isHTML: true)
             present(mail, animated: true, completion: nil)
         } else {
@@ -46,7 +48,9 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
         }
     }
 
-    internal func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+    internal func mailComposeController(_ controller: MFMailComposeViewController,
+                                        didFinishWith result: MFMailComposeResult,
+                                        error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
 
@@ -63,12 +67,14 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.setToolbarHidden(true, animated: true)
         mapStyleCell.setSelected(false, animated: true)
+        aboutCell.setSelected(false, animated: true)
     }
     @IBAction func gotoSettings(_ sender: UIButton) {
-        UIApplication.shared.open((URL(string:UIApplicationOpenSettingsURLString)!))
+        UIApplication.shared.open((URL(string: UIApplicationOpenSettingsURLString)!))
     }
 
     @IBAction func clearCache(_ sender: UIButton) {
@@ -87,7 +93,6 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
         if let delegate = self.delegate {
             delegate.changedSetting(setting: Constants.Settings.cacheDisabled)
         }
-        print(sender.isOn)
     }
     @IBOutlet weak var cacheSwitch: UISwitch!
 
