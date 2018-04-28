@@ -131,8 +131,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         if overlay is MKPolyline {
             let renderer = MKPolylineRenderer(overlay: overlay)
-            renderer.strokeColor = UIColor.blue.withAlphaComponent(0.5)
-            renderer.lineWidth = 5
+            renderer.strokeColor = UIColor.blue.withAlphaComponent(0.7)
+            renderer.lineWidth = 3
             return renderer
         } else { return MKOverlayRenderer(overlay: overlay) }
     }
@@ -256,6 +256,6 @@ private extension MKPolyline {
         let unsafeCoordinates = UnsafeMutablePointer<CLLocationCoordinate2D>.allocate(capacity: coords.count)
         unsafeCoordinates.initialize(from: coords)
         self.init(coordinates: unsafeCoordinates, count: coords.count)
-        unsafeCoordinates.deallocate(capacity: coords.count)
+        unsafeCoordinates.deallocate()
     }
 }

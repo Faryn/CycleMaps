@@ -25,15 +25,16 @@ class MapView: MKMapView {
         namedOverlays[name]?.append(polyline)
         add(polyline)
         showPolylineOnMap(name: name)
-        //        let startAnnotation = MKPointAnnotation()
-        //        let stopAnnotation = MKPointAnnotation()
-        //        startAnnotation.coordinate = coordinates.first!
-        //        stopAnnotation.coordinate = coordinates.last!
-        //        startAnnotation.title = name
-        //        startAnnotation.subtitle = "Start"
-        //        addAnnotations([startAnnotation, stopAnnotation])
+                let startAnnotation = MKPointAnnotation()
+                let stopAnnotation = MKPointAnnotation()
+                startAnnotation.coordinate = coordinates.first!
+                stopAnnotation.coordinate = coordinates.last!
+                stopAnnotation.subtitle = "End"
+                startAnnotation.title = name.replacingOccurrences(of: ".gpx", with: "")
+                startAnnotation.subtitle = "Start"
+                addAnnotations([startAnnotation, stopAnnotation])
     }
-    
+
     var tileSource = TileSource.openCycleMap {
         willSet {
             if tileSourceOverlay != nil { remove(tileSourceOverlay!) }
@@ -47,7 +48,7 @@ class MapView: MKMapView {
                 }
                 overlay.enableCache = !settings.bool(forKey: Constants.Settings.cacheDisabled)
                 tileSourceOverlay = overlay
-                add(overlay)
+                add(overlay, level: .aboveRoads)
             }
         }
     }
