@@ -16,7 +16,6 @@ class MapView: MKMapView {
 
     var tileSource = TileSource.openCycleMap {
         willSet {
-            if tileSourceOverlay != nil { remove(tileSourceOverlay!) }
             switch newValue {
             case .apple:
                 break
@@ -26,9 +25,12 @@ class MapView: MKMapView {
                     overlay.tileSize = CGSize(width: 512, height: 512)
                 }
                 overlay.enableCache = !settings.bool(forKey: Constants.Settings.cacheDisabled)
-                tileSourceOverlay = overlay
                 add(overlay)
-                if namedOverlays.first != nil { exchangeOverlay(overlay, with: namedOverlays.first!.value.first!) }
+                if tileSourceOverlay != nil {
+                    exchangeOverlay(overlay, with: tileSourceOverlay!)
+                    remove(tileSourceOverlay!)
+                }
+                tileSourceOverlay = overlay
             }
         }
     }
