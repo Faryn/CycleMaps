@@ -12,28 +12,7 @@ import MapKit
 class MapView: MKMapView {
     let settings = UserDefaults.standard
     var namedOverlays = [String: [MKOverlay]]()
-
-    func addOverlay(name: String, waypoints: [GPX.Waypoint]) {
-        var coordinates = waypoints.map({ (waypoint: GPX.Waypoint!) -> CLLocationCoordinate2D in
-            return waypoint.coordinate
-        })
-        let polyline = MKPolyline(coordinates: &coordinates, count: waypoints.count)
-        polyline.title = name
-        if namedOverlays[name] == nil {
-            namedOverlays[name] = []
-        }
-        namedOverlays[name]?.append(polyline)
-        add(polyline)
-        showPolylineOnMap(name: name)
-                let startAnnotation = MKPointAnnotation()
-                let stopAnnotation = MKPointAnnotation()
-                startAnnotation.coordinate = coordinates.first!
-                stopAnnotation.coordinate = coordinates.last!
-                stopAnnotation.subtitle = "End"
-                startAnnotation.title = name.replacingOccurrences(of: ".gpx", with: "")
-                startAnnotation.subtitle = "Start"
-                addAnnotations([startAnnotation, stopAnnotation])
-    }
+    var tileSourceOverlay: OverlayTile?
 
     var tileSource = TileSource.openCycleMap {
         willSet {
@@ -48,11 +27,49 @@ class MapView: MKMapView {
                 }
                 overlay.enableCache = !settings.bool(forKey: Constants.Settings.cacheDisabled)
                 tileSourceOverlay = overlay
-                add(overlay, level: .aboveRoads)
+                add(overlay)
+                if namedOverlays.first != nil { exchangeOverlay(overlay, with: namedOverlays.first!.value.first!) }
             }
         }
     }
-    var tileSourceOverlay: OverlayTile?
+
+    var zoomLevel: Double {
+        get {
+            return self.region.span.latitudeDelta
+        }
+        set (newZoomLevel) {
+            var newRegion = MKCoordinateRegion()
+            newRegion.center = region.center
+            newRegion.span.latitudeDelta = 0.0000000000000002
+            newRegion.span.longitudeDelta = min(newZoomLevel, 360)
+            // Setting the region will reset camera heading so we preserve it here
+            let heading = camera.heading
+            setRegion(newRegion, animated: false)
+            camera.heading = heading
+        }
+    }
+
+    private func addOverlay(name: String, waypoints: [GPX.Waypoint]) {
+        var coordinates = waypoints.map({ (waypoint: GPX.Waypoint!) -> CLLocationCoordinate2D in
+            return waypoint.coordinate
+        })
+        let polyline = MKPolyline(coordinates: &coordinates, count: waypoints.count)
+        polyline.title = name
+        if namedOverlays[name] == nil {
+            namedOverlays[name] = []
+        }
+        namedOverlays[name]?.append(polyline)
+        add(polyline)
+        showPolylineOnMap(name: name)
+        let startAnnotation = MKPointAnnotation()
+        let stopAnnotation = MKPointAnnotation()
+        startAnnotation.coordinate = coordinates.first!
+        stopAnnotation.coordinate = coordinates.last!
+        stopAnnotation.subtitle = NSLocalizedString("Destination", comment: "Label for the destination point of a gpx track")
+        startAnnotation.title = name.replacingOccurrences(of: ".gpx", with: "")
+        startAnnotation.subtitle = NSLocalizedString("Start", comment: "Label for the starting point of a gpx track")
+        addAnnotations([startAnnotation, stopAnnotation])
+    }
 
     private func showPolylineOnMap(name: String) {
         var overlayRect = namedOverlays[name]!.first!.boundingMapRect
@@ -87,24 +104,5 @@ class MapView: MKMapView {
             addOverlay(name: name, waypoints: gpx.waypoints)
         }
         showPolylineOnMap(name: name)
-    }
-
-    var zoomLevel: Double {
-        get {
-//            print(region.center.latitude, region.center.longitude)
-            return self.region.span.latitudeDelta
-        }
-
-        set (newZoomLevel) {
-            var newRegion = MKCoordinateRegion()
-            newRegion.center = region.center
-            newRegion.span.latitudeDelta = 0.0000000000000002
-            newRegion.span.longitudeDelta = min(newZoomLevel, 360)
-//            newRegion = regionThatFits(newRegion)
-            // Setting the region will reset camera heading so we preserve it here
-            let heading = camera.heading
-            setRegion(newRegion, animated: false)
-            camera.heading = heading
-        }
     }
 }

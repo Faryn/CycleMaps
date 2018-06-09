@@ -8,3 +8,5 @@
 
 appleMaps = "Apple Karten (Kein Cache)";
 SearchForPlaces = "Nach Orten suchen";
+Start = "Start";
+Destination = "Ziel";

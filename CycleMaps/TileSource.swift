@@ -15,6 +15,7 @@ enum TileSource: Int {
     case hikeBikeMap
     case cartoDbLight
     case wikiMediaMaps
+    case openBusMap
     case apple
 
     var name: String {
@@ -25,6 +26,7 @@ enum TileSource: Int {
         case .hikeBikeMap: return "Hike & Bike Map"
         case .cartoDbLight: return "Carto DB Light (Retina)"
         case .wikiMediaMaps: return "WikiMedia Maps (Retina)"
+        case .openBusMap: return "OpenBusMap"
         case .apple: return NSLocalizedString("appleMaps", comment: "")
         }
     }
@@ -44,6 +46,7 @@ enum TileSource: Int {
         case .hikeBikeMap: return "http://{s}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png"
         case .cartoDbLight: return "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}{csf}.png"
         case .wikiMediaMaps: return "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{csf}.png"
+        case .openBusMap: return "https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png"
         case .apple: return ""
         }
     }

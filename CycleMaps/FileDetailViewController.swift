@@ -154,8 +154,8 @@ class FileDetailViewController: UITableViewController, MKMapViewDelegate {
         }
         if overlay is MKPolyline {
             let pr = MKPolylineRenderer(overlay: overlay)
-            pr.strokeColor = UIColor.blue.withAlphaComponent(0.5)
-            pr.lineWidth = 5
+            pr.strokeColor = UIColor.blue.withAlphaComponent(0.7)
+            pr.lineWidth = 3
             return pr
         } else { return MKOverlayRenderer(overlay: overlay) }
     }
