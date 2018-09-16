@@ -153,10 +153,10 @@ class FileDetailViewController: UITableViewController, MKMapViewDelegate {
             return MKTileOverlayRenderer(tileOverlay: (overlay as? MKTileOverlay)!)
         }
         if overlay is MKPolyline {
-            let pr = MKPolylineRenderer(overlay: overlay)
-            pr.strokeColor = UIColor.blue.withAlphaComponent(0.7)
-            pr.lineWidth = 3
-            return pr
+            let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+            polylineRenderer.strokeColor = UIColor.blue.withAlphaComponent(0.7)
+            polylineRenderer.lineWidth = 3
+            return polylineRenderer
         } else { return MKOverlayRenderer(overlay: overlay) }
     }
 

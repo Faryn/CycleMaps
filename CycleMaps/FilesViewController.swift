@@ -14,8 +14,9 @@ protocol FilesViewControllerDelegate: class {
     func isSelected(name: String) -> Bool
 }
 
-class FilesViewController: UITableViewController, UIDocumentMenuDelegate,
-                           UIDocumentPickerDelegate, UINavigationControllerDelegate {
+class FilesViewController: UITableViewController,
+UIDocumentPickerDelegate, UINavigationControllerDelegate {
+
     weak var delegate: FilesViewControllerDelegate?
     let fileStore = FileStore(withExtensions: ["gpx"])
     let generator = UISelectionFeedbackGenerator()
@@ -93,7 +94,7 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,
     }
 
     @IBAction func importPressed(_ sender: UIBarButtonItem) {
-        let importMenu = UIDocumentMenuViewController(documentTypes: ["com.apple.dt.document.gpx", "public.xml"], in: .import)
+        let importMenu = UIDocumentPickerViewController(documentTypes: ["com.apple.dt.document.gpx", "public.xml"], in: .import)
         importMenu.popoverPresentationController?.barButtonItem = importButton
         importMenu.delegate = self
         present(importMenu, animated: true, completion: nil)
@@ -114,11 +115,6 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,
 
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         handleReceivedGpxUrl(urls: urls)
-    }
-
-    func documentMenu(_ documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
-        documentPicker.delegate = self
-        present(documentPicker, animated: true, completion: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

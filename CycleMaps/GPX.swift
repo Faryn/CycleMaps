@@ -152,7 +152,7 @@ class GPX: NSObject, XMLParserDelegate {
     fileprivate var track: Track?
     fileprivate var link: Link?
 
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String] = [:]) {
         switch elementName {
         case "trkseg":
             if track == nil { fallthrough }
