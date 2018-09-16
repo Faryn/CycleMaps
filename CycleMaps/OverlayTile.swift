@@ -25,19 +25,20 @@ class OverlayTile: MKTileOverlay {
 
     private let operationQueue = OperationQueue()
     private let session = URLSession.shared
-    private let cache = try! Storage(diskConfig: DiskConfig(name: "TileCache"), memoryConfig: MemoryConfig(expiry: .never, countLimit: 1000, totalCostLimit: 20000))
+    private let cache = try! Storage(diskConfig: DiskConfig(name: "TileCache"),
+                                     memoryConfig: MemoryConfig(expiry: .never, countLimit: 1000, totalCostLimit: 20000),
+                                     transformer: TransformerFactory.forData())
     private let subdomains = ["a", "b", "c"]
     private var subdomainRotation: Int = 0
 
     override init(urlTemplate URLTemplate: String?) {
         super.init(urlTemplate: URLTemplate)
-        //        self.cache = HybridCache(name: "TileCache", config: cacheConfig)
         try? self.cache.removeExpiredObjects()
     }
 
     override func loadTile(at path: MKTileOverlayPath, result: @escaping (Data?, Error?) -> Void) {
         let cacheKey = "\(self.urlTemplate!)-\(path.x)-\(path.y)-\(path.z)-\(path.contentScaleFactor)"
-        self.cache.async.object(ofType: Data?.self, forKey: cacheKey) { ( val ) in
+        self.cache.async.object(forKey: cacheKey) { ( val ) in
             switch val {
             case .value(let data):
                 print("Cached!")

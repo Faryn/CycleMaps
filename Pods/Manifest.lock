@@ -1,5 +1,5 @@
 PODS:
-  - Cache (4.2.0)
+  - Cache (5.1.0)
 
 DEPENDENCIES:
   - Cache (from `https://github.com/hyperoslo/Cache.git`)
@@ -10,11 +10,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Cache:
-    :commit: c7fc68a2af78b067f9d979cbaae6e8c1bcea36fd
+    :commit: cafb434bfb91b7d394498f6cbcf86dfae38cfc8e
     :git: https://github.com/hyperoslo/Cache.git
 
 SPEC CHECKSUMS:
-  Cache: f28f8dd64b632155aabf9b3906b036a659048251
+  Cache: 7737c595aae7d94c7c0feca2c887288624e3b07e
 
 PODFILE CHECKSUM: 65e5a1ea046adcb34d7130cf4f52213b0ef1f7b3
 
