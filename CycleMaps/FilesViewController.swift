@@ -99,7 +99,7 @@ class FilesViewController: UITableViewController, UIDocumentMenuDelegate,
         present(importMenu, animated: true, completion: nil)
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let url = fileStore.files[indexPath.row]
             fileStore.remove(url: url)

@@ -25,10 +25,10 @@ class MapView: MKMapView {
                     overlay.tileSize = CGSize(width: 512, height: 512)
                 }
                 overlay.enableCache = !settings.bool(forKey: Constants.Settings.cacheDisabled)
-                add(overlay)
+                addOverlay(overlay)
                 if tileSourceOverlay != nil {
                     exchangeOverlay(overlay, with: tileSourceOverlay!)
-                    remove(tileSourceOverlay!)
+                    removeOverlay(tileSourceOverlay!)
                 }
                 tileSourceOverlay = overlay
             }
@@ -61,7 +61,7 @@ class MapView: MKMapView {
             namedOverlays[name] = []
         }
         namedOverlays[name]?.append(polyline)
-        add(polyline)
+        addOverlay(polyline)
         showPolylineOnMap(name: name)
         let startAnnotation = MKPointAnnotation()
         let stopAnnotation = MKPointAnnotation()
@@ -75,10 +75,10 @@ class MapView: MKMapView {
 
     private func showPolylineOnMap(name: String) {
         var overlayRect = namedOverlays[name]!.first!.boundingMapRect
-        overlayRect = (namedOverlays[name]?.reduce(overlayRect, { MKMapRectUnion($0, $1.boundingMapRect)}))!
+        overlayRect = (namedOverlays[name]?.reduce(overlayRect, { $0.union($1.boundingMapRect)}))!
         if !(userLocation.coordinate.latitude == 0.0 && userLocation.coordinate.longitude == 0.0) {
-            let loc = MKMapPointForCoordinate(userLocation.coordinate)
-            overlayRect = MKMapRectUnion(overlayRect, MKMapRectMake(loc.x, loc.y, 0, 0))
+            let loc = MKMapPoint.init(userLocation.coordinate)
+            overlayRect = overlayRect.union(MKMapRect.init(x: loc.x, y: loc.y, width: 0, height: 0))
         }
         setVisibleMapRect(mapRectThatFits(overlayRect),
                           edgePadding: .init(top: 10, left: 10, bottom: 10, right: 10), animated: true)
@@ -87,7 +87,7 @@ class MapView: MKMapView {
     func removeOverlay(name: String) {
         if let overlay = namedOverlays[name] {
             for segment in overlay {
-                remove(segment)
+                removeOverlay(segment)
             }
             namedOverlays.removeValue(forKey: name)
         }

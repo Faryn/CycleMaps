@@ -74,7 +74,7 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
         aboutCell.setSelected(false, animated: true)
     }
     @IBAction func gotoSettings(_ sender: UIButton) {
-        UIApplication.shared.open((URL(string: UIApplicationOpenSettingsURLString)!))
+        UIApplication.shared.open((URL(string: UIApplication.openSettingsURLString)!))
     }
 
     @IBAction func clearCache(_ sender: UIButton) {
