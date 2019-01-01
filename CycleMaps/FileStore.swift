@@ -42,6 +42,7 @@ class FileStore {
                                              URLResourceKey.fileSizeKey],
                 options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles)
                 files = contents.filter({ extensions.contains($0.pathExtension) })
+            files.sort(by: {$0.lastPathComponent.lowercased() < $1.lastPathComponent.lowercased()})
             if delegate != nil { delegate?.reload()}
         } catch {print(error)}
     }
@@ -145,6 +146,7 @@ class FileStore {
                     print("Failed to move file to local dir : \(error)")
                 }
             }
+            docRootDir = getDocumentDirectoryURL()
             reloadFiles()
         }
     }
@@ -156,6 +158,7 @@ class FileStore {
                 print(fileURL)
             }
         }
+        docRootDir = getDocumentDirectoryURL()
         reloadFiles()
     }
 }

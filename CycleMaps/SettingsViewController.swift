@@ -32,11 +32,14 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
         if let disableIdleTimer = settings.value(forKey: Constants.Settings.idleTimerDisabled) as? Bool {
             idleTimerSwitch.setOn(disableIdleTimer, animated: false)
         }
+        if let disableiCloud = settings.value(forKey: Constants.Settings.iCloudDisabled) as? Bool {
+            iCloudSwitch.setOn(disableiCloud, animated: false)
+        }
     }
     @IBOutlet weak var aboutCell: UITableViewCell!
     @IBOutlet weak var idleTimerSwitch: UISwitch!
     @IBOutlet weak var iCloudSwitch: UISwitch!
-    
+
     @IBAction func contactSupport(_ sender: UIButton) {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
