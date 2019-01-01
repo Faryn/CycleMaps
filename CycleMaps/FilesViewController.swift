@@ -15,10 +15,10 @@ protocol FilesViewControllerDelegate: class {
 }
 
 class FilesViewController: UITableViewController,
-UIDocumentPickerDelegate, UINavigationControllerDelegate {
+UIDocumentPickerDelegate, UINavigationControllerDelegate, FileStoreDelegate {
 
     weak var delegate: FilesViewControllerDelegate?
-    let fileStore = FileStore(withExtensions: ["gpx"])
+    let fileStore = FileStore.sharedInstance
     let generator = UISelectionFeedbackGenerator()
 
     private func handleReceivedGpxUrl(urls: [URL]) {
@@ -33,8 +33,9 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate {
         if #available(iOS 11.0, *) {
             navigationItem.largeTitleDisplayMode = .always
         }
+        fileStore.delegate = self
         initiateImport()
-        tableView.reloadData()
+        fileStore.reloadFiles()
         generator.prepare()
     }
 
@@ -103,8 +104,8 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let url = fileStore.files[indexPath.row]
+//            tableView.deleteRows(at: [indexPath as IndexPath], with: .fade) //Crashes the tableview because the update from file deletion is quicker
             fileStore.remove(url: url)
-            tableView.deleteRows(at: [indexPath as IndexPath], with: .fade)
         }
     }
     @IBOutlet weak var importButton: UIBarButtonItem!
@@ -115,6 +116,10 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate {
 
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         handleReceivedGpxUrl(urls: urls)
+    }
+
+    func reload() {
+        tableView.reloadData()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

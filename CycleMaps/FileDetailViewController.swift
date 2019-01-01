@@ -11,7 +11,7 @@ import MapKit
 
 class FileDetailViewController: UITableViewController, MKMapViewDelegate {
 
-    let fileStore = FileStore(withExtensions: ["gpx"])
+    let fileStore = FileStore.sharedInstance
     let settings = UserDefaults.standard
 
     @IBOutlet weak var nameLabel: UILabel!

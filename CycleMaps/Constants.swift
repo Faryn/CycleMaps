@@ -22,5 +22,6 @@ struct Constants {
         static let title = "Settings"
         static let mapStyleTitle = "Map Style"
         static let idleTimerDisabled = "idleTimerDisabled"
+        static let iCloudDisabled = "iCloudDisabled"
     }
 }

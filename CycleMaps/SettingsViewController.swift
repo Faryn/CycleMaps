@@ -19,6 +19,7 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
         MFMailComposeViewControllerDelegate {
     weak var delegate: SettingsViewControllerDelegate?
     let settings = UserDefaults.standard
+    let fileStore = FileStore.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,8 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
     }
     @IBOutlet weak var aboutCell: UITableViewCell!
     @IBOutlet weak var idleTimerSwitch: UISwitch!
-
+    @IBOutlet weak var iCloudSwitch: UISwitch!
+    
     @IBAction func contactSupport(_ sender: UIButton) {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
@@ -88,6 +90,16 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
         settings.set(sender.isOn, forKey: Constants.Settings.idleTimerDisabled)
     }
 
+    @IBAction func toggleiCloud(_ sender: UISwitch) {
+        settings.set(sender.isOn, forKey: Constants.Settings.iCloudDisabled)
+        switch sender.isOn {
+        case true:
+            fileStore.moveFileToLocal()
+        case false:
+            fileStore.moveFileToCloud(withClear: true)
+        }
+    }
+    
     @IBAction func toggleCache(_ sender: UISwitch) {
         settings.set(sender.isOn, forKey: Constants.Settings.cacheDisabled)
         if let delegate = self.delegate {
