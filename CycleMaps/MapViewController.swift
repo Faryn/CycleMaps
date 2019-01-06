@@ -36,17 +36,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         map.tileSource = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
         setupSearchBar()
         addTrackButton()
-        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toggleBarsOnTap(_:)))
+        tapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                      action: #selector(self.toggleBarsOnTap(_:)))
         tapGestureRecognizer!.delegate = self
         self.view.addGestureRecognizer(tapGestureRecognizer!)
-        quickZoomGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleQuickZoom(_:)))
+        quickZoomGestureRecognizer = UILongPressGestureRecognizer(target: self,
+                                                                  action: #selector(self.handleQuickZoom(_:)))
         quickZoomGestureRecognizer!.numberOfTapsRequired = 1
         quickZoomGestureRecognizer!.minimumPressDuration = 0.1
         self.view.addGestureRecognizer(quickZoomGestureRecognizer!)
-        //gpxURL = NSURL(string: "http://cs193p.stanford.edu/Vacation.gpx") // for demo/debug/testing
     }
 
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer == self.tapGestureRecognizer && otherGestureRecognizer == quickZoomGestureRecognizer {
             return true
         }

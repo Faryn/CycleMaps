@@ -15,11 +15,9 @@ protocol FileStoreDelegate: class {
 class FileStore {
 
     static let sharedInstance = FileStore() // Singleton
-
     weak var delegate: FileStoreDelegate?
     let settings = UserDefaults.standard
     let query: NSMetadataQuery = NSMetadataQuery()
-
     var fileManager = FileManager()
     var extensions = [String]()
     var files: [URL] = []
@@ -37,28 +35,27 @@ class FileStore {
         do {
             let contents =
                 try fileManager.contentsOfDirectory(at: docRootDir as URL,
-                includingPropertiesForKeys: [URLResourceKey.creationDateKey,
-                                             URLResourceKey.localizedNameKey,
-                                             URLResourceKey.fileSizeKey],
-                options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles)
-                files = contents.filter({ extensions.contains($0.pathExtension) })
+                                                    includingPropertiesForKeys: [URLResourceKey.creationDateKey,
+                                                                                 URLResourceKey.localizedNameKey,
+                                                                                 URLResourceKey.fileSizeKey],
+                                                    options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles)
+            files = contents.filter({ extensions.contains($0.pathExtension) })
             files.sort(by: {$0.lastPathComponent.lowercased() < $1.lastPathComponent.lowercased()})
             if delegate != nil { delegate?.reload()}
         } catch {print(error)}
     }
 
     private func startQuery() {
-        self.query.searchScopes = [NSMetadataQueryUbiquitousDocumentsScope]
-        self.query.predicate = NSPredicate(format: "%K like '*'", NSMetadataItemFSNameKey)
+        query.searchScopes = [NSMetadataQueryUbiquitousDocumentsScope]
+        query.predicate = NSPredicate(format: "%K like '*'", NSMetadataItemFSNameKey)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.metadataQueryDidUpdate(_:)),
                                                name: NSNotification.Name.NSMetadataQueryDidUpdate,
                                                object: self.query)
-        self.query.start()
-        self.query.enableUpdates()
+        query.start()
+        query.enableUpdates()
     }
 
-    // adds a file to the internal file storage
     func add(url: URL) {
         let name = url.lastPathComponent
         do {
@@ -78,7 +75,7 @@ class FileStore {
     private struct DocumentsDirectory {
         static let localDocumentsURL: URL? =
             FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory,
-                                                                      in: .userDomainMask).last!
+                                     in: .userDomainMask).last!
         static let iCloudDocumentsURL: URL? =
             FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents")
     }
@@ -94,13 +91,16 @@ class FileStore {
     // Return true if iCloud is enabled
 
     private func isCloudEnabled() -> Bool {
-        if DocumentsDirectory.iCloudDocumentsURL != nil { return true } else { return false }
+        if DocumentsDirectory.iCloudDocumentsURL != nil {
+            return true
+        } else {
+            return false
+        }
     }
 
     // Delete All files at URL
 
     private func deleteFilesInDirectory(url: URL?) {
-        let fileManager = FileManager.default
         let enumerator = fileManager.enumerator(atPath: url!.path)
         while let file = enumerator?.nextObject() as? String {
             do {
@@ -114,8 +114,7 @@ class FileStore {
 
     func moveFileToCloud(withClear: Bool) {
         if isCloudEnabled() {
-            if withClear { deleteFilesInDirectory(url: DocumentsDirectory.iCloudDocumentsURL!) } // Clear destination
-            let fileManager = FileManager.default
+            //            if withClear { deleteFilesInDirectory(url: DocumentsDirectory.iCloudDocumentsURL!) } // Clear destination
             let enumerator = fileManager.enumerator(atPath: DocumentsDirectory.localDocumentsURL!.path)
             while let file = enumerator?.nextObject() as? String {
                 do {
@@ -127,6 +126,7 @@ class FileStore {
                     print("Failed to move file to Cloud : \(error)")
                 }
             }
+            docRootDir = getDocumentDirectoryURL()
             reloadFiles()
         }
     }
@@ -134,7 +134,6 @@ class FileStore {
     func moveFileToLocal() {
         if isCloudEnabled() {
             deleteFilesInDirectory(url: DocumentsDirectory.localDocumentsURL!)
-            let fileManager = FileManager.default
             let enumerator = fileManager.enumerator(atPath: DocumentsDirectory.iCloudDocumentsURL!.path)
             while let file = enumerator?.nextObject() as? String {
                 do {

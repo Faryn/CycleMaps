@@ -10,6 +10,7 @@ import Foundation
 import MapKit
 
 class LocationSearchTable: UITableViewController, UISearchResultsUpdating {
+
     var matchingItems: [MKMapItem] = []
     var mapView: MKMapView?
     weak var handleMapSearchDelegate: HandleMapSearch?
@@ -19,7 +20,8 @@ class LocationSearchTable: UITableViewController, UISearchResultsUpdating {
         // put a space between "4" and "Melrose Place"
         let firstSpace = (selectedItem.subThoroughfare != nil && selectedItem.thoroughfare != nil) ? " " : ""
         // put a comma between street and city/state
-        let comma = (selectedItem.subThoroughfare != nil || selectedItem.thoroughfare != nil) && (selectedItem.subAdministrativeArea != nil || selectedItem.administrativeArea != nil) ? ", " : ""
+        let comma = (selectedItem.subThoroughfare != nil || selectedItem.thoroughfare != nil)
+            && (selectedItem.subAdministrativeArea != nil || selectedItem.administrativeArea != nil) ? ", " : ""
         // put a space between "Washington" and "DC"
         let secondSpace = (selectedItem.subAdministrativeArea != nil && selectedItem.administrativeArea != nil) ? " " : ""
         let addressLine = String(
@@ -77,6 +79,5 @@ extension LocationSearchTable {
         searchBar?.text = selectedItem.name
         handleMapSearchDelegate?.dropPinZoomIn(selectedItem)
         dismiss(animated: true, completion: nil)
-
     }
 }

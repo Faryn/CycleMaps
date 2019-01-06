@@ -121,3 +121,12 @@
 
 /* Class = "UITableViewSection"; headerTitle = "Location"; ObjectID = "zjO-J9-c9W"; */
 "zjO-J9-c9W.headerTitle" = "Ortungsdienste";
+
+/* Class = "UITableViewSection"; footerTitle = "By default, all GPX tracks sync across devices."; ObjectID = "fbW-b5-ChQ"; */
+"fbW-b5-ChQ.footerTitle" = "Standardmäßig werden alle GPX Dateien zwischen Geräten synchronisiert.";
+
+/* Class = "UITableViewSection"; headerTitle = "Sync"; ObjectID = "fbW-b5-ChQ"; */
+"fbW-b5-ChQ.headerTitle" = "Synchronisation";
+
+/* Class = "UILabel"; text = "Disable Sync"; ObjectID = "Pxv-Zm-DkY"; */
+"Pxv-Zm-DkY.text" = "Synchronisation deaktivieren";

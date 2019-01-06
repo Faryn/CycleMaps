@@ -36,6 +36,7 @@
 		330DD7F36E98F97920C2F9DE /* Pods-CycleMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CycleMaps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CycleMaps/Pods-CycleMaps.debug.xcconfig"; sourceTree = "<group>"; };
 		8892C739965E20D353E5C3B5 /* Pods_CycleMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CycleMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA0065F71E6C8D9200A54495 /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
+		DA2B423F21DC0B1C00B70485 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		DA38D8051E6F5B06007817F2 /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
 		DA38D8071E6F5D8A007817F2 /* FileStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStore.swift; sourceTree = "<group>"; };
 		DA394DCB1E5CB1BF0058AE09 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
@@ -48,7 +49,6 @@
 		DA6FE48B1EB7DA76005B7F97 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA7DBEF01E7B26C600720B5E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DA8B9CB71F53472E0040A2A7 /* FileDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDetailViewController.swift; sourceTree = "<group>"; };
-		DA8B9CBA1F534A580040A2A7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		DA96311A1E7B2DB30084A16A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		DAAED6171EF6E1680035537F /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		DAB0680E1E47B0C500EFDD3E /* CycleMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CycleMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -324,7 +324,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DAB068161E47B0C500EFDD3E /* Base */,
-				DA8B9CBA1F534A580040A2A7 /* de */,
+				DA2B423F21DC0B1C00B70485 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
