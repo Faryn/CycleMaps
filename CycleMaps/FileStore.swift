@@ -89,7 +89,6 @@ class FileStore {
     }
 
     // Return true if iCloud is enabled
-
     private func isCloudEnabled() -> Bool {
         if DocumentsDirectory.iCloudDocumentsURL != nil {
             return true
@@ -133,14 +132,17 @@ class FileStore {
 
     func moveFileToLocal() {
         if isCloudEnabled() {
-            deleteFilesInDirectory(url: DocumentsDirectory.localDocumentsURL!)
+//            deleteFilesInDirectory(url: DocumentsDirectory.localDocumentsURL!)
             let enumerator = fileManager.enumerator(atPath: DocumentsDirectory.iCloudDocumentsURL!.path)
             while let file = enumerator?.nextObject() as? String {
                 do {
-                    try fileManager.setUbiquitous(false,
-                                                  itemAt: DocumentsDirectory.iCloudDocumentsURL!.appendingPathComponent(file),
-                                                  destinationURL: DocumentsDirectory.localDocumentsURL!.appendingPathComponent(file))
-                    print("Moved to local dir")
+                    // Copy, don't remove to keep files available for other devices
+                    try fileManager.copyItem(at: DocumentsDirectory.iCloudDocumentsURL!.appendingPathComponent(file),
+                                             to: DocumentsDirectory.localDocumentsURL!.appendingPathComponent(file))
+//                    try fileManager.setUbiquitous(false,
+//                                                  itemAt: DocumentsDirectory.iCloudDocumentsURL!.appendingPathComponent(file),
+//                                                  destinationURL: DocumentsDirectory.localDocumentsURL!.appendingPathComponent(file))
+                    print("Copied to local dir")
                 } catch let error as NSError {
                     print("Failed to move file to local dir : \(error)")
                 }

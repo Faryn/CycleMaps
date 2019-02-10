@@ -78,13 +78,10 @@ class GPX: NSObject, XMLParserDelegate {
     class Link: CustomStringConvertible {
         var href: String
         var linkattributes = [String: String]()
-
         init(href: String) { self.href = href }
-
         var url: URL? { return URL(string: href) }
         var text: String? { return linkattributes["text"] }
         var type: String? { return linkattributes["type"] }
-
         var description: String {
             var descriptions = [String]()
             descriptions.append("href=\(href)")
@@ -152,7 +149,11 @@ class GPX: NSObject, XMLParserDelegate {
     fileprivate var track: Track?
     fileprivate var link: Link?
 
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String] = [:]) {
+    func parser(_ parser: XMLParser,
+                didStartElement elementName: String,
+                namespaceURI: String?,
+                qualifiedName qName: String?,
+                attributes attributeDict: [String: String] = [:]) {
         switch elementName {
         case "trkseg":
             if track == nil { fallthrough }
@@ -166,13 +167,16 @@ class GPX: NSObject, XMLParserDelegate {
             let latitude = Double(attributeDict["lat"]!)
             let longitude = Double(attributeDict["lon"]!)
             waypoint = Waypoint(latitude: latitude!, longitude: longitude!)
-//        case "link":
-//            link = Link(href: attributeDict["href"]! as String)
+            //        case "link":
+        //            link = Link(href: attributeDict["href"]! as String)
         default: break
         }
     }
 
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    func parser(_ parser: XMLParser,
+                didEndElement elementName: String,
+                namespaceURI: String?,
+                qualifiedName qName: String?) {
         switch elementName {
         case "wpt":
             if waypoint != nil { waypoints.append(waypoint!); waypoint = nil }

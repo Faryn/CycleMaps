@@ -95,16 +95,19 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate, FileStoreDelegate {
     }
 
     @IBAction func importPressed(_ sender: UIBarButtonItem) {
-        let importMenu = UIDocumentPickerViewController(documentTypes: ["com.apple.dt.document.gpx", "public.xml"], in: .import)
+        let importMenu = UIDocumentPickerViewController(documentTypes: ["com.apple.dt.document.gpx", "public.xml"],
+                                                        in: .import)
         importMenu.popoverPresentationController?.barButtonItem = importButton
         importMenu.delegate = self
         present(importMenu, animated: true, completion: nil)
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let url = fileStore.files[indexPath.row]
-//            tableView.deleteRows(at: [indexPath as IndexPath], with: .fade) //Crashes the tableview because the update from file deletion is quicker
+//            tableView.deleteRows(at: [indexPath as IndexPath], with: .fade) //Crashes the tableview because the update from file deletion is quicker --> race condition
             fileStore.remove(url: url)
         }
     }
