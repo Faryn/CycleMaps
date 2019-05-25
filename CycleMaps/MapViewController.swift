@@ -256,7 +256,7 @@ extension GPX.Waypoint: MKAnnotation {
 private extension MKPolyline {
     convenience init(coordinates coords: Array<CLLocationCoordinate2D>) {
         let unsafeCoordinates = UnsafeMutablePointer<CLLocationCoordinate2D>.allocate(capacity: coords.count)
-        unsafeCoordinates.initialize(from: coords)
+        unsafeCoordinates.initialize(from: coords, count: coords.count)
         self.init(coordinates: unsafeCoordinates, count: coords.count)
         unsafeCoordinates.deallocate()
     }

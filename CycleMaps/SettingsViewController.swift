@@ -68,7 +68,7 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
     private func updateMapStyleCell() {
         if let mapStyle = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))?.name {
             mapStyleCell.detailTextLabel?.text = mapStyle
-        } else { mapStyleCell.detailTextLabel?.text = TileSource.openCycleMap.name }
+        } else { mapStyleCell.detailTextLabel?.text = TileSource.mtbMap.name }
     }
 
     override func viewWillAppear(_ animated: Bool) {

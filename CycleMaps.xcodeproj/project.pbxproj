@@ -24,7 +24,6 @@
 		DAB068141E47B0C500EFDD3E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB068131E47B0C500EFDD3E /* MapViewController.swift */; };
 		DAB068171E47B0C500EFDD3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB068151E47B0C500EFDD3E /* Main.storyboard */; };
 		DAB0681C1E47B0C500EFDD3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB0681A1E47B0C500EFDD3E /* LaunchScreen.storyboard */; };
-		DABD4C2F1EB7615F0060AD14 /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = DABD4C2E1EB7615F0060AD14 /* keys.plist */; };
 		DAEA8BC91E5E3D34009CC260 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEA8BC81E5E3D34009CC260 /* SettingsViewController.swift */; };
 		DAEB86681E794CF0009D8059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAEB86671E794CF0009D8059 /* Assets.xcassets */; };
 		DAEDED661E77F9C500FCE1A4 /* TileSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEDED651E77F9C500FCE1A4 /* TileSource.swift */; };
@@ -56,7 +55,6 @@
 		DAB068131E47B0C500EFDD3E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DAB068161E47B0C500EFDD3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DAB0681B1E47B0C500EFDD3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DABD4C2E1EB7615F0060AD14 /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		DAEA8BC81E5E3D34009CC260 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DAEB86671E794CF0009D8059 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAEDED641E75FF4D00FCE1A4 /* CycleMaps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CycleMaps.entitlements; sourceTree = "<group>"; };
@@ -139,7 +137,6 @@
 				DA394DCB1E5CB1BF0058AE09 /* LocationSearchTable.swift */,
 				DAB0681A1E47B0C500EFDD3E /* LaunchScreen.storyboard */,
 				DA3FC9841E59FECD005C08C7 /* OverlayTile.swift */,
-				DABD4C2E1EB7615F0060AD14 /* keys.plist */,
 				DA6FE4891EB7DA2B005B7F97 /* Localizable.strings */,
 			);
 			path = CycleMaps;
@@ -180,7 +177,7 @@
 				TargetAttributes = {
 					DAB0680D1E47B0C500EFDD3E = {
 						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -204,6 +201,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				de,
@@ -223,7 +221,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DABD4C2F1EB7615F0060AD14 /* keys.plist in Resources */,
 				DA6FE4871EB7DA2B005B7F97 /* Localizable.strings in Resources */,
 				DA5B656E1E85D31800FACE96 /* about.html in Resources */,
 				DAB0681C1E47B0C500EFDD3E /* LaunchScreen.storyboard in Resources */,
@@ -472,7 +469,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -494,7 +491,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

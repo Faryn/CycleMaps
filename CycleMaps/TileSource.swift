@@ -9,52 +9,50 @@
 import Foundation
 
 enum TileSource: Int {
-    case openCycleMap
     case openStreetMap
     case mtbMap
     case hikeBikeMap
     case cartoDbLight
     case wikiMediaMaps
     case openBusMap
+    case uMaps
+    case sigma
     case apple
 
     var name: String {
         switch self {
-        case .openCycleMap: return "Open Cycle Map (Retina)"
         case .openStreetMap: return "Open Street Map (Retina)"
         case .mtbMap: return "MTB Map"
         case .hikeBikeMap: return "Hike & Bike Map"
         case .cartoDbLight: return "Carto DB Light (Retina)"
         case .wikiMediaMaps: return "WikiMedia Maps (Retina)"
         case .openBusMap: return "OpenBusMap"
+        case .uMaps: return "4UMaps"
+        case .sigma: return "Sigma Cycling Maps"
         case .apple: return NSLocalizedString("appleMaps", comment: "")
+        default: return "MTB Map"
         }
     }
 
     var templateUrl: String {
         switch self {
-        case .openCycleMap:
-            if let path = Bundle.main.path(forResource: "keys", ofType: "plist") {
-                let keys = NSDictionary(contentsOfFile: path)
-                if let apikey = keys!.value(forKey: "ocmApiKey") {
-                    return "https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}{csf}.png?apikey=\(apikey)"
-                }
-            }
-            return "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png"
         case .openStreetMap: return "https://{s}.osm.rrze.fau.de/osmhd/{z}/{x}/{y}.png"
         case .mtbMap: return "http://{s}.tile.mtbmap.cz/mtbmap_tiles/{z}/{x}/{y}.png"
         case .hikeBikeMap: return "http://{s}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png"
         case .cartoDbLight: return "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}{csf}.png"
         case .wikiMediaMaps: return "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{csf}.png"
         case .openBusMap: return "https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png"
+        case .uMaps: return "https://tileserver.4umaps.com/{z}/{x}/{y}.png"
+        case .sigma: return "https://tiles1.sigma-dc-control.com/layer8/{z}/{x}/{y}.png"
         case .apple: return ""
+        default: return "http://{s}.tile.mtbmap.cz/mtbmap_tiles/{z}/{x}/{y}.png"
+
         }
     }
-    static let count = 8
+    static let count = 9
 
     var retina: Bool {
         switch self {
-        case .openCycleMap: return true
         case .openStreetMap: return true
         case .cartoDbLight: return true
         case .wikiMediaMaps: return true
