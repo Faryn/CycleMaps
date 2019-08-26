@@ -33,6 +33,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             navigationItem.largeTitleDisplayMode = .never
         }
         locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
         map.tileSource = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
         setupSearchBar()
         addTrackButton()
@@ -110,6 +111,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             resultSearchController = UISearchController(searchResultsController: locationSearchTable)
             resultSearchController?.searchResultsUpdater = locationSearchTable
             let searchBar = resultSearchController!.searchBar
+            searchBar.delegate = self
             searchBar.placeholder = NSLocalizedString("SearchForPlaces", comment: "Displayed as Search String")
             searchBar.sizeToFit()
             searchBar.searchBarStyle = .minimal
@@ -125,6 +127,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     internal func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         resultSearchController?.searchResultsUpdater?.updateSearchResults(for: resultSearchController!)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        if selectedPin != nil {
+            map.removeAnnotation(selectedPin!)
+            selectedPin = nil
+        }
     }
 
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
