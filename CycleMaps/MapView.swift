@@ -18,7 +18,9 @@ class MapView: MKMapView {
         willSet {
             switch newValue {
             case .apple:
-                break
+                if tileSourceOverlay != nil {
+                    removeOverlay(tileSourceOverlay!)
+                }
             default:
                 let overlay = OverlayTile(urlTemplate: newValue.templateUrl)
                 if UIScreen.main.scale >= 2 && newValue.retina {

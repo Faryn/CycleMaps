@@ -22,7 +22,7 @@ class SettingDetailViewController: UITableViewController, MKMapViewDelegate {
     @IBOutlet weak var previewMap: MapView! {
         didSet {
             previewMap.delegate = self
-            previewMap.tileSource = TileSource(rawValue: selected)!
+            previewMap.tileSource = TileSource(rawValue: selected) ?? TileSource(rawValue: 0)!
             previewMap.userTrackingMode = .follow
         }
     }

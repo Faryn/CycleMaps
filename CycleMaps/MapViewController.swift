@@ -34,7 +34,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        map.tileSource = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
+        map.tileSource = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource)) ?? TileSource(rawValue: 0)!
         setupSearchBar()
         addTrackButton()
         tapGestureRecognizer = UITapGestureRecognizer(target: self,
