@@ -20,6 +20,7 @@ class MapView: MKMapView {
             case .apple:
                 if tileSourceOverlay != nil {
                     removeOverlay(tileSourceOverlay!)
+                    tileSourceOverlay = nil
                 }
             default:
                 let overlay = OverlayTile(urlTemplate: newValue.templateUrl)

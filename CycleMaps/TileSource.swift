@@ -17,6 +17,7 @@ enum TileSource: Int {
     case openBusMap
     case uMaps
     case sigma
+    case cyclosm
     case apple
 
     var name: String {
@@ -29,6 +30,7 @@ enum TileSource: Int {
         case .openBusMap: return "OpenBusMap"
         case .uMaps: return "4UMaps"
         case .sigma: return "Sigma Cycling Maps"
+        case .cyclosm: return "CyclOSM"
         case .apple: return NSLocalizedString("appleMaps", comment: "")
         default: return "MTB Map"
         }
@@ -44,12 +46,13 @@ enum TileSource: Int {
         case .openBusMap: return "https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png"
         case .uMaps: return "https://tileserver.4umaps.com/{z}/{x}/{y}.png"
         case .sigma: return "https://tiles1.sigma-dc-control.com/layer8/{z}/{x}/{y}.png"
+        case .cyclosm: return "https://dev.{s}.tile.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png"
         case .apple: return ""
         default: return "http://{s}.tile.mtbmap.cz/mtbmap_tiles/{z}/{x}/{y}.png"
 
         }
     }
-    static let count = 9
+    static let count = 10
 
     var retina: Bool {
         switch self {
