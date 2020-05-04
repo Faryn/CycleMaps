@@ -30,13 +30,12 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate, FileStoreDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.refreshControl = UIRefreshControl()
-        tableView.refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
+        tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         if #available(iOS 11.0, *) {
             navigationItem.largeTitleDisplayMode = .always
         }
         fileStore.delegate = self
         initiateImport()
-        fileStore.startQuery()
         fileStore.reloadFiles()
         generator.prepare()
     }
@@ -123,7 +122,7 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate, FileStoreDelegate {
         handleReceivedGpxUrl(urls: urls)
     }
 
-    @objc func reload() {
+    @objc func refresh() {
         tableView.reloadData()
         tableView.refreshControl?.endRefreshing()
     }

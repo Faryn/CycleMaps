@@ -9,19 +9,20 @@
 import Foundation
 
 protocol FileStoreDelegate: class {
-    func reload()
+    func refresh()
 }
 
-class FileStore : NSObject, NSFilePresenter {
+class FileStore: NSObject, NSFilePresenter {
 
     static let sharedInstance = FileStore() // Singleton
     weak var delegate: FileStoreDelegate?
     let settings = UserDefaults.standard
-    let query = NSMetadataQuery()
-    var fileManager = FileManager()
-    var extensions = [String]()
-    var files: [URL] = []
+    private let query = NSMetadataQuery()
+    private var fileManager = FileManager()
+    private let extensions = ["gpx"]
     private var docRootDir: URL = DocumentsDirectory.localDocumentsURL!
+    var files: [URL] = []
+    // Protocol NSFilePresenter
     lazy var presentedItemOperationQueue = OperationQueue.main
     var presentedItemURL: URL?
 
@@ -29,25 +30,22 @@ class FileStore : NSObject, NSFilePresenter {
         super.init()
         docRootDir = getDocumentDirectoryURL()
         presentedItemURL = docRootDir
-        print(docRootDir)
-        extensions = ["gpx"]
-        reloadFiles()
-        //moveFileToCloud(withClear: false)
+        moveFileToCloud(withClear: false)
         startQuery()
         NSFileCoordinator.addFilePresenter(self)
+        reloadFiles()
     }
-    
-
 
     func presentedSubitemDidChange(at url: URL) {
-        let pathExtension = url.pathExtension
-
-        if extensions.contains(pathExtension) {
-            startQuery()
-            reloadFiles()
+        if extensions.contains(url.pathExtension) {
+            refresh()
         }
     }
-    
+
+    func refresh() {
+        startQuery()
+        reloadFiles()
+    }
 
     func reloadFiles() {
         do {
@@ -59,11 +57,11 @@ class FileStore : NSObject, NSFilePresenter {
                                                     options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles)
             files = contents.filter({ extensions.contains($0.pathExtension) })
             files.sort(by: {$0.lastPathComponent.lowercased() < $1.lastPathComponent.lowercased()})
-            if delegate != nil { delegate?.reload()}
+            if delegate != nil { delegate?.refresh()}
         } catch {print(error)}
     }
 
-    func startQuery() {
+    private func startQuery() {
         query.searchScopes = [NSMetadataQueryUbiquitousDocumentsScope, NSMetadataQueryAccessibleUbiquitousExternalDocumentsScope]
         query.predicate = NSPredicate(format: "%K.URLByDeletingLastPathComponent.path == %@", argumentArray: [NSMetadataItemURLKey, docRootDir.path])
         NotificationCenter.default.addObserver(self,
@@ -116,7 +114,6 @@ class FileStore : NSObject, NSFilePresenter {
     }
 
     // Delete All files at URL
-
     private func deleteFilesInDirectory(url: URL?) {
         let enumerator = fileManager.enumerator(atPath: url!.path)
         while let file = enumerator?.nextObject() as? String {
@@ -175,11 +172,10 @@ class FileStore : NSObject, NSFilePresenter {
             if let fileURL = file!.value(forAttribute: NSMetadataItemURLKey) as? NSURL {
                 try? fileManager.startDownloadingUbiquitousItem(at: fileURL as URL)
                 print(fileURL)
+                reloadFiles()
             }
         }
-        reloadFiles()
     }
-    
 }
 
 extension URL {
