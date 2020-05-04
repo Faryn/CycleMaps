@@ -73,8 +73,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if UIApplication.shared.isIdleTimerDisabled {
             UIApplication.shared.isIdleTimerDisabled = false
         }
-        map.userTrackingMode = .none
-        map.showsUserLocation = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -143,8 +141,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         if overlay is MKPolyline {
             let renderer = MKPolylineRenderer(overlay: overlay)
-            renderer.strokeColor = UIColor.blue.withAlphaComponent(0.7)
-            renderer.lineWidth = 3
+            renderer.strokeColor = UIColor.systemOrange.withAlphaComponent(0.8)
+            renderer.lineWidth = 6
             return renderer
         } else { return MKOverlayRenderer(overlay: overlay) }
     }

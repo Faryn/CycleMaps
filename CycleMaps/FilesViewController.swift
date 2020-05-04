@@ -20,7 +20,6 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate, FileStoreDelegate {
     weak var delegate: FilesViewControllerDelegate?
     let fileStore = FileStore.sharedInstance
     let generator = UISelectionFeedbackGenerator()
-
     private func handleReceivedGpxUrl(urls: [URL]) {
         for url in urls {
             fileStore.add(url: url)
@@ -30,11 +29,14 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate, FileStoreDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
         if #available(iOS 11.0, *) {
             navigationItem.largeTitleDisplayMode = .always
         }
         fileStore.delegate = self
         initiateImport()
+        fileStore.startQuery()
         fileStore.reloadFiles()
         generator.prepare()
     }
@@ -62,7 +64,7 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate, FileStoreDelegate {
                 let url = fileStore.files[indexPath.row]
                 cell.textLabel?.text = url.lastPathComponent
                 if delegate!.isSelected(name: url.lastPathComponent) {
-                    cell.textLabel?.textColor = UIColor.blue
+                    cell.textLabel?.textColor = UIColor.systemBlue
                 }
             }
             return cell
@@ -75,10 +77,10 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate, FileStoreDelegate {
         generator.prepare()
         if delegate!.isSelected(name: url.lastPathComponent) {
             delegate?.deselectedFile(name: url.lastPathComponent)
-            cell?.textLabel?.textColor = UIColor.black
+            cell?.textLabel?.textColor = UIColor.label
         } else {
             delegate?.selectedFile(name: url.lastPathComponent, url: url )
-            cell?.textLabel?.textColor = UIColor.blue
+            cell?.textLabel?.textColor = UIColor.systemBlue
         }
     }
 
@@ -121,8 +123,9 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate, FileStoreDelegate {
         handleReceivedGpxUrl(urls: urls)
     }
 
-    func reload() {
+    @objc func reload() {
         tableView.reloadData()
+        tableView.refreshControl?.endRefreshing()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

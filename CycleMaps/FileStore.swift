@@ -12,29 +12,47 @@ protocol FileStoreDelegate: class {
     func reload()
 }
 
-class FileStore {
+class FileStore : NSObject, NSFilePresenter {
 
     static let sharedInstance = FileStore() // Singleton
     weak var delegate: FileStoreDelegate?
     let settings = UserDefaults.standard
-    let query: NSMetadataQuery = NSMetadataQuery()
+    let query = NSMetadataQuery()
     var fileManager = FileManager()
     var extensions = [String]()
     var files: [URL] = []
     private var docRootDir: URL = DocumentsDirectory.localDocumentsURL!
+    lazy var presentedItemOperationQueue = OperationQueue.main
+    var presentedItemURL: URL?
 
-    init() {
+    override init() {
+        super.init()
         docRootDir = getDocumentDirectoryURL()
+        presentedItemURL = docRootDir
+        print(docRootDir)
         extensions = ["gpx"]
         reloadFiles()
-        moveFileToCloud(withClear: false)
+        //moveFileToCloud(withClear: false)
         startQuery()
+        NSFileCoordinator.addFilePresenter(self)
     }
+    
+
+
+    func presentedSubitemDidChange(at url: URL) {
+        let pathExtension = url.pathExtension
+
+        if extensions.contains(pathExtension) {
+            startQuery()
+            reloadFiles()
+        }
+    }
+    
 
     func reloadFiles() {
         do {
             let contents =
-                try fileManager.contentsOfDirectory(at: docRootDir as URL,
+                try fileManager.contentsOfDirectory(at: docRootDir,
                                                     includingPropertiesForKeys: [URLResourceKey.creationDateKey,
                                                                                  URLResourceKey.localizedNameKey,
                                                                                  URLResourceKey.fileSizeKey],
@@ -45,12 +63,12 @@ class FileStore {
         } catch {print(error)}
     }
 
-    private func startQuery() {
-        query.searchScopes = [NSMetadataQueryUbiquitousDocumentsScope]
-        query.predicate = NSPredicate(format: "%K like '*'", NSMetadataItemFSNameKey)
+    func startQuery() {
+        query.searchScopes = [NSMetadataQueryUbiquitousDocumentsScope, NSMetadataQueryAccessibleUbiquitousExternalDocumentsScope]
+        query.predicate = NSPredicate(format: "%K.URLByDeletingLastPathComponent.path == %@", argumentArray: [NSMetadataItemURLKey, docRootDir.path])
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.metadataQueryDidUpdate(_:)),
-                                               name: NSNotification.Name.NSMetadataQueryDidUpdate,
+                                               name: NSNotification.Name.NSMetadataQueryDidFinishGathering,
                                                object: self.query)
         query.start()
         query.enableUpdates()
@@ -154,14 +172,14 @@ class FileStore {
 
     @objc private func metadataQueryDidUpdate(_ notification: Notification) {
         for file in (query.results as? [NSMetadataItem?])! {
-            if let fileURL = file!.value(forAttribute: NSMetadataItemURLKey) as? URL {
-                try? fileManager.startDownloadingUbiquitousItem(at: fileURL)
+            if let fileURL = file!.value(forAttribute: NSMetadataItemURLKey) as? NSURL {
+                try? fileManager.startDownloadingUbiquitousItem(at: fileURL as URL)
                 print(fileURL)
             }
         }
-        docRootDir = getDocumentDirectoryURL()
         reloadFiles()
     }
+    
 }
 
 extension URL {
