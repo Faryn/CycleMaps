@@ -10,3 +10,5 @@ appleMaps = "Apple Karten (Kein Cache)";
 SearchForPlaces = "Nach Orten suchen";
 Start = "Start";
 Destination = "Ziel";
+SupportMailSubject = "RadMaps Support";
+SupportMailBody = "<p>Hier bitte das Problem oder Feedback kurz beschreiben.</p>";

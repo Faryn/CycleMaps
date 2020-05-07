@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 struct Constants {
     struct Storyboard {
         static let gpxCellReuseIdentifier = "GPXFileCell"
@@ -15,6 +17,7 @@ struct Constants {
         static let mapStyleSegueIdentifier = "mapStyle"
         static let filesSegueIdentifier = "filesSegue"
         static let settingsSegueIdentifier = "settingsSegue"
+        static let fileDetailSegueIdentifier = "fileDetailSegue"
     }
     struct Settings {
         static let cacheDisabled = "cacheDisabled"
@@ -23,5 +26,9 @@ struct Constants {
         static let mapStyleTitle = "Map Style"
         static let idleTimerDisabled = "idleTimerDisabled"
         static let iCloudDisabled = "iCloudDisabled"
+    }
+    struct Visual {
+        static let textAccentColor = UIColor.systemBlue
+        static let polylineColor = UIColor.systemOrange.withAlphaComponent(0.8)
     }
 }

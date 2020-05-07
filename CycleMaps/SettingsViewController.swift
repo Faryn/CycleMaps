@@ -45,8 +45,8 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             mail.setToRecipients(["cyclemaps@thepowl.de"])
-            mail.setSubject("RadMaps Support")
-            mail.setMessageBody("<p>Send us your issue!</p>", isHTML: true)
+            mail.setSubject(NSLocalizedString("SupportMailSubject", comment: ""))
+            mail.setMessageBody(NSLocalizedString("SupportMailBody", comment: ""), isHTML: true)
             present(mail, animated: true, completion: nil)
         } else {
             // show failure alert
@@ -102,7 +102,7 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
             fileStore.moveFileToCloud(withClear: true)
         }
     }
-    
+
     @IBAction func toggleCache(_ sender: UISwitch) {
         settings.set(sender.isOn, forKey: Constants.Settings.cacheDisabled)
         if let delegate = self.delegate {
@@ -133,5 +133,4 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
         delegate?.changedSetting(setting: Constants.Settings.tileSource)
         updateMapStyleCell()
     }
-
 }

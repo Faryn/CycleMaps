@@ -33,8 +33,10 @@ class SettingDetailViewController: UITableViewController, MKMapViewDelegate {
             cell.textLabel?.text = TileSource(rawValue: indexPath.row)?.name
             if selected == indexPath.row {
                 cell.accessoryType = .checkmark
+                cell.textLabel?.textColor = Constants.Visual.textAccentColor
             } else {
                 cell.accessoryType = .none
+                cell.textLabel?.textColor = UIColor.label
             }
         }
         return cell

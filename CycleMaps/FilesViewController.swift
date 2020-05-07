@@ -63,7 +63,7 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate, FileStoreDelegate {
                 let url = fileStore.files[indexPath.row]
                 cell.textLabel?.text = url.lastPathComponent
                 if delegate!.isSelected(name: url.lastPathComponent) {
-                    cell.textLabel?.textColor = UIColor.systemBlue
+                    cell.textLabel?.textColor = Constants.Visual.textAccentColor
                 }
             }
             return cell
@@ -79,7 +79,7 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate, FileStoreDelegate {
             cell?.textLabel?.textColor = UIColor.label
         } else {
             delegate?.selectedFile(name: url.lastPathComponent, url: url )
-            cell?.textLabel?.textColor = UIColor.systemBlue
+            cell?.textLabel?.textColor = Constants.Visual.textAccentColor
         }
     }
 
@@ -92,7 +92,7 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate, FileStoreDelegate {
     }
 
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        performSegue(withIdentifier: "fileDetailSegue", sender: indexPath)
+        performSegue(withIdentifier: Constants.Storyboard.fileDetailSegueIdentifier, sender: indexPath)
     }
 
     @IBAction func importPressed(_ sender: UIBarButtonItem) {
@@ -128,7 +128,7 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate, FileStoreDelegate {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "fileDetailSegue" {
+        if segue.identifier == Constants.Storyboard.fileDetailSegueIdentifier {
             if let fileDetailViewController = segue.destination as? FileDetailViewController {
                 if let indexPath = sender as? IndexPath {
                     fileDetailViewController.fileUrl = fileStore.files[indexPath.row]

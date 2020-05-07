@@ -115,7 +115,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             searchBar.searchBarStyle = .minimal
             navigationItem.titleView = resultSearchController?.searchBar
             resultSearchController?.hidesNavigationBarDuringPresentation = false
-            resultSearchController?.dimsBackgroundDuringPresentation = true
+            resultSearchController?.obscuresBackgroundDuringPresentation = true
             definesPresentationContext = true
             locationSearchTable.mapView = map
             locationSearchTable.handleMapSearchDelegate = self
@@ -141,7 +141,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         if overlay is MKPolyline {
             let renderer = MKPolylineRenderer(overlay: overlay)
-            renderer.strokeColor = UIColor.systemOrange.withAlphaComponent(0.8)
+            renderer.strokeColor = Constants.Visual.polylineColor
             renderer.lineWidth = 6
             return renderer
         } else { return MKOverlayRenderer(overlay: overlay) }
