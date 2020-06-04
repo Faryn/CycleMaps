@@ -55,7 +55,7 @@ class FileStore: NSObject, NSFilePresenter {
                                                                                  URLResourceKey.localizedNameKey,
                                                                                  URLResourceKey.fileSizeKey],
                                                     options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles)
-            files = contents.filter({ extensions.contains($0.pathExtension) })
+            files = contents.filter({ extensions.contains($0.pathExtension.lowercased()) })
             files.sort(by: {$0.lastPathComponent.lowercased() < $1.lastPathComponent.lowercased()})
             if delegate != nil { delegate?.refresh()}
         } catch {print(error)}
@@ -72,6 +72,7 @@ class FileStore: NSObject, NSFilePresenter {
         query.enableUpdates()
     }
 
+    //TODO: Refresh doesn't work, maybe need to wait a little?
     func add(url: URL) {
         let name = url.lastPathComponent
         do {
