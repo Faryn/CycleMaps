@@ -14,7 +14,7 @@ class MapView: MKMapView {
     var namedOverlays = [String: [MKOverlay]]()
     var tileSourceOverlay: OverlayTile?
 
-    var tileSource = TileSource.mtbMap {
+    var tileSource = TileSource.cyclosm {
         willSet {
             switch newValue {
             case .apple:

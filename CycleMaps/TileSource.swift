@@ -23,14 +23,14 @@ enum TileSource: Int {
     var name: String {
         switch self {
         case .openStreetMap: return "Open Street Map (Retina)"
-        case .mtbMap: return "MTB Map"
-        case .hikeBikeMap: return "Hike & Bike Map"
+        case .mtbMap: return "MTB Map 🚵🏿‍♀️"
+        case .hikeBikeMap: return "Hike & Bike Map 🚵🏿‍♀️ ⛰"
         case .cartoDbLight: return "Carto DB Light (Retina)"
         case .wikiMediaMaps: return "WikiMedia Maps (Retina)"
-        case .openBusMap: return "OpenBusMap"
+        case .openBusMap: return "OpenBusMap 🚌"
         case .uMaps: return "4UMaps"
-        case .sigma: return "Sigma Cycling Maps"
-        case .cyclosm: return "CyclOSM"
+        case .sigma: return "Sigma Cycling Maps 🚴🏾‍♀️"
+        case .cyclosm: return "CyclOSM 🚴🏾‍♀️"
         case .apple: return NSLocalizedString("appleMaps", comment: "")
         default: return "MTB Map"
         }

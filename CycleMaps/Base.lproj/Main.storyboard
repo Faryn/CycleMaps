@@ -31,23 +31,22 @@
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="MVt-BT-VYy"/>
-                        <barButtonItem systemItem="organize" id="8iM-jd-bjq">
+                        <barButtonItem title="Item" image="skew" catalog="system" id="8iM-jd-bjq">
                             <connections>
                                 <segue destination="w1t-Fo-jrU" kind="show" identifier="filesSegue" id="YmD-oU-QmN"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="NES-hi-DjG"/>
-                        <barButtonItem style="plain" id="PAl-gv-Pcx">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qtg-9y-kTW">
-                                <rect key="frame" x="329" y="5" width="30" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="35"/>
-                                <state key="normal" title="⚙"/>
-                                <connections>
-                                    <segue destination="ThV-TA-g6M" kind="show" identifier="settingsSegue" id="H4D-rk-pFu"/>
-                                </connections>
-                            </button>
-                            <color key="tintColor" red="0.48988837532869878" green="0.31105130888597499" blue="1" alpha="0.33928948479729731" colorSpace="calibratedRGB"/>
+                        <barButtonItem title="Item" image="map" catalog="system" id="sVS-yP-dJT">
+                            <connections>
+                                <segue destination="bvB-GQ-I1a" kind="show" id="SOc-5T-Fno"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="3Sm-8e-3XH"/>
+                        <barButtonItem title="Item" image="gear" catalog="system" id="71x-Tq-Ohi">
+                            <connections>
+                                <segue destination="ThV-TA-g6M" kind="show" id="iPS-jv-fxI"/>
+                            </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="ga5-8A-ZmN">
@@ -180,7 +179,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Keep Display On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2b8-ES-XoZ">
-                                                    <rect key="frame" x="17" y="6.5" width="126" height="31"/>
+                                                    <rect key="frame" x="17" y="6.5" width="284" height="31"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -197,6 +196,7 @@
                                                 <constraint firstItem="2b8-ES-XoZ" firstAttribute="leading" secondItem="jN6-gH-xdQ" secondAttribute="leadingMargin" constant="1" id="GWd-bz-PSF"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="RyS-Bu-FoS" secondAttribute="trailing" constant="1" id="XiL-4v-X7J"/>
                                                 <constraint firstItem="2b8-ES-XoZ" firstAttribute="centerY" secondItem="jN6-gH-xdQ" secondAttribute="centerY" id="ZDj-jZ-d2t"/>
+                                                <constraint firstItem="RyS-Bu-FoS" firstAttribute="leading" secondItem="2b8-ES-XoZ" secondAttribute="trailing" constant="8" symbolic="YES" id="k7l-WZ-95O"/>
                                                 <constraint firstItem="RyS-Bu-FoS" firstAttribute="bottom" secondItem="2b8-ES-XoZ" secondAttribute="bottom" id="mz4-Pz-eB9"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -213,10 +213,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disable Cache" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlq-XB-CCM">
-                                                    <rect key="frame" x="16" y="4" width="295" height="36"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="295" id="fDZ-Wd-OaA"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="16" y="4" width="286" height="36"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -232,6 +229,7 @@
                                                 <constraint firstItem="Nlq-XB-CCM" firstAttribute="centerY" secondItem="uQL-kQ-rRz" secondAttribute="centerY" id="3Pj-TH-4ko"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="7Qp-Jf-fFW" secondAttribute="trailing" id="IgW-2o-b21"/>
                                                 <constraint firstItem="Nlq-XB-CCM" firstAttribute="leading" secondItem="uQL-kQ-rRz" secondAttribute="leadingMargin" id="gZG-W8-4m1"/>
+                                                <constraint firstItem="7Qp-Jf-fFW" firstAttribute="leading" secondItem="Nlq-XB-CCM" secondAttribute="trailing" constant="8" symbolic="YES" id="pAw-mR-6GM"/>
                                                 <constraint firstItem="Nlq-XB-CCM" firstAttribute="top" secondItem="uQL-kQ-rRz" secondAttribute="topMargin" constant="-7" id="s1d-ss-d8t"/>
                                                 <constraint firstItem="7Qp-Jf-fFW" firstAttribute="centerY" secondItem="Nlq-XB-CCM" secondAttribute="centerY" id="tDd-C1-NFf"/>
                                             </constraints>
@@ -273,7 +271,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Disable Sync" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pxv-Zm-DkY">
-                                                    <rect key="frame" x="17" y="6.5" width="99" height="31"/>
+                                                    <rect key="frame" x="17" y="6.5" width="284" height="31"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -287,6 +285,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Pxv-Zm-DkY" firstAttribute="centerY" secondItem="a7h-gp-PCf" secondAttribute="centerY" id="Nyy-dY-m0E"/>
+                                                <constraint firstItem="aCK-j6-Fbu" firstAttribute="leading" secondItem="Pxv-Zm-DkY" secondAttribute="trailing" constant="8" symbolic="YES" id="OaK-Po-93d"/>
                                                 <constraint firstItem="Pxv-Zm-DkY" firstAttribute="leading" secondItem="a7h-gp-PCf" secondAttribute="leadingMargin" constant="1" id="Y3H-UG-BUy"/>
                                                 <constraint firstItem="aCK-j6-Fbu" firstAttribute="top" secondItem="Pxv-Zm-DkY" secondAttribute="top" id="kIS-n8-xDK"/>
                                                 <constraint firstItem="aCK-j6-Fbu" firstAttribute="bottom" secondItem="Pxv-Zm-DkY" secondAttribute="bottom" id="sfV-gS-IJY"/>
@@ -377,6 +376,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
+                    <navigationItem key="navigationItem" id="j51-xv-gUO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rt2-UC-0dJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -685,4 +685,12 @@
             <point key="canvasLocation" x="992.79999999999995" y="35.532233883058474"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nCe-fE-lyN"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="map" catalog="system" width="128" height="113"/>
+        <image name="skew" catalog="system" width="128" height="109"/>
+    </resources>
 </document>
