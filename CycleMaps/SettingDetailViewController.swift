@@ -11,11 +11,16 @@ import UIKit
 import MapKit
 
 protocol SettingDetailViewControllerDelegate: class {
-    func selectedMapStyle(style: TileSource)
+    func changedMapStyle()
 }
 
 class SettingDetailViewController: UITableViewController, MKMapViewDelegate {
-    var selected = 1
+    let settings = UserDefaults.standard
+    var selected = 1 {
+        didSet {
+            previewMap.tileSource = TileSource(rawValue: selected)!
+        }
+    }
     weak var delegate: SettingDetailViewControllerDelegate?
     let generator = UISelectionFeedbackGenerator()
 
@@ -25,6 +30,12 @@ class SettingDetailViewController: UITableViewController, MKMapViewDelegate {
             previewMap.tileSource = TileSource(rawValue: selected) ?? TileSource(rawValue: 0)!
             previewMap.userTrackingMode = .follow
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = Constants.Settings.mapStyleTitle
+        selected = settings.integer(forKey: Constants.Settings.tileSource)
+        generator.prepare()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -44,9 +55,8 @@ class SettingDetailViewController: UITableViewController, MKMapViewDelegate {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         generator.selectionChanged()
-        delegate?.selectedMapStyle(style: TileSource(rawValue: indexPath.row)!)
+        save(style: indexPath.row)
         selected = indexPath.row
-        previewMap.tileSource = TileSource(rawValue: selected)!
         tableView.reloadData()
         generator.prepare()
     }
@@ -63,5 +73,10 @@ class SettingDetailViewController: UITableViewController, MKMapViewDelegate {
         if  overlay is OverlayTile {
             return MKTileOverlayRenderer(tileOverlay: (overlay as? MKTileOverlay)!)
         } else { return MKOverlayRenderer(overlay: overlay) }
+    }
+    
+    private func save(style: Int) {
+        settings.set(style, forKey: Constants.Settings.tileSource)
+        delegate?.changedMapStyle()
     }
 }

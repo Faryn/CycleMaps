@@ -39,13 +39,13 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="NES-hi-DjG"/>
                         <barButtonItem title="Item" image="map" catalog="system" id="sVS-yP-dJT">
                             <connections>
-                                <segue destination="bvB-GQ-I1a" kind="show" id="SOc-5T-Fno"/>
+                                <segue destination="bvB-GQ-I1a" kind="show" identifier="mapStyle" id="SOc-5T-Fno"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="3Sm-8e-3XH"/>
                         <barButtonItem title="Item" image="gear" catalog="system" id="71x-Tq-Ohi">
                             <connections>
-                                <segue destination="ThV-TA-g6M" kind="show" id="iPS-jv-fxI"/>
+                                <segue destination="ThV-TA-g6M" kind="show" identifier="settingsSegue" id="iPS-jv-fxI"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -686,7 +686,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nCe-fE-lyN"/>
+        <segue reference="SOc-5T-Fno"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>

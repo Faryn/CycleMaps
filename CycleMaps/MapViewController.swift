@@ -15,7 +15,7 @@ protocol HandleMapSearch: class {
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate,
     UISearchBarDelegate, UIPopoverPresentationControllerDelegate, SettingsViewControllerDelegate,
-    FilesViewControllerDelegate, UIGestureRecognizerDelegate {
+FilesViewControllerDelegate, UIGestureRecognizerDelegate, SettingDetailViewControllerDelegate {
 
     let locationManager = CLLocationManager()
     var resultSearchController: UISearchController?
@@ -206,6 +206,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             case Constants.Storyboard.filesSegueIdentifier:
                 self.filesViewController = segue.destination as? FilesViewController
                 filesViewController?.delegate = self
+            case Constants.Storyboard.mapStyleSegueIdentifier:
+                if let svc = segue.destination as? SettingDetailViewController {
+                    svc.navigationItem.title = Constants.Settings.mapStyleTitle
+                    svc.delegate = self
+                    svc.generator.prepare()
+                }
             default: break
             }
         }
@@ -229,6 +235,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     func isSelected(name: String) -> Bool {
         return map.namedOverlays[name] != nil
+    }
+    
+    func changedMapStyle() {
+        changedSetting(setting: Constants.Settings.tileSource)
     }
 }
 

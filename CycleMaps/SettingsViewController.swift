@@ -116,11 +116,8 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
             switch identifier {
             case Constants.Storyboard.mapStyleSegueIdentifier:
                 if let svc = segue.destination as? SettingDetailViewController {
-                    svc.navigationItem.title = Constants.Settings.mapStyleTitle
                     svc.navigationItem.backBarButtonItem?.title = Constants.Settings.title
-                    svc.selected = settings.integer(forKey: Constants.Settings.tileSource)
                     svc.delegate = self
-                    svc.generator.prepare()
                 }
             default:
                 break
@@ -128,8 +125,7 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
         }
     }
 
-    internal func selectedMapStyle(style: TileSource) {
-        settings.set(style.rawValue, forKey: Constants.Settings.tileSource)
+    internal func changedMapStyle() {
         delegate?.changedSetting(setting: Constants.Settings.tileSource)
         updateMapStyleCell()
     }
