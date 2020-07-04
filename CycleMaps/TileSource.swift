@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum TileSource: Int {
+enum TileSource: Int, Identifiable {
     case openStreetMap
     case mtbMap
     case hikeBikeMap
@@ -61,5 +61,8 @@ enum TileSource: Int {
         case .wikiMediaMaps: return true
         default: return false
         }
+    }
+    var id: String {
+        return self.name
     }
 }

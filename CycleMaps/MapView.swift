@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 
 class MapView: MKMapView {
-    let settings = UserDefaults.standard
+    let settings = SettingsStore()
     var namedOverlays = [String: [MKOverlay]]()
     var tileSourceOverlay: OverlayTile?
 
@@ -27,7 +27,7 @@ class MapView: MKMapView {
                 if UIScreen.main.scale >= 2 && newValue.retina {
                     overlay.tileSize = CGSize(width: 512, height: 512)
                 }
-                overlay.enableCache = !settings.bool(forKey: Constants.Settings.cacheDisabled)
+                overlay.enableCache = !settings.cacheDisabled
                 addOverlay(overlay)
                 if tileSourceOverlay != nil {
                     exchangeOverlay(overlay, with: tileSourceOverlay!)

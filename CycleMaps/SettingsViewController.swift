@@ -18,7 +18,7 @@ protocol SettingsViewControllerDelegate: class {
 class SettingsViewController: UITableViewController, SettingDetailViewControllerDelegate,
         MFMailComposeViewControllerDelegate {
     weak var delegate: SettingsViewControllerDelegate?
-    let settings = UserDefaults.standard
+    let settings = SettingsStore()
     let fileStore = FileStore.sharedInstance
 
     override func viewDidLoad() {
@@ -26,15 +26,9 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
         if #available(iOS 11.0, *) {
             self.navigationItem.largeTitleDisplayMode = .always
         }
-        if let cacheDisabled = settings.value(forKey: Constants.Settings.cacheDisabled) as? Bool {
-            cacheSwitch.setOn(cacheDisabled, animated: false)
-        }
-        if let disableIdleTimer = settings.value(forKey: Constants.Settings.idleTimerDisabled) as? Bool {
-            idleTimerSwitch.setOn(disableIdleTimer, animated: false)
-        }
-        if let disableiCloud = settings.value(forKey: Constants.Settings.iCloudDisabled) as? Bool {
-            iCloudSwitch.setOn(disableiCloud, animated: false)
-        }
+        cacheSwitch.setOn(settings.cacheDisabled, animated: false)
+        idleTimerSwitch.setOn(settings.idleTimerDisabled, animated: false)
+        iCloudSwitch.setOn(settings.iCloudDisabled, animated: false)
     }
     @IBOutlet weak var aboutCell: UITableViewCell!
     @IBOutlet weak var idleTimerSwitch: UISwitch!
@@ -66,9 +60,7 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
     }
 
     private func updateMapStyleCell() {
-        if let mapStyle = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))?.name {
-            mapStyleCell.detailTextLabel?.text = mapStyle
-        } else { mapStyleCell.detailTextLabel?.text = TileSource.mtbMap.name }
+        mapStyleCell.detailTextLabel?.text = settings.tileSource.name
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -90,11 +82,11 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
     }
 
     @IBAction func toggleIdleTimer(_ sender: UISwitch) {
-        settings.set(sender.isOn, forKey: Constants.Settings.idleTimerDisabled)
+        settings.idleTimerDisabled = sender.isOn
     }
 
     @IBAction func toggleiCloud(_ sender: UISwitch) {
-        settings.set(sender.isOn, forKey: Constants.Settings.iCloudDisabled)
+        settings.iCloudDisabled = sender.isOn
         switch sender.isOn {
         case true:
             fileStore.moveFileToLocal()
@@ -104,7 +96,7 @@ class SettingsViewController: UITableViewController, SettingDetailViewController
     }
 
     @IBAction func toggleCache(_ sender: UISwitch) {
-        settings.set(sender.isOn, forKey: Constants.Settings.cacheDisabled)
+        settings.cacheDisabled = sender.isOn
         if let delegate = self.delegate {
             delegate.changedSetting(setting: Constants.Settings.cacheDisabled)
         }

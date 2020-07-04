@@ -20,7 +20,7 @@ FilesViewControllerDelegate, UIGestureRecognizerDelegate, SettingDetailViewContr
     let locationManager = CLLocationManager()
     var resultSearchController: UISearchController?
     var selectedPin: MKPlacemark?
-    let settings = UserDefaults.standard
+    let settings = SettingsStore()
     var filesViewController: FilesViewController?
     var quickZoomStart: CGFloat?
     var quickZoomStartLevel: Double?
@@ -32,7 +32,7 @@ FilesViewControllerDelegate, UIGestureRecognizerDelegate, SettingDetailViewContr
         navigationItem.largeTitleDisplayMode = .never
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        map.tileSource = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource)) ?? TileSource(rawValue: 0)!
+        map.tileSource = settings.tileSource
         setupSearchBar()
         addTrackButton()
         tapGestureRecognizer = UITapGestureRecognizer(target: self,
@@ -56,7 +56,7 @@ FilesViewControllerDelegate, UIGestureRecognizerDelegate, SettingDetailViewContr
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if settings.bool(forKey: Constants.Settings.idleTimerDisabled) {
+        if settings.idleTimerDisabled {
             UIApplication.shared.isIdleTimerDisabled = true
         }
     }
@@ -87,10 +87,10 @@ FilesViewControllerDelegate, UIGestureRecognizerDelegate, SettingDetailViewContr
         switch setting! {
         case Constants.Settings.cacheDisabled:
             if let overlay = map.overlays.last as? OverlayTile {
-                overlay.enableCache = !settings.bool(forKey: Constants.Settings.cacheDisabled)
+                overlay.enableCache = !settings.cacheDisabled
             }
         case Constants.Settings.tileSource:
-            map.tileSource =  TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
+            map.tileSource =  settings.tileSource
         default:
             return
         }

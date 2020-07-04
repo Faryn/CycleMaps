@@ -12,7 +12,7 @@ import MapKit
 class FileDetailViewController: UITableViewController, MKMapViewDelegate {
 
     let fileStore = FileStore.sharedInstance
-    let settings = UserDefaults.standard
+    let settings = SettingsStore()
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var waypointsLabel: UILabel!
@@ -71,6 +71,7 @@ class FileDetailViewController: UITableViewController, MKMapViewDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setToolbarHidden(false, animated: true)
+        navigationItem.title = fileName
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -103,7 +104,7 @@ class FileDetailViewController: UITableViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MapView! {
         didSet {
             mapView.delegate = self
-            mapView.tileSource = TileSource(rawValue: settings.integer(forKey: Constants.Settings.tileSource))!
+            mapView.tileSource = settings.tileSource
         }
     }
 

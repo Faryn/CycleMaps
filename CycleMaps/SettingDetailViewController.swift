@@ -15,7 +15,7 @@ protocol SettingDetailViewControllerDelegate: class {
 }
 
 class SettingDetailViewController: UITableViewController, MKMapViewDelegate {
-    let settings = UserDefaults.standard
+    let settings = SettingsStore()
     var selected = 1 {
         didSet {
             previewMap.tileSource = TileSource(rawValue: selected)!
@@ -34,7 +34,7 @@ class SettingDetailViewController: UITableViewController, MKMapViewDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = Constants.Settings.mapStyleTitle
-        selected = settings.integer(forKey: Constants.Settings.tileSource)
+        selected = settings.tileSource.rawValue
         generator.prepare()
     }
 
@@ -74,9 +74,11 @@ class SettingDetailViewController: UITableViewController, MKMapViewDelegate {
             return MKTileOverlayRenderer(tileOverlay: (overlay as? MKTileOverlay)!)
         } else { return MKOverlayRenderer(overlay: overlay) }
     }
-    
+
     private func save(style: Int) {
-        settings.set(style, forKey: Constants.Settings.tileSource)
+        if let tileSource = TileSource(rawValue: style) {
+            settings.tileSource = tileSource
+        }
         delegate?.changedMapStyle()
     }
 }

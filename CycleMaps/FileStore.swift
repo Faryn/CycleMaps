@@ -16,7 +16,7 @@ class FileStore: NSObject, NSFilePresenter {
 
     static let sharedInstance = FileStore() // Singleton
     weak var delegate: FileStoreDelegate?
-    let settings = UserDefaults.standard
+    let settings = SettingsStore()
     private let query = NSMetadataQuery()
     private var fileManager = FileManager()
     private let extensions = ["gpx"]
@@ -98,7 +98,7 @@ class FileStore: NSObject, NSFilePresenter {
     }
 
     private func getDocumentDirectoryURL() -> URL {
-        if !settings.bool(forKey: Constants.Settings.iCloudDisabled)  && isCloudEnabled() {
+        if !settings.iCloudDisabled  && isCloudEnabled() {
             return DocumentsDirectory.iCloudDocumentsURL!
         } else {
             return DocumentsDirectory.localDocumentsURL!

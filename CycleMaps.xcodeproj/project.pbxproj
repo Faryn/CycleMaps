@@ -15,6 +15,7 @@
 		DA3FC9851E59FECD005C08C7 /* OverlayTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3FC9841E59FECD005C08C7 /* OverlayTile.swift */; };
 		DA5B656C1E85D13A00FACE96 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5B656B1E85D13A00FACE96 /* AboutViewController.swift */; };
 		DA5B656E1E85D31800FACE96 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = DA5B656D1E85D31800FACE96 /* about.html */; };
+		DA5E76C824B0DC9C007E69EA /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5E76C724B0DC9C007E69EA /* SettingsStore.swift */; };
 		DA6FE4871EB7DA2B005B7F97 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA6FE4891EB7DA2B005B7F97 /* Localizable.strings */; };
 		DA7DBEF11E7B26C600720B5E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DBEF01E7B26C600720B5E /* Constants.swift */; };
 		DA8B9CB81F53472E0040A2A7 /* FileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B9CB71F53472E0040A2A7 /* FileDetailViewController.swift */; };
@@ -43,6 +44,7 @@
 		DA3FC9841E59FECD005C08C7 /* OverlayTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayTile.swift; sourceTree = "<group>"; };
 		DA5B656B1E85D13A00FACE96 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DA5B656D1E85D31800FACE96 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
+		DA5E76C724B0DC9C007E69EA /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		DA6FE4881EB7DA2B005B7F97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA6FE48A1EB7DA31005B7F97 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA6FE48B1EB7DA76005B7F97 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				DA5B656D1E85D31800FACE96 /* about.html */,
-				DA8B9CB71F53472E0040A2A7 /* FileDetailViewController.swift */,
 				DA6FE48B1EB7DA76005B7F97 /* Info.plist */,
 				DAEB86671E794CF0009D8059 /* Assets.xcassets */,
 				DAEDED641E75FF4D00FCE1A4 /* CycleMaps.entitlements */,
@@ -126,6 +127,7 @@
 				DAB068131E47B0C500EFDD3E /* MapViewController.swift */,
 				DAAED6171EF6E1680035537F /* MapView.swift */,
 				DA38D8051E6F5B06007817F2 /* FilesViewController.swift */,
+				DA8B9CB71F53472E0040A2A7 /* FileDetailViewController.swift */,
 				DA7DBEF01E7B26C600720B5E /* Constants.swift */,
 				DA38D8071E6F5D8A007817F2 /* FileStore.swift */,
 				DAEDED651E77F9C500FCE1A4 /* TileSource.swift */,
@@ -133,6 +135,7 @@
 				DAB068151E47B0C500EFDD3E /* Main.storyboard */,
 				DA5B656B1E85D13A00FACE96 /* AboutViewController.swift */,
 				DAEA8BC81E5E3D34009CC260 /* SettingsViewController.swift */,
+				DA5E76C724B0DC9C007E69EA /* SettingsStore.swift */,
 				DA0065F71E6C8D9200A54495 /* GPX.swift */,
 				DA394DCB1E5CB1BF0058AE09 /* LocationSearchTable.swift */,
 				DAB0681A1E47B0C500EFDD3E /* LaunchScreen.storyboard */,
@@ -300,6 +303,7 @@
 				DAEDED661E77F9C500FCE1A4 /* TileSource.swift in Sources */,
 				DA394DCC1E5CB1BF0058AE09 /* LocationSearchTable.swift in Sources */,
 				DA0065F81E6C8D9200A54495 /* GPX.swift in Sources */,
+				DA5E76C824B0DC9C007E69EA /* SettingsStore.swift in Sources */,
 				DA38D8081E6F5D8A007817F2 /* FileStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,7 +463,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 8CV5377K4H;
 				INFOPLIST_FILE = CycleMaps/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -485,7 +489,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 8CV5377K4H;
 				INFOPLIST_FILE = CycleMaps/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
