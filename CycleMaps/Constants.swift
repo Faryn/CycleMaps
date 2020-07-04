@@ -14,7 +14,7 @@ struct Constants {
         static let gpxCellReuseIdentifier = "GPXFileCell"
         static let mapStyleCellReuseIdentifier = "mapStyle"
 //        static let ShowTrackSegueIdentifier = "Show Track"
-        static let mapStyleSegueIdentifier = "mapStyle"
+        static let mapStyleSegueIdentifier = "mapStyleSegue"
         static let filesSegueIdentifier = "filesSegue"
         static let settingsSegueIdentifier = "settingsSegue"
         static let fileDetailSegueIdentifier = "fileDetailSegue"

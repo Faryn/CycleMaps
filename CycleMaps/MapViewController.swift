@@ -90,7 +90,7 @@ FilesViewControllerDelegate, UIGestureRecognizerDelegate, SettingDetailViewContr
                 overlay.enableCache = !settings.cacheDisabled
             }
         case Constants.Settings.tileSource:
-            map.tileSource =  settings.tileSource
+            map.tileSource = settings.tileSource
         default:
             return
         }
@@ -200,17 +200,21 @@ FilesViewControllerDelegate, UIGestureRecognizerDelegate, SettingDetailViewContr
         if let identifier = segue.identifier {
             switch identifier {
             case Constants.Storyboard.settingsSegueIdentifier:
-                if let svc = segue.destination as? SettingsViewController {
-                    svc.delegate = self
+                if let nvc = segue.destination as? UINavigationController {
+                    if let svc = nvc.topViewController as? SettingsViewController {
+                        svc.delegate = self
+                    }
                 }
             case Constants.Storyboard.filesSegueIdentifier:
                 self.filesViewController = segue.destination as? FilesViewController
                 filesViewController?.delegate = self
             case Constants.Storyboard.mapStyleSegueIdentifier:
-                if let svc = segue.destination as? SettingDetailViewController {
-                    svc.navigationItem.title = Constants.Settings.mapStyleTitle
-                    svc.delegate = self
-                    svc.generator.prepare()
+                if let nvc = segue.destination as? UINavigationController {
+                    if let svc = nvc.topViewController as? SettingDetailViewController {
+                        svc.navigationItem.title = Constants.Settings.mapStyleTitle
+                        svc.delegate = self
+                        svc.generator.prepare()
+                    }
                 }
             default: break
             }
