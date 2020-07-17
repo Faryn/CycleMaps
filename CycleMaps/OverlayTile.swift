@@ -6,20 +6,10 @@
 //  Copyright © 2017 Paul Pfeiffer. All rights reserved.
 //
 
-import Foundation
 import Cache
 import MapKit
 
 class OverlayTile: MKTileOverlay {
-
-    override var canReplaceMapContent: Bool {
-        get {
-            return true
-        }
-        set {
-            // Should not be settable
-        }
-    }
 
     internal var enableCache = true
 
@@ -29,10 +19,10 @@ class OverlayTile: MKTileOverlay {
                                      memoryConfig: MemoryConfig(expiry: .never, countLimit: 1000, totalCostLimit: 20000),
                                      transformer: TransformerFactory.forData())
     private let subdomains = ["a", "b", "c"]
-    private var subdomainRotation: Int = 0
-
+    
     override init(urlTemplate URLTemplate: String?) {
         super.init(urlTemplate: URLTemplate)
+        UIGraphicsGetCurrentContext()?.interpolationQuality = .high
         try? self.cache.removeExpiredObjects()
     }
 
@@ -49,19 +39,22 @@ class OverlayTile: MKTileOverlay {
                 let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 3)
                 self.session.dataTask(with: request) { data, _, error in
                     if data != nil {
-                        self.cache.async.setObject(data!, forKey: cacheKey, completion: {_ in  })
+                        let upscaledData = self.scaleUp(data: data!)
+                        self.cache.async.setObject(upscaledData, forKey: cacheKey, completion: {_ in  })
+                        result(upscaledData, error)
                     }
-                    result(data, error)
-                    }.resume()
+                }.resume()
             }
         }
     }
-
-    private func getSubdomain() -> String {
-        if subdomainRotation >= 2 {
-            subdomainRotation = 0
-        } else { subdomainRotation += 1 }
-        return String(subdomains[subdomainRotation])
+    
+    private func scaleUp (data: Data) -> Data {
+        if let img = Image(data: data) {
+            if img.size.height == 256 {
+                return img.resize(512, 512)!.pngData()!
+            }
+        }
+        return data
     }
 
     internal func clearCache() {
@@ -73,13 +66,27 @@ class OverlayTile: MKTileOverlay {
         var urlString = urlTemplate?.replacingOccurrences(of: "{z}", with: String(path.z))
         urlString = urlString?.replacingOccurrences(of: "{x}", with: String(path.x))
         urlString = urlString?.replacingOccurrences(of: "{y}", with: String(path.y))
-        urlString = urlString?.replacingOccurrences(of: "{s}", with: getSubdomain())
+        urlString = urlString?.replacingOccurrences(of: "{s}", with: subdomains.randomElement()!)
         if path.contentScaleFactor >= 2 {
             urlString = urlString?.replacingOccurrences(of: "{csf}", with: "@2x")
         } else {
             urlString = urlString?.replacingOccurrences(of: "{csf}", with: "")
         }
-        //        print("CachedTileOverlay:: url() urlString: \(urlString)")
         return URL(string: urlString!)!
+    }
+}
+
+extension UIImage {
+    func resize(_ width: CGFloat, _ height:CGFloat) -> UIImage? {
+        let widthRatio  = width / size.width
+        let heightRatio = height / size.height
+        let ratio = widthRatio > heightRatio ? heightRatio : widthRatio
+        let newSize = CGSize(width: size.width * ratio, height: size.height * ratio)
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        self.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
     }
 }

@@ -1,7 +1,7 @@
 {
   "name": "Cache",
   "summary": "Nothing but cache.",
-  "version": "5.2.0",
+  "version": "5.3.0",
   "homepage": "https://github.com/hyperoslo/Cache",
   "license": "MIT",
   "authors": {
@@ -9,7 +9,7 @@
   },
   "source": {
     "git": "https://github.com/hyperoslo/Cache.git",
-    "tag": "5.2.0"
+    "tag": "5.3.0"
   },
   "social_media_url": "https://twitter.com/hyperoslo",
   "platforms": {
@@ -28,7 +28,6 @@
     "source_files": "Source/{iOS,Shared}/**/*"
   },
   "frameworks": "Foundation",
-  "pod_target_xcconfig": {
-    "SWIFT_VERSION": "4.2"
-  }
+  "swift_versions": "5.0",
+  "swift_version": "5.0"
 }

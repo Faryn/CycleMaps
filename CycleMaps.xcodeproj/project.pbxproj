@@ -16,6 +16,7 @@
 		DA5B656C1E85D13A00FACE96 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5B656B1E85D13A00FACE96 /* AboutViewController.swift */; };
 		DA5B656E1E85D31800FACE96 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = DA5B656D1E85D31800FACE96 /* about.html */; };
 		DA5E76C824B0DC9C007E69EA /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5E76C724B0DC9C007E69EA /* SettingsStore.swift */; };
+		DA5E76CA24B12AC4007E69EA /* MapStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5E76C924B12AC4007E69EA /* MapStyleView.swift */; };
 		DA6FE4871EB7DA2B005B7F97 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA6FE4891EB7DA2B005B7F97 /* Localizable.strings */; };
 		DA7DBEF11E7B26C600720B5E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DBEF01E7B26C600720B5E /* Constants.swift */; };
 		DA8B9CB81F53472E0040A2A7 /* FileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B9CB71F53472E0040A2A7 /* FileDetailViewController.swift */; };
@@ -45,6 +46,7 @@
 		DA5B656B1E85D13A00FACE96 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DA5B656D1E85D31800FACE96 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		DA5E76C724B0DC9C007E69EA /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		DA5E76C924B12AC4007E69EA /* MapStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStyleView.swift; sourceTree = "<group>"; };
 		DA6FE4881EB7DA2B005B7F97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA6FE48A1EB7DA31005B7F97 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA6FE48B1EB7DA76005B7F97 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		DAB068101E47B0C500EFDD3E /* CycleMaps */ = {
 			isa = PBXGroup;
 			children = (
+				DA5E76C924B12AC4007E69EA /* MapStyleView.swift */,
 				DA5B656D1E85D31800FACE96 /* about.html */,
 				DA6FE48B1EB7DA76005B7F97 /* Info.plist */,
 				DAEB86671E794CF0009D8059 /* Assets.xcassets */,
@@ -175,7 +178,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Paul Pfeiffer";
 				TargetAttributes = {
 					DAB0680D1E47B0C500EFDD3E = {
@@ -263,7 +266,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\necho \"swiftlint\"\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		EC81421CB978A39B1A1C911B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -297,6 +300,7 @@
 				DA3FC9851E59FECD005C08C7 /* OverlayTile.swift in Sources */,
 				DA38D8061E6F5B06007817F2 /* FilesViewController.swift in Sources */,
 				DAB068121E47B0C500EFDD3E /* AppDelegate.swift in Sources */,
+				DA5E76CA24B12AC4007E69EA /* MapStyleView.swift in Sources */,
 				DA5B656C1E85D13A00FACE96 /* AboutViewController.swift in Sources */,
 				DAAED6181EF6E1680035537F /* MapView.swift in Sources */,
 				DAEA8BC91E5E3D34009CC260 /* SettingsViewController.swift in Sources */,
@@ -365,6 +369,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -425,6 +430,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -463,12 +469,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8CV5377K4H;
 				INFOPLIST_FILE = CycleMaps/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.12;
+				MARKETING_VERSION = 1.0.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "Paul-Pfeiffer.CycleMaps";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -489,12 +495,12 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8CV5377K4H;
 				INFOPLIST_FILE = CycleMaps/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0.12;
+				MARKETING_VERSION = 1.0.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "Paul-Pfeiffer.CycleMaps";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

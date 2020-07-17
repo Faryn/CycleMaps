@@ -65,4 +65,25 @@ enum TileSource: Int, Identifiable {
     var id: String {
         return self.name
     }
+    
+    var minimumZ: Int {
+        switch self {
+        default: return 0
+        }
+    }
+    
+    var maximumZ: Int {
+        switch self {
+        case .openStreetMap: return 19
+        case .mtbMap: return 18
+        case .hikeBikeMap: return 20
+        case .cartoDbLight: return 21
+        case .wikiMediaMaps: return 19
+        case .openBusMap: return 18
+        case .uMaps: return 15
+        case .sigma: return 19
+        case .cyclosm: return 18
+        default: return 21
+        }
+    }
 }

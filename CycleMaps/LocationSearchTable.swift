@@ -6,7 +6,6 @@
 //  Copyright © 2017 Paul Pfeiffer. All rights reserved.
 //
 
-import Foundation
 import MapKit
 
 class LocationSearchTable: UITableViewController, UISearchResultsUpdating {

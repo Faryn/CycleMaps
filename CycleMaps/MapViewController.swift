@@ -255,6 +255,12 @@ extension MapViewController: HandleMapSearch {
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
+        if let userLocation = locationManager.location {
+            let distance = userLocation.distance(from: CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude))
+            if Constants.Settings.useKilometers {
+                annotation.subtitle = String(format: "%.2f km", distance*0.001)
+            } else { annotation.subtitle = String(format: "%.2f mi", distance*0.000621371) }
+        }
         map.addAnnotation(annotation)
         let span = MKCoordinateSpan.init(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion.init(center: placemark.coordinate, span: span)

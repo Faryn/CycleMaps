@@ -6,7 +6,6 @@
 //  Copyright © 2017 Paul Pfeiffer. All rights reserved.
 //
 
-import Foundation
 import MapKit
 
 class MapView: MKMapView {
@@ -24,9 +23,10 @@ class MapView: MKMapView {
                 }
             default:
                 let overlay = OverlayTile(urlTemplate: newValue.templateUrl)
-                if UIScreen.main.scale >= 2 && newValue.retina {
-                    overlay.tileSize = CGSize(width: 512, height: 512)
-                }
+                overlay.tileSize = CGSize(width: 512, height: 512)
+                overlay.maximumZ = newValue.maximumZ
+                overlay.minimumZ = newValue.minimumZ
+                overlay.canReplaceMapContent = true
                 overlay.enableCache = !settings.cacheDisabled
                 addOverlay(overlay)
                 if tileSourceOverlay != nil {

@@ -6,7 +6,6 @@
 //
 //
 
-import Foundation
 import MapKit
 
 class FileDetailViewController: UITableViewController, MKMapViewDelegate {
@@ -26,13 +25,9 @@ class FileDetailViewController: UITableViewController, MKMapViewDelegate {
         }
     }
 
-    private var useKilometers: Bool {
-        return NSLocale.current.usesMetricSystem
-    }
-
     var totalDistance: Double? {
         didSet {
-            if useKilometers {
+            if Constants.Settings.useKilometers {
                 distanceLabel.text = String(format: "%.2f km", totalDistance!*0.001)
             } else { distanceLabel.text = String(format: "%.2f mi", totalDistance!*0.000621371) }
         }

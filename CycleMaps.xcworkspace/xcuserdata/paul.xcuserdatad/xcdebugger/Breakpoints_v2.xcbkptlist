@@ -219,8 +219,8 @@
             timestampString = "589638592.538543"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284">
+            startingLineNumber = "290"
+            endingLineNumber = "290">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -234,8 +234,8 @@
             timestampString = "589638592.538635"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284">
+            startingLineNumber = "290"
+            endingLineNumber = "290">
             <Locations>
                <Location
                   uuid = "A14B05D7-6206-47CC-A9D5-9F876E8FB653 - 6cf7e19c0adb38f7"
@@ -300,8 +300,8 @@
             timestampString = "589638592.5387191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284">
+            startingLineNumber = "290"
+            endingLineNumber = "290">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -446,8 +446,8 @@
             timestampString = "589638592.538795"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284">
+            startingLineNumber = "290"
+            endingLineNumber = "290">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -495,8 +495,8 @@
             timestampString = "558808147.232096"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "loadTile(at:result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -512,8 +512,8 @@
             timestampString = "558808147.23216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "loadTile(at:result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -529,8 +529,8 @@
             timestampString = "558808147.23224"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "loadTile(at:result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -546,8 +546,8 @@
             timestampString = "558808147.232319"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "loadTile(at:result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -563,8 +563,8 @@
             timestampString = "558808147.232389"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "loadTile(at:result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -597,8 +597,8 @@
             timestampString = "558808147.232475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "loadTile(at:result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -614,8 +614,8 @@
             timestampString = "589638592.538982"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284">
+            startingLineNumber = "290"
+            endingLineNumber = "290">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -629,8 +629,8 @@
             timestampString = "589638592.539042"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284">
+            startingLineNumber = "290"
+            endingLineNumber = "290">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -644,8 +644,8 @@
             timestampString = "589638592.539098"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284">
+            startingLineNumber = "290"
+            endingLineNumber = "290">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -659,8 +659,8 @@
             timestampString = "589638592.539152"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284">
+            startingLineNumber = "290"
+            endingLineNumber = "290">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -674,8 +674,8 @@
             timestampString = "589638592.539205"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284">
+            startingLineNumber = "290"
+            endingLineNumber = "290">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -689,8 +689,8 @@
             timestampString = "589638592.539258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284">
+            startingLineNumber = "290"
+            endingLineNumber = "290">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -704,8 +704,8 @@
             timestampString = "589638592.539312"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284">
+            startingLineNumber = "290"
+            endingLineNumber = "290">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -818,8 +818,8 @@
             timestampString = "589638592.539386"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284">
+            startingLineNumber = "290"
+            endingLineNumber = "290">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -833,59 +833,8 @@
             timestampString = "589638592.539444"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9EC0D946-8E50-4E36-97A9-337D48CB83DA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "589638592.539499"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B5E3B013-3209-4874-82BE-B47BC4F52D31"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "589638592.539553"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "viewWillDisappear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3650306E-1F4D-47AD-A4CC-61D0C343A837"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "589638592.539607"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            startingLineNumber = "290"
+            endingLineNumber = "290">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -967,8 +916,8 @@
             timestampString = "564185932.3608069"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "getPlacemarks()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1004,23 +953,6 @@
             startingLineNumber = "80"
             endingLineNumber = "80"
             landmarkName = "showPolylineOnMap(name:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "58FD8178-BB67-4D09-BA86-15CA71F05DA4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CycleMaps/OverlayTile.swift"
-            timestampString = "558808147.23408"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "loadTile(at:result:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1129,23 +1061,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "387763C7-6677-45D5-96BF-C03A8C408905"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "589638592.54019"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "locationManager(_:didChangeAuthorization:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "94344154-6A0F-4100-949C-8254C3C4FCB3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1188,8 +1103,8 @@
             timestampString = "589638592.540563"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "parseAddress(selectedItem:)"
             landmarkType = "7">
          </BreakpointContent>

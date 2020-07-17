@@ -6,7 +6,6 @@
 //  Copyright © 2017 Paul Pfeiffer. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 struct Constants {
@@ -26,6 +25,7 @@ struct Constants {
         static let mapStyleTitle = "Map Style"
         static let idleTimerDisabled = "idleTimerDisabled"
         static let iCloudDisabled = "iCloudDisabled"
+        static let useKilometers = NSLocale.current.usesMetricSystem
     }
     struct Visual {
         static let textAccentColor = UIColor.systemBlue
