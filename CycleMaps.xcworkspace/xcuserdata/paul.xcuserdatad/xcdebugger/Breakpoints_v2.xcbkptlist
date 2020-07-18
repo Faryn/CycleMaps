@@ -438,21 +438,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BE948C39-C447-423B-A40D-FF966F4EB122"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "589638592.538795"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "290"
-            endingLineNumber = "290">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "D87FFB41-0A6A-4F95-A357-5451C7C653E8"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -495,8 +480,8 @@
             timestampString = "558808147.232096"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "loadTile(at:result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -512,8 +497,8 @@
             timestampString = "558808147.23216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "loadTile(at:result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -529,8 +514,8 @@
             timestampString = "558808147.23224"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "loadTile(at:result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -546,8 +531,8 @@
             timestampString = "558808147.232319"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "loadTile(at:result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -563,8 +548,8 @@
             timestampString = "558808147.232389"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "loadTile(at:result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -597,8 +582,8 @@
             timestampString = "558808147.232475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "loadTile(at:result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -810,21 +795,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0B491D47-9540-4204-ACB2-FCB43E317AB7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CycleMaps/MapViewController.swift"
-            timestampString = "589638592.539386"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "290"
-            endingLineNumber = "290">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "FE2E0820-06CD-4EE2-8407-7663891ACEC7"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -933,8 +903,8 @@
             timestampString = "580249891.97816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "showPolylineOnMap(name:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -950,8 +920,8 @@
             timestampString = "580249891.97825"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "showPolylineOnMap(name:)"
             landmarkType = "7">
          </BreakpointContent>

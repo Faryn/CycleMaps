@@ -129,7 +129,7 @@ class FileStore: NSObject, NSFilePresenter {
 
     func moveFileToCloud(withClear: Bool) {
         if isCloudEnabled() {
-            //            if withClear { deleteFilesInDirectory(url: DocumentsDirectory.iCloudDocumentsURL!) } // Clear destination
+//            if withClear { deleteFilesInDirectory(url: DocumentsDirectory.iCloudDocumentsURL!) } // Clear destination
             let enumerator = fileManager.enumerator(atPath: DocumentsDirectory.localDocumentsURL!.path)
             while let file = enumerator?.nextObject() as? String {
                 do {

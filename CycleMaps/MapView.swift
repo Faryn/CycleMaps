@@ -23,7 +23,6 @@ class MapView: MKMapView {
                 }
             default:
                 let overlay = OverlayTile(urlTemplate: newValue.templateUrl)
-                overlay.tileSize = CGSize(width: 512, height: 512)
                 overlay.maximumZ = newValue.maximumZ
                 overlay.minimumZ = newValue.minimumZ
                 overlay.canReplaceMapContent = true

@@ -19,9 +19,10 @@ class OverlayTile: MKTileOverlay {
                                      memoryConfig: MemoryConfig(expiry: .never, countLimit: 1000, totalCostLimit: 20000),
                                      transformer: TransformerFactory.forData())
     private let subdomains = ["a", "b", "c"]
-    
+
     override init(urlTemplate URLTemplate: String?) {
         super.init(urlTemplate: URLTemplate)
+        tileSize = CGSize(width: 512, height: 512)
         UIGraphicsGetCurrentContext()?.interpolationQuality = .high
         try? self.cache.removeExpiredObjects()
     }
@@ -32,7 +33,7 @@ class OverlayTile: MKTileOverlay {
             switch val {
             case .value(let data):
                 print("Cached!")
-                result(data, nil)
+                result(self.scaleUp(data: data), nil)
             case .error:
                 print("Requesting Data")
                 let url = self.url(forTilePath: path)
@@ -40,14 +41,14 @@ class OverlayTile: MKTileOverlay {
                 self.session.dataTask(with: request) { data, _, error in
                     if data != nil {
                         let upscaledData = self.scaleUp(data: data!)
-                        self.cache.async.setObject(upscaledData, forKey: cacheKey, completion: {_ in  })
+                        self.cache.async.setObject(upscaledData, forKey: cacheKey, completion: { _ in  })
                         result(upscaledData, error)
                     }
                 }.resume()
             }
         }
     }
-    
+
     private func scaleUp (data: Data) -> Data {
         if let img = Image(data: data) {
             if img.size.height == 256 {
@@ -77,7 +78,7 @@ class OverlayTile: MKTileOverlay {
 }
 
 extension UIImage {
-    func resize(_ width: CGFloat, _ height:CGFloat) -> UIImage? {
+    func resize(_ width: CGFloat, _ height: CGFloat) -> UIImage? {
         let widthRatio  = width / size.width
         let heightRatio = height / size.height
         let ratio = widthRatio > heightRatio ? heightRatio : widthRatio

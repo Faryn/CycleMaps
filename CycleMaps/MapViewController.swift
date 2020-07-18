@@ -240,7 +240,7 @@ FilesViewControllerDelegate, UIGestureRecognizerDelegate, SettingDetailViewContr
     func isSelected(name: String) -> Bool {
         return map.namedOverlays[name] != nil
     }
-    
+
     func changedMapStyle() {
         changedSetting(setting: Constants.Settings.tileSource)
     }
@@ -280,7 +280,7 @@ extension GPX.Waypoint: MKAnnotation {
 }
 
 private extension MKPolyline {
-    convenience init(coordinates coords: Array<CLLocationCoordinate2D>) {
+    convenience init(coordinates coords: [CLLocationCoordinate2D]) {
         let unsafeCoordinates = UnsafeMutablePointer<CLLocationCoordinate2D>.allocate(capacity: coords.count)
         unsafeCoordinates.initialize(from: coords, count: coords.count)
         self.init(coordinates: unsafeCoordinates, count: coords.count)

@@ -15,11 +15,11 @@ struct MapStyleView: View {
     var body: some View {
         NavigationView {
             VStack {
-                List(){
-                    ForEach(0..<mapStyles.count) { i in
-                        MapStyleCell(mapStyle: self.mapStyles[i],
-                                     isSelected: i == 0,
-                                     action: { self.changeSelection(index: i) })
+                List {
+                    ForEach(0..<mapStyles.count) { int in
+                        MapStyleCell(mapStyle: self.mapStyles[int],
+                                     isSelected: int == 0,
+                                     action: { self.changeSelection(index: int) })
                     }
                 }
                 //MapView()
@@ -27,29 +27,28 @@ struct MapStyleView: View {
 
         }
     }
-    
+
     func changeSelection(index: Int){
 
     }
 }
 
-
 struct MapStyleCell: View {
     var mapStyle: TileSource
     var isSelected: Bool // Added this
-    var Action: () -> Void
+    var action: () -> Void
 
     // Added this -------v
     init(mapStyle: TileSource, isSelected: Bool, action: @escaping () -> Void) {
         UITableViewCell.appearance().backgroundColor = .clear
         self.mapStyle = mapStyle
         self.isSelected = isSelected  // Added this
-        self.Action = action
+        self.action = action
     }
 
     var body: some View {
         Button(mapStyle.name, action: {
-            self.Action()
+            self.action()
         })
             .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
         // Changed this ------------------------------^

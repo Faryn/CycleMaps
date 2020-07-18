@@ -46,7 +46,7 @@ enum TileSource: Int, Identifiable {
         case .openBusMap: return "https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png"
         case .uMaps: return "https://tileserver.4umaps.com/{z}/{x}/{y}.png"
         case .sigma: return "https://tiles1.sigma-dc-control.com/layer8/{z}/{x}/{y}.png"
-        case .cyclosm: return "https://dev.{s}.tile.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png"
+        case .cyclosm: return "https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png"
         case .apple: return ""
         default: return "http://{s}.tile.mtbmap.cz/mtbmap_tiles/{z}/{x}/{y}.png"
 
@@ -65,13 +65,13 @@ enum TileSource: Int, Identifiable {
     var id: String {
         return self.name
     }
-    
+
     var minimumZ: Int {
         switch self {
         default: return 0
         }
     }
-    
+
     var maximumZ: Int {
         switch self {
         case .openStreetMap: return 19
@@ -82,7 +82,7 @@ enum TileSource: Int, Identifiable {
         case .openBusMap: return 18
         case .uMaps: return 15
         case .sigma: return 19
-        case .cyclosm: return 18
+        case .cyclosm: return 20
         default: return 21
         }
     }
