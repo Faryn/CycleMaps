@@ -22,7 +22,6 @@ class OverlayTile: MKTileOverlay {
 
     override init(urlTemplate URLTemplate: String?) {
         super.init(urlTemplate: URLTemplate)
-        tileSize = CGSize(width: 512, height: 512)
         UIGraphicsGetCurrentContext()?.interpolationQuality = .high
         try? self.cache.removeExpiredObjects()
     }
@@ -33,14 +32,14 @@ class OverlayTile: MKTileOverlay {
             switch val {
             case .value(let data):
                 print("Cached!")
-                result(self.scaleUp(data: data), nil)
+                result(self.scaleUp(data: data, targetHeight: self.tileSize.height), nil)
             case .error:
                 print("Requesting Data")
                 let url = self.url(forTilePath: path)
                 let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 3)
                 self.session.dataTask(with: request) { data, _, error in
                     if data != nil {
-                        let upscaledData = self.scaleUp(data: data!)
+                        let upscaledData = self.scaleUp(data: data!, targetHeight: self.tileSize.height)
                         self.cache.async.setObject(upscaledData, forKey: cacheKey, completion: { _ in  })
                         result(upscaledData, error)
                     }
@@ -49,10 +48,10 @@ class OverlayTile: MKTileOverlay {
         }
     }
 
-    private func scaleUp (data: Data) -> Data {
+    private func scaleUp (data: Data, targetHeight: CGFloat) -> Data {
         if let img = Image(data: data) {
-            if img.size.height == 256 {
-                return img.resize(512, 512)!.pngData()!
+            if img.size.height < targetHeight {
+                return img.resize(targetHeight, targetHeight)!.pngData()!
             }
         }
         return data

@@ -9,7 +9,7 @@
 import Foundation
 
 enum TileSource: Int, Identifiable {
-    case openStreetMap
+    case cyclosm
     case mtbMap
     case hikeBikeMap
     case cartoDbLight
@@ -17,7 +17,7 @@ enum TileSource: Int, Identifiable {
     case openBusMap
     case uMaps
     case sigma
-    case cyclosm
+    case openStreetMap
     case apple
 
     var name: String {
@@ -38,7 +38,7 @@ enum TileSource: Int, Identifiable {
 
     var templateUrl: String {
         switch self {
-        case .openStreetMap: return "https://{s}.osm.rrze.fau.de/osmhd/{z}/{x}/{y}.png"
+        case .openStreetMap: return "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         case .mtbMap: return "http://{s}.tile.mtbmap.cz/mtbmap_tiles/{z}/{x}/{y}.png"
         case .hikeBikeMap: return "http://{s}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png"
         case .cartoDbLight: return "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}{csf}.png"
@@ -56,7 +56,7 @@ enum TileSource: Int, Identifiable {
 
     var retina: Bool {
         switch self {
-        case .openStreetMap: return true
+//        case .openStreetMap: return true
         case .cartoDbLight: return true
         case .wikiMediaMaps: return true
         default: return false

@@ -62,24 +62,22 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate, FileStoreDelegate {
             if indexPath.row < fileStore.files.count { // just to be safe
                 let url = fileStore.files[indexPath.row]
                 cell.textLabel?.text = url.lastPathComponent
+                cell.textLabel?.textColor = UIColor.label
                 if delegate!.isSelected(name: url.lastPathComponent) {
                     cell.textLabel?.textColor = Constants.Visual.textAccentColor
-                }
+                } else { cell.textLabel?.textColor = UIColor.label }
             }
             return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
         let url = fileStore.files[indexPath.row]
         generator.selectionChanged()
         generator.prepare()
         if delegate!.isSelected(name: url.lastPathComponent) {
             delegate?.deselectedFile(name: url.lastPathComponent)
-            cell?.textLabel?.textColor = UIColor.label
         } else {
             delegate?.selectedFile(name: url.lastPathComponent, url: url )
-            cell?.textLabel?.textColor = Constants.Visual.textAccentColor
         }
     }
 

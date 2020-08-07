@@ -11,6 +11,7 @@ import MapKit
 class MapView: MKMapView {
     let settings = SettingsStore()
     var namedOverlays = [String: [MKOverlay]]()
+    var namedAnnotations = [String: [MKAnnotation]]()
     var tileSourceOverlay: OverlayTile?
 
     var tileSource = TileSource.cyclosm {
@@ -23,9 +24,13 @@ class MapView: MKMapView {
                 }
             default:
                 let overlay = OverlayTile(urlTemplate: newValue.templateUrl)
+                // Todo: Properly handle different scale factors. For now we default to 512
+                //let size = 128*(pow(2.0, UIScreen.main.scale))
+                //overlay.tileSize = CGSize(width: size, height: size)
+                overlay.tileSize = CGSize(width: 512, height: 512)
                 overlay.maximumZ = newValue.maximumZ
                 overlay.minimumZ = newValue.minimumZ
-                overlay.canReplaceMapContent = true
+                overlay.canReplaceMapContent = false
                 overlay.enableCache = !settings.cacheDisabled
                 addOverlay(overlay)
                 if tileSourceOverlay != nil {
@@ -53,6 +58,23 @@ class MapView: MKMapView {
         }
     }
 
+    private func addStartStopAnnotations(_ coordinates: [CLLocationCoordinate2D], _ name: String) {
+        let startAnnotation = MKPointAnnotation()
+        let stopAnnotation = MKPointAnnotation()
+        startAnnotation.coordinate = coordinates.first!
+        stopAnnotation.coordinate = coordinates.last!
+        stopAnnotation.subtitle = NSLocalizedString("Destination", comment: "Label for the destination point of a gpx track")
+        startAnnotation.title = name.replacingOccurrences(of: ".gpx", with: "")
+        startAnnotation.subtitle = NSLocalizedString("Start", comment: "Label for the starting point of a gpx track")
+        let annotations = [startAnnotation, stopAnnotation]
+        addAnnotations(annotations)
+        if namedAnnotations[name] == nil {
+            namedAnnotations[name] = annotations
+        } else {
+            namedAnnotations[name]?.append(contentsOf: annotations)
+        }
+    }
+
     private func addOverlay(name: String, waypoints: [GPX.Waypoint]) {
         var coordinates = waypoints.map({ (waypoint: GPX.Waypoint!) -> CLLocationCoordinate2D in
             return waypoint.coordinate
@@ -63,16 +85,9 @@ class MapView: MKMapView {
             namedOverlays[name] = []
         }
         namedOverlays[name]?.append(polyline)
-        addOverlay(polyline)
+        insertOverlay(polyline, above: tileSourceOverlay!)
         showPolylineOnMap(name: name)
-        let startAnnotation = MKPointAnnotation()
-        let stopAnnotation = MKPointAnnotation()
-        startAnnotation.coordinate = coordinates.first!
-        stopAnnotation.coordinate = coordinates.last!
-        stopAnnotation.subtitle = NSLocalizedString("Destination", comment: "Label for the destination point of a gpx track")
-        startAnnotation.title = name.replacingOccurrences(of: ".gpx", with: "")
-        startAnnotation.subtitle = NSLocalizedString("Start", comment: "Label for the starting point of a gpx track")
-        addAnnotations([startAnnotation, stopAnnotation])
+        addStartStopAnnotations(coordinates, name)
     }
 
     private func showPolylineOnMap(name: String) {
@@ -92,6 +107,12 @@ class MapView: MKMapView {
                 removeOverlay(segment)
             }
             namedOverlays.removeValue(forKey: name)
+        }
+        if let annotations = namedAnnotations[name] {
+            for annotation in annotations {
+                removeAnnotation(annotation)
+            }
+            namedAnnotations.removeValue(forKey: name)
         }
     }
 
