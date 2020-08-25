@@ -470,7 +470,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8CV5377K4H;
 				INFOPLIST_FILE = CycleMaps/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -499,7 +499,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8CV5377K4H;
 				INFOPLIST_FILE = CycleMaps/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

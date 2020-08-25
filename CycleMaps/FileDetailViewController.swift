@@ -105,13 +105,21 @@ class FileDetailViewController: UITableViewController, MKMapViewDelegate {
 
     var startingPoint: CLPlacemark? {
         didSet {
-            startLabel.text = (startingPoint!.thoroughfare)?.appending("\n" + startingPoint!.locality! + ", " + startingPoint!.country!)
+            startLabel.text =
+                (startingPoint!.thoroughfare)?.appending("\n"
+                    + startingPoint!.locality!
+                    + ", "
+                    + startingPoint!.country!)
         }
     }
 
     var destinationPoint: CLPlacemark? {
         didSet {
-            destinationLabel.text = (destinationPoint!.thoroughfare)?.appending("\n" + destinationPoint!.locality! + ", " + destinationPoint!.country!)
+            destinationLabel.text =
+                (destinationPoint!.thoroughfare)?.appending("\n"
+                    + destinationPoint!.locality!
+                    + ", "
+                    + destinationPoint!.country!)
         }
     }
 

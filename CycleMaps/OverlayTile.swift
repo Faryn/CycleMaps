@@ -16,7 +16,9 @@ class OverlayTile: MKTileOverlay {
     private let operationQueue = OperationQueue()
     private let session = URLSession.shared
     private let cache = try! Storage(diskConfig: DiskConfig(name: "TileCache"),
-                                     memoryConfig: MemoryConfig(expiry: .never, countLimit: 1000, totalCostLimit: 20000),
+                                     memoryConfig: MemoryConfig(expiry: .never,
+                                                                countLimit: 1000,
+                                                                totalCostLimit: 20000),
                                      transformer: TransformerFactory.forData())
     private let subdomains = ["a", "b", "c"]
 

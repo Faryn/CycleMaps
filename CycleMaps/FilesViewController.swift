@@ -106,7 +106,6 @@ UIDocumentPickerDelegate, UINavigationControllerDelegate, FileStoreDelegate {
                             forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let url = fileStore.files[indexPath.row]
-//            tableView.deleteRows(at: [indexPath as IndexPath], with: .fade) //Crashes the tableview because the update from file deletion is quicker --> race condition
             fileStore.remove(url: url)
         }
     }

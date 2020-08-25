@@ -62,8 +62,10 @@ class FileStore: NSObject, NSFilePresenter {
     }
 
     private func startQuery() {
-        query.searchScopes = [NSMetadataQueryUbiquitousDocumentsScope, NSMetadataQueryAccessibleUbiquitousExternalDocumentsScope]
-        query.predicate = NSPredicate(format: "%K.URLByDeletingLastPathComponent.path == %@", argumentArray: [NSMetadataItemURLKey, docRootDir.path])
+        query.searchScopes = [NSMetadataQueryUbiquitousDocumentsScope,
+                              NSMetadataQueryAccessibleUbiquitousExternalDocumentsScope]
+        query.predicate = NSPredicate(format: "%K.URLByDeletingLastPathComponent.path == %@",
+                                      argumentArray: [NSMetadataItemURLKey, docRootDir.path])
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.metadataQueryDidUpdate(_:)),
                                                name: NSNotification.Name.NSMetadataQueryDidFinishGathering,
@@ -133,9 +135,10 @@ class FileStore: NSObject, NSFilePresenter {
             let enumerator = fileManager.enumerator(atPath: DocumentsDirectory.localDocumentsURL!.path)
             while let file = enumerator?.nextObject() as? String {
                 do {
-                    try fileManager.setUbiquitous(true,
-                                                  itemAt: DocumentsDirectory.localDocumentsURL!.appendingPathComponent(file),
-                                                  destinationURL: DocumentsDirectory.iCloudDocumentsURL!.appendingPathComponent(file))
+                    try fileManager.setUbiquitous(true, itemAt:
+                        DocumentsDirectory.localDocumentsURL!.appendingPathComponent(file),
+                                                  destinationURL:
+                        DocumentsDirectory.iCloudDocumentsURL!.appendingPathComponent(file))
                     print("Moved to iCloud")
                 } catch let error as NSError {
                     print("Failed to move file to Cloud : \(error)")

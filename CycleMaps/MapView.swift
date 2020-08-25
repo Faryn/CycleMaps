@@ -63,9 +63,11 @@ class MapView: MKMapView {
         let stopAnnotation = MKPointAnnotation()
         startAnnotation.coordinate = coordinates.first!
         stopAnnotation.coordinate = coordinates.last!
-        stopAnnotation.subtitle = NSLocalizedString("Destination", comment: "Label for the destination point of a gpx track")
+        stopAnnotation.subtitle = NSLocalizedString("Destination",
+                                                    comment: "Label for the destination point of a gpx track")
         startAnnotation.title = name.replacingOccurrences(of: ".gpx", with: "")
-        startAnnotation.subtitle = NSLocalizedString("Start", comment: "Label for the starting point of a gpx track")
+        startAnnotation.subtitle = NSLocalizedString("Start",
+                                                     comment: "Label for the starting point of a gpx track")
         let annotations = [startAnnotation, stopAnnotation]
         addAnnotations(annotations)
         if namedAnnotations[name] == nil {

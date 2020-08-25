@@ -28,7 +28,7 @@ struct MapStyleView: View {
         }
     }
 
-    func changeSelection(index: Int){
+    func changeSelection(index: Int) {
 
     }
 }
