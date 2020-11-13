@@ -87,7 +87,9 @@ class MapView: MKMapView {
             namedOverlays[name] = []
         }
         namedOverlays[name]?.append(polyline)
-        insertOverlay(polyline, above: tileSourceOverlay!)
+        if tileSourceOverlay != nil {
+            insertOverlay(polyline, above: tileSourceOverlay!)
+        } else { addOverlay(polyline) }
         showPolylineOnMap(name: name)
         addStartStopAnnotations(coordinates, name)
     }
